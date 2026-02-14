@@ -15,15 +15,14 @@ interface Project {
 
 interface ProjectsSectionProps {
     projects: Project[];
-    basePath?: string;
 }
 
-function ProjectCard({ project, basePath = "/" }: { project: Project; basePath?: string }) {
+function ProjectCard({ project }: { project: Project }) {
     const [imgOk, setImgOk] = useState(true);
     const showImage = project.coverImage && imgOk;
 
     return (
-        <a href={`${basePath}projects/${project.id}`} className="block group">
+        <a href={`/projects/${project.id}`} className="block group">
             <Card className="h-full bg-[#1a1917] border-white/5 hover:border-[#c9a87c]/20 transition-all duration-300 cursor-pointer hover:shadow-[0_0_30px_rgba(201,168,124,0.06)] overflow-hidden">
                 {/* Cover image */}
                 {showImage && (
@@ -89,7 +88,7 @@ function ProjectCard({ project, basePath = "/" }: { project: Project; basePath?:
     );
 }
 
-export default function ProjectsSection({ projects, basePath = "/" }: ProjectsSectionProps) {
+export default function ProjectsSection({ projects }: ProjectsSectionProps) {
     return (
         <div className="w-full max-w-6xl mx-auto px-4 md:px-8">
             <h2 className="text-5xl font-serif mb-4 text-center text-stone-100">Projects</h2>
@@ -98,7 +97,7 @@ export default function ProjectsSection({ projects, basePath = "/" }: ProjectsSe
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {projects.map((project) => (
-                    <ProjectCard key={project.id} project={project} basePath={basePath} />
+                    <ProjectCard key={project.id} project={project} />
                 ))}
             </div>
         </div>

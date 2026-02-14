@@ -28,7 +28,6 @@ const blogPosts = (await getCollection("blog"))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 6);
 
-const base = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title="Said Azizov | AI Developer">
@@ -36,7 +35,7 @@ const base = import.meta.env.BASE_URL;
     {/* Hero */}
     <Hero
       name="Said Azizov"
-      backgroundImage={`${import.meta.env.BASE_URL}images/hero-bg.webp`}
+      backgroundImage="/images/hero-bg.webp"
       client:load
     />
 
@@ -60,7 +59,6 @@ const base = import.meta.env.BASE_URL;
       class="snap-start min-h-screen bg-[#141414] py-24"
     >
       <ProjectsSection
-        basePath={base}
         projects={projects.map((p) => ({
           id: p.id,
           title: p.data.title,
@@ -69,7 +67,7 @@ const base = import.meta.env.BASE_URL;
           category: p.data.category,
           metrics: p.data.metrics,
           links: p.data.links,
-          coverImage: p.data.coverImage ? `${base}${p.data.coverImage.replace(/^\//, '')}` : "",
+          coverImage: p.data.coverImage ?? "",
         }))}
         client:visible
       />
@@ -135,7 +133,6 @@ const base = import.meta.env.BASE_URL;
       class="snap-start min-h-screen bg-[#080808] py-24"
     >
       <BlogSection
-        basePath={base}
         posts={blogPosts.map((b) => ({
           id: b.id,
           title: b.data.title,

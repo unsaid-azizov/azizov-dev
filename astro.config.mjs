@@ -7,8 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://unsaid-azizov.github.io',
-  base: '/azizov-dev',
+  site: 'https://azizov.dev',
   output: 'static',
 
   vite: {

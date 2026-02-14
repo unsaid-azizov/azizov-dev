@@ -17,7 +17,6 @@ interface BlogPost {
 interface BlogSectionProps {
   posts: BlogPost[];
   showViewAll?: boolean;
-  basePath?: string;
 }
 
 const categoryLabels: Record<BlogPost["category"], string> = {
@@ -34,7 +33,7 @@ const categoryColors: Record<BlogPost["category"], string> = {
   publication: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
 };
 
-export default function BlogSection({ posts, showViewAll = true, basePath = "/" }: BlogSectionProps) {
+export default function BlogSection({ posts, showViewAll = true }: BlogSectionProps) {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 md:px-8">
       <h2 className="text-5xl font-serif mb-4 text-center text-stone-100">
@@ -52,7 +51,7 @@ export default function BlogSection({ posts, showViewAll = true, basePath = "/" 
           );
 
           return (
-            <a key={post.id} href={`${basePath}blog/${post.id}`} className="block group">
+            <a key={post.id} href={`/blog/${post.id}`} className="block group">
               <Card className="h-full bg-[#1a1917] border-white/5 hover:border-[#c9a87c]/20 transition-all duration-300 cursor-pointer hover:shadow-[0_0_30px_rgba(201,168,124,0.06)]">
                 <CardContent className="p-5 md:p-6 flex flex-col h-full">
                   {/* Header: emoji + category + date */}
@@ -111,7 +110,7 @@ export default function BlogSection({ posts, showViewAll = true, basePath = "/" 
       {showViewAll && (
         <div className="flex justify-center mt-12">
           <a
-            href={`${basePath}blog`}
+            href="/blog"
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-sans uppercase tracking-wider text-stone-400 border border-white/10 rounded-full hover:border-[#c9a87c]/40 hover:text-[#c9a87c] transition-all duration-300"
           >
             View all posts
