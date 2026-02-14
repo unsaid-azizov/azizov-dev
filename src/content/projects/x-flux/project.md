@@ -4,7 +4,7 @@ description: "Industry-standard framework for FLUX model integration with 4,000+
 category: "personal"
 tags: ["Python", "PyTorch", "CUDA", "Diffusion Models", "LoRA", "ComfyUI", "DeepSpeed"]
 featured: true
-coverImage: "./images/cover.jpg"
+coverImage: ""
 metrics:
   stars: "4,000+"
   downloads: "1M+"

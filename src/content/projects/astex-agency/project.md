@@ -4,7 +4,7 @@ description: "AI agency helping businesses optimize processes, build MVPs, and d
 category: "studio"
 tags: ["AI Agents", "Voice Agents", "LangChain", "Full-Stack", "Business Automation"]
 featured: true
-coverImage: "./images/cover.jpg"
+coverImage: ""
 metrics:
   clients: "15+"
   satisfaction: "5/5"

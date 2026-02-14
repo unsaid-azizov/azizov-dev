@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 const { title, description, tags, coverImage, links } = project.data;
+const base = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title={`${title} | Said Azizov`}>
@@ -21,7 +22,7 @@ const { title, description, tags, coverImage, links } = project.data;
     <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
       <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
-          href="/#projects"
+          href={`${base}#projects`}
           class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
         >
           &larr; Back to projects

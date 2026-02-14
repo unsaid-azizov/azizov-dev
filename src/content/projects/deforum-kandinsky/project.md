@@ -4,7 +4,7 @@ description: "Pioneered text-to-video animation by integrating Kandinsky models 
 category: "personal"
 tags: ["Python", "PyTorch", "Diffusion Models", "Video Generation", "Kandinsky"]
 featured: true
-coverImage: "./images/cover.jpg"
+coverImage: ""
 metrics:
   stars: "100+"
   creators: "1,000+"

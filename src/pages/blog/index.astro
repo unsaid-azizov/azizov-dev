@@ -5,6 +5,8 @@ import BlogSection from "../../components/BlogSection";
 
 const allPosts = (await getCollection("blog"))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title="Blog | Said Azizov">
@@ -13,7 +15,7 @@ const allPosts = (await getCollection("blog"))
     <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
       <div class="max-w-6xl mx-auto px-6 py-4">
         <a
-          href="/"
+          href={base}
           class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
         >
           &larr; Home
@@ -36,6 +38,7 @@ const allPosts = (await getCollection("blog"))
           tags: b.data.tags,
           link: b.data.link,
         }))}
+        basePath={base}
         showViewAll={false}
         client:load
       />

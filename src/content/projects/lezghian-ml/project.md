@@ -4,7 +4,7 @@ description: "Founded a community of ML enthusiasts and linguists to preserve th
 category: "personal"
 tags: ["NLP", "Translation", "TTS", "Language Preservation", "HuggingFace", "Python"]
 featured: true
-coverImage: "images/projects/lezghian-ml-cover.jpg"
+coverImage: "/images/projects/lezghian-ml-cover.jpg"
 metrics:
   teamMembers: "16"
   models: "6"

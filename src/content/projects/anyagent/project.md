@@ -4,7 +4,7 @@ description: "AI agent platform built in public. The journey led to a Senior AI 
 category: "personal"
 tags: ["Python", "AI Agents", "Startup", "Build in Public"]
 featured: false
-coverImage: "./images/cover.jpg"
+coverImage: ""
 metrics:
   outcome: "Led to Skygen.ai role"
 links:
