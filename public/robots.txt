@@ -1,0 +1,36 @@
+# Allow all traditional search engines
+User-agent: *
+Allow: /
+
+# OpenAI - ChatGPT, SearchGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - Claude
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI (Gemini, Bard) - separate from traditional search
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Sitemap
+Sitemap: https://azizov.dev/sitemap-index.xml
+
+# LLM-friendly content structure
+# https://llmstxt.org/
+LLMs-txt: https://azizov.dev/llms.txt
+
+# Host
+Host: https://azizov.dev

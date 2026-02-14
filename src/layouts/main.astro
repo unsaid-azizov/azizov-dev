@@ -1,18 +1,112 @@
 ---
 import '../styles/global.css';
-import '@fontsource/playfair-display';
-import '@fontsource/inter';
 
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'profile';
+}
+
+const { 
+  title, 
+  description = "AI Developer specializing in AI Agents and business automation. Building voice agents, automating customer support, and transforming businesses through AI. Senior AI Developer at Skygen.ai, Agency Founder.",
+  image = "/images/hero-bg.webp",
+  type = "website"
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
+
+// Structured Data (JSON-LD) for LLMs and search engines
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Said Azizov",
+  jobTitle: "Senior AI Developer",
+  description: description,
+  url: "https://azizov.dev",
+  email: "said@azizov.dev",
+  image: imageUrl,
+  sameAs: [
+    "https://github.com/unsaid-azizov",
+    "https://linkedin.com/in/said-azizov",
+    "https://huggingface.co/stazizov",
+    "https://x.com/said_azizow"
+  ],
+  knowsAbout: [
+    "AI Agents",
+    "Voice Agents",
+    "Customer Support Automation",
+    "Business Process Automation",
+    "AI Product Development",
+    "LangChain",
+    "MCP Protocol",
+    "Full-Stack Development"
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Skygen.ai"
+  },
+  alumniOf: {
+    "@type": "Organization",
+    name: "Sberbank (SberAI)"
+  }
+};
 ---
 
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		{/* Primary Meta Tags */}
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="author" content="Said Azizov" />
+		<meta name="keywords" content="AI Developer, AI Agents, Voice Agents, Customer Support Automation, Business Automation, AI Consulting, LangChain, MCP, Dubai" />
+		<link rel="canonical" href={canonical} />
+		
+		{/* Open Graph / Facebook */}
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:site_name" content="Said Azizov" />
+		<meta property="og:locale" content="en_US" />
+		
+		{/* Twitter / X */}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonical} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageUrl} />
+		<meta name="twitter:creator" content="@said_azizow" />
+		<meta name="twitter:site" content="@said_azizow" />
+		
+		{/* Additional meta for LLM understanding */}
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="theme-color" content="#0a0a0a" />
+		
+		{/* Structured Data (JSON-LD) */}
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		
+		{/* Favicon */}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<title>{title}</title>
+		
+		{/* Preconnect to Google Fonts */}
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		
+		{/* Load fonts with font-display=swap */}
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+		
+		{/* Preload critical resources */}
+		<link rel="preload" href="/images/hero-bg.webp" as="image" type="image/webp" />
 	</head>
 	<body>
 		<slot />

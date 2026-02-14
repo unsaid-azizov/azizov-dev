@@ -1,8 +1,8 @@
 ---
 name: "Said Azizov"
-title: "Senior AI Engineer & Agency Founder"
-tagline: "Building AI solutions from open-source to enterprise"
-bio: "AI Engineer specializing in diffusion models and practical AI for business. Worked on Kandinsky at Sberbank, built the X-FLUX ecosystem with 4,000+ GitHub stars and 1M+ downloads. Currently a Senior AI Engineer at Skygen.ai and founder of an AI automation agency helping businesses optimize processes and build MVPs."
+title: "Senior AI Developer & Agency Founder"
+tagline: "Transforming businesses through AI Agents and automation"
+bio: "AI Developer specializing in AI Agents and business automation. Building voice agents, automating customer support, and developing AI products for businesses from startups to infobiz. Previously worked on Kandinsky at Sberbank and built X-FLUX ecosystem (4K+ stars, 1M+ downloads). Currently Senior AI Developer at Skygen.ai and founder of an AI automation agency."
 email: "said@azizov.dev"
 location: "Dubai, UAE"
 available: true
@@ -32,38 +32,38 @@ stats:
 
 # About Me
 
-I'm an **AI Engineer** with deep expertise in diffusion models, computer vision, and practical AI implementation for business.
+I'm an **AI Developer** specializing in **AI Agents** and business automation. I help businesses transform through intelligent automation, voice agents, and AI-powered customer support.
 
 ## My Journey
 
-### Diffusion Models & Open Source
+### AI Agents & Business Automation
 
-Started at **Sberbank (SberAI)** where I worked on **Kandinsky** — one of the leading Russian diffusion models. Built the **Deforum-Kandinsky** pipeline for text-to-video generation, adopted by 1,000+ content creators.
+Currently **Senior AI Developer at Skygen.ai**, building AI agent systems and products. Founder of an **AI automation agency** helping businesses across different industries:
 
-Moved to **XLabs AI** as Senior ML Engineer where I became a core contributor to the **X-FLUX ecosystem** — the industry standard for FLUX model integration:
-- 4,000+ GitHub stars combined
-- 1M+ downloads across HuggingFace, CivitAI, and GitHub
-- Used by Disney, Netflix content creators
-- 50% VRAM reduction (24GB → 12GB)
+**Services & Solutions:**
+- Voice AI agents for customer support and sales
+- Customer support automation systems
+- Business process automation through AI
+- AI product development (MVPs to production)
+- Custom AI integrations and consulting
 
-### Startups & Agency
+**Client Portfolio:**
+- Infobiz businesses (course creators, coaches, consultants)
+- E-commerce and retail automation
+- Service businesses optimizing operations
+- Startups building AI-first products
 
-Founded **AnyAgent** — an AI agent platform built in public. The build-in-public journey led to my current role at **Skygen.ai** where I was invited without an interview.
+### Previous Work & Open Source
 
-Founded an **AI automation agency** helping businesses:
-- Optimize processes through AI automation
-- Build MVPs with AI integration
-- Deploy voice agents and AI chatbots
-- Implement custom AI solutions
+Founded **AnyAgent** — an AI agent platform built in public. Started at **Sberbank (SberAI)** working on Kandinsky diffusion model, then **XLabs AI** where I contributed to the **X-FLUX ecosystem** (4K+ GitHub stars, 1M+ downloads, used by Disney/Netflix creators).
 
-## Expertise
+## Current Focus
 
-- Diffusion Models (Stable Diffusion, FLUX, Kandinsky)
-- Fine-tuning, LoRA adapters, ControlNets
-- AI Agents (LangChain, MCP)
-- Computer Vision
-- Full-Stack Development
-- MLOps & Model Deployment
+- **AI Agents**: LangChain, MCP Protocol, multi-agent systems
+- **Voice AI**: Voice agents, speech-to-text, text-to-speech pipelines
+- **Automation**: Customer support bots, workflow automation, integration platforms
+- **Product Development**: From concept to deployment
+- **Full-Stack**: Building complete AI products end-to-end
 
 ## Competitions
 
