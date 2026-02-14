@@ -54,11 +54,8 @@ export default function BlogSection({ posts, showViewAll = true }: BlogSectionPr
             <a key={post.id} href={`/blog/${post.id}`} className="block group">
               <Card className="h-full bg-[#1a1917] border-white/5 hover:border-[#c9a87c]/20 transition-all duration-300 cursor-pointer hover:shadow-[0_0_30px_rgba(201,168,124,0.06)]">
                 <CardContent className="p-5 md:p-6 flex flex-col h-full">
-                  {/* Header: emoji + category + date */}
+                  {/* Header: category + date */}
                   <div className="flex items-center gap-2 mb-4 flex-wrap">
-                    {post.emoji && (
-                      <span className="text-xl">{post.emoji}</span>
-                    )}
                     <Badge
                       className={`text-[10px] uppercase tracking-wider border ${categoryColors[post.category]}`}
                     >
