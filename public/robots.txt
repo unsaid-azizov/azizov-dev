@@ -31,6 +31,7 @@ Sitemap: https://azizov.dev/sitemap-index.xml
 # LLM-friendly content structure
 # https://llmstxt.org/
 LLMs-txt: https://azizov.dev/llms.txt
+LLMs-full-txt: https://azizov.dev/llms-full.txt
 
 # Host
 Host: https://azizov.dev

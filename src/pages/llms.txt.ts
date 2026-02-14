@@ -26,6 +26,8 @@ export const GET: APIRoute = async () => {
 
 > AI Developer specializing in AI Agents, voice agents, and business automation. Senior AI Developer at Skygen.ai and Founder of AI automation agency helping businesses transform through intelligent automation.
 
+**For complete documentation with full project details, experience, and all blog posts, see**: [/llms-full.txt](https://azizov.dev/llms-full.txt)
+
 ## Core Pages
 
 - [Home](https://azizov.dev/): Portfolio and overview of AI development work, featuring AI agents, voice automation, and business transformation projects
