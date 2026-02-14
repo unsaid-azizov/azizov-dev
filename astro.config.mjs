@@ -2,14 +2,24 @@
 
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
-
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-      plugins: [tailwindcss()],
-	},
+  site: 'https://azizov.dev',
+  output: 'static',
 
-  integrations: [react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  markdown: {
+    syntaxHighlight: {
+      type: 'shiki',
+      excludeLangs: ['mermaid'],
+    },
+  },
+
+  integrations: [react(), sitemap()],
 });

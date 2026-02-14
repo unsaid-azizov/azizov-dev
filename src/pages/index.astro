@@ -1,26 +1,151 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/main.astro";
+import { Hero } from "../components/Hero";
+import ProjectsSection from "../components/ProjectsSection";
+import ExperienceSection from "../components/ExperienceSection";
+import TestimonialsSection from "../components/TestimonialsSection";
+import BlogSection from "../components/BlogSection";
+import AboutSection from "../components/AboutSection";
+import ContactSection from "../components/ContactSection";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const profileEntries = await getCollection("profile");
+const profile = profileEntries[0]?.data;
+
+const experienceEntries = (await getCollection("experience"))
+  .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
+
+const projects = (await getCollection("projects"))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const testimonials = (await getCollection("testimonials"))
+  .filter((t) => t.data.featured)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const blogPosts = (await getCollection("blog"))
+  .filter((b) => b.data.featured)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 6);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<MainLayout title="Said Azizov | AI Developer">
+  <main class="scroll-smooth snap-y snap-mandatory overflow-y-scroll h-screen">
+    {/* Hero */}
+    <Hero
+      name="Said Azizov"
+      backgroundImage="/images/hero-bg.webp"
+      client:load
+    />
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+    {/* About */}
+    <section
+      id="about"
+      class="snap-start h-screen bg-[#1a1a1a] flex items-center justify-center"
+    >
+      <AboutSection
+        title={profile.title}
+        tagline={profile.tagline}
+        bio={profile.bio}
+        location={profile.location}
+        client:visible
+      />
+    </section>
+
+    {/* Projects */}
+    <section
+      id="projects"
+      class="snap-start min-h-screen bg-[#141414] py-24"
+    >
+      <ProjectsSection
+        projects={projects.map((p) => ({
+          id: p.id,
+          title: p.data.title,
+          description: p.data.description,
+          tags: p.data.tags,
+          category: p.data.category,
+          metrics: p.data.metrics,
+          links: p.data.links,
+          coverImage: p.data.coverImage,
+        }))}
+        client:visible
+      />
+    </section>
+
+    {/* Experience */}
+    <section
+      id="experience"
+      class="snap-start min-h-screen bg-[#111111] py-24"
+    >
+      <ExperienceSection
+        experience={experienceEntries.map((e) => ({
+          company: e.data.company,
+          position: e.data.position,
+          startDate: e.data.startDate.toISOString(),
+          endDate: e.data.endDate?.toISOString() ?? null,
+          location: e.data.location,
+          type: e.data.type,
+          highlights: e.data.highlights,
+          skills: e.data.skills,
+        }))}
+        client:visible
+      />
+    </section>
+
+    {/* Testimonials */}
+    <section
+      id="testimonials"
+      class="snap-start min-h-screen bg-[#0e0e0e] py-24 flex items-center"
+    >
+      <TestimonialsSection
+        testimonials={testimonials.map((t) => ({
+          id: t.id,
+          clientName: t.data.clientName,
+          company: t.data.company,
+          role: t.data.role,
+          quote: t.body ?? "",
+          rating: t.data.rating,
+          platform: t.data.platform,
+          handle: t.data.handle,
+          sourceUrl: t.data.sourceUrl,
+          avatar: t.data.avatar,
+        }))}
+        client:visible
+      />
+    </section>
+
+    {/* Contact */}
+    <section
+      id="contact"
+      class="snap-start h-screen bg-[#0a0a0a] flex items-center justify-center"
+    >
+      <ContactSection
+        email={profile.email}
+        social={profile.social}
+        client:visible
+      />
+    </section>
+
+    {/* Blog */}
+    <section
+      id="blog"
+      class="snap-start min-h-screen bg-[#080808] py-24"
+    >
+      <BlogSection
+        posts={blogPosts.map((b) => ({
+          id: b.id,
+          title: b.data.title,
+          date: b.data.date.toISOString(),
+          category: b.data.category,
+          description: b.data.description,
+          coverImage: b.data.coverImage,
+          result: b.data.result,
+          emoji: b.data.emoji,
+          tags: b.data.tags,
+          link: b.data.link,
+        }))}
+        client:visible
+      />
+    </section>
+  </main>
+</MainLayout>

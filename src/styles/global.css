@@ -1,1 +1,308 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif; 
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Тёмная тёплая палитра — основная тема */
+  --background: #0e0e0e;
+  --foreground: #e8e0d8;
+  --card: #1a1917;
+  --card-foreground: #e8e0d8;
+  --popover: #1a1917;
+  --popover-foreground: #e8e0d8;
+  --primary: #c9a87c;
+  --primary-foreground: #0e0e0e;
+  --secondary: #262420;
+  --secondary-foreground: #d4ccc4;
+  --muted: #262420;
+  --muted-foreground: #8a8078;
+  --accent: #2a2724;
+  --accent-foreground: #e8e0d8;
+  --destructive: #b04040;
+  --border: rgba(232, 224, 216, 0.08);
+  --input: rgba(232, 224, 216, 0.1);
+  --ring: #c9a87c;
+  --chart-1: #c9a87c;
+  --chart-2: #7a9e8e;
+  --chart-3: #a07060;
+  --chart-4: #8890a0;
+  --chart-5: #b8a090;
+  --sidebar: #141312;
+  --sidebar-foreground: #e8e0d8;
+  --sidebar-primary: #c9a87c;
+  --sidebar-primary-foreground: #0e0e0e;
+  --sidebar-accent: #262420;
+  --sidebar-accent-foreground: #e8e0d8;
+  --sidebar-border: rgba(232, 224, 216, 0.08);
+  --sidebar-ring: #c9a87c;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f0ebe5;
+  --card: #161514;
+  --card-foreground: #f0ebe5;
+  --popover: #161514;
+  --popover-foreground: #f0ebe5;
+  --primary: #d4b78c;
+  --primary-foreground: #0a0a0a;
+  --secondary: #222018;
+  --secondary-foreground: #dcd4cc;
+  --muted: #222018;
+  --muted-foreground: #908880;
+  --accent: #28261e;
+  --accent-foreground: #f0ebe5;
+  --destructive: #c04848;
+  --border: rgba(240, 235, 229, 0.06);
+  --input: rgba(240, 235, 229, 0.08);
+  --ring: #d4b78c;
+  --chart-1: #d4b78c;
+  --chart-2: #88b0a0;
+  --chart-3: #b08070;
+  --chart-4: #98a0b0;
+  --chart-5: #c0b0a0;
+  --sidebar: #0e0e0e;
+  --sidebar-foreground: #f0ebe5;
+  --sidebar-primary: #d4b78c;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #222018;
+  --sidebar-accent-foreground: #f0ebe5;
+  --sidebar-border: rgba(240, 235, 229, 0.06);
+  --sidebar-ring: #d4b78c;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* ─── Prose: GitHub/Notion-style Markdown ─── */
+.prose-custom {
+  color: #d4ccc4;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Headings */
+.prose-custom h1 {
+  font-family: var(--font-serif);
+  color: #f0ebe5;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(232, 224, 216, 0.1);
+}
+.prose-custom h2 {
+  font-family: var(--font-serif);
+  color: #ede6de;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(232, 224, 216, 0.06);
+}
+.prose-custom h3 {
+  font-family: var(--font-serif);
+  color: #e8e0d8;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-custom h4 {
+  font-family: var(--font-serif);
+  color: #e0d8d0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.prose-custom p {
+  margin-bottom: 1rem;
+}
+
+/* Links */
+.prose-custom a {
+  color: #c9a87c;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(201, 168, 124, 0.3);
+  transition: text-decoration-color 0.2s;
+}
+.prose-custom a:hover {
+  text-decoration-color: #c9a87c;
+}
+
+/* Bold / Strong */
+.prose-custom strong {
+  color: #f0ebe5;
+  font-weight: 600;
+}
+
+/* Lists */
+.prose-custom ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prose-custom ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prose-custom li {
+  margin-bottom: 0.35rem;
+}
+.prose-custom li::marker {
+  color: #8a8078;
+}
+
+/* Inline code */
+.prose-custom :not(pre) > code {
+  background: #262420;
+  color: #e8c9a0;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Code blocks */
+.prose-custom pre {
+  background: #161514 !important;
+  border: 1px solid rgba(232, 224, 216, 0.06);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.prose-custom pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Tables — GitHub style */
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+.prose-custom thead th {
+  background: #1a1917;
+  color: #f0ebe5;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid rgba(232, 224, 216, 0.12);
+}
+.prose-custom tbody td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(232, 224, 216, 0.06);
+}
+.prose-custom tbody tr:hover {
+  background: rgba(232, 224, 216, 0.03);
+}
+
+/* Blockquote */
+.prose-custom blockquote {
+  border-left: 3px solid #c9a87c;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-bottom: 1rem;
+  color: #a09890;
+  font-style: italic;
+}
+
+/* Horizontal rule */
+.prose-custom hr {
+  border: none;
+  border-top: 1px solid rgba(232, 224, 216, 0.08);
+  margin: 2rem 0;
+}
+
+/* Images */
+.prose-custom img {
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+/* Mermaid diagrams */
+.mermaid-diagram {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #161514;
+  border: 1px solid rgba(232, 224, 216, 0.06);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}

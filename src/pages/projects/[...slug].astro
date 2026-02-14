@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/main.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, tags, coverImage, links } = project.data;
+---
+
+<MainLayout title={`${title} | Said Azizov`}>
+  <article class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
+    {/* Back button */}
+    <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a
+          href="/#projects"
+          class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
+        >
+          &larr; Back to projects
+        </a>
+        {links?.github && (
+          <a
+            href={links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[#c9a87c] hover:text-[#e0c090] transition-colors text-sm font-sans"
+          >
+            View on GitHub &rarr;
+          </a>
+        )}
+      </div>
+    </nav>
+
+    {/* Hero */}
+    <header class="max-w-4xl mx-auto px-6 pt-16 pb-12">
+      <h1 class="font-serif font-bold text-4xl md:text-5xl text-stone-100 mb-4">
+        {title}
+      </h1>
+      <p class="text-lg text-stone-400 mb-6 font-sans">{description}</p>
+      <div class="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span class="px-3 py-1 text-xs font-sans uppercase tracking-wider text-[#c9a87c] border border-[#c9a87c]/30 rounded-full">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    {/* Markdown Content */}
+    <div class="max-w-4xl mx-auto px-6 pb-24">
+      <div class="prose-custom">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  {/* Mermaid — client-side like GitHub/Notion */}
+  <script>
+    import mermaid from 'mermaid';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#2a2724',
+        primaryTextColor: '#e8e0d8',
+        primaryBorderColor: '#c9a87c',
+        lineColor: '#8a8078',
+        secondaryColor: '#262420',
+        tertiaryColor: '#1a1917',
+      },
+    });
+    // Find all <code class="language-mermaid"> blocks and render them
+    document.querySelectorAll('pre > code.language-mermaid').forEach(async (el, i) => {
+      const pre = el.parentElement!;
+      const source = el.textContent || '';
+      const container = document.createElement('div');
+      container.classList.add('mermaid-diagram');
+      const { svg } = await mermaid.render(`mermaid-${i}`, source);
+      container.innerHTML = svg;
+      pre.replaceWith(container);
+    });
+  </script>
+</MainLayout>
