@@ -59,8 +59,14 @@ export function Hero({ name, backgroundImage }: HeroProps) {
 
             {/* Mobile menu overlay */}
             {menuOpen && (
-                <div className="absolute inset-0 z-40 bg-black/80 backdrop-blur-sm flex items-center justify-center md:hidden">
-                    <div className="flex flex-col items-center gap-6">
+                <div 
+                    className="absolute inset-0 z-40 bg-black/80 backdrop-blur-sm flex items-center justify-center md:hidden"
+                    onClick={() => setMenuOpen(false)}
+                >
+                    <div 
+                        className="flex flex-col items-center gap-6"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         {navItems.map(({ id, label }) => (
                             <button
                                 key={id}

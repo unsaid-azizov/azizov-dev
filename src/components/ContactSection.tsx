@@ -35,12 +35,14 @@ export default function ContactSection({ email, social }: ContactSectionProps) {
         Have an idea? Let's make it work!
       </p>
 
-      {/* Email as CTA */}
+      {/* Book a call CTA */}
       <a
-        href={`mailto:${email}`}
+        href="https://calendar.app.google/s5ajfzJoShtnfrKN6"
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-block px-8 py-4 text-lg font-sans font-medium text-[#0e0e0e] bg-[#c9a87c] rounded-full hover:bg-[#d4b78c] transition-colors duration-300 mb-16"
       >
-        {email}
+        Book a call
       </a>
 
       {/* Divider */}
