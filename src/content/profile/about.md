@@ -1,8 +1,8 @@
 ---
 name: "Said Azizov"
-title: "Senior AI Developer & Agency Founder"
-tagline: "Transforming businesses through AI Agents and automation"
-bio: "AI Developer specializing in AI Agents and business automation. Building voice agents, automating customer support, and developing AI products for businesses from startups to infobiz. Previously worked on Kandinsky at Sberbank and built X-FLUX ecosystem (4K+ stars, 1M+ downloads). Currently Senior AI Developer at Skygen.ai and founder of an AI automation agency."
+title: "AI Automation Agency Founder"
+tagline: "AI background → Business automation"
+bio: "Founder of AI automation agency. Transitioned from deep AI/ML work (Kandinsky at Sberbank, X-FLUX ecosystem with 1M+ downloads) to helping businesses automate through AI Agents and voice systems. Working with clients from startups to infobiz, building AI products that solve real business problems. Also Senior AI Developer at Skygen.ai."
 email: "said@azizov.dev"
 location: "Dubai, UAE"
 available: true
@@ -32,38 +32,49 @@ stats:
 
 # About Me
 
-I'm an **AI Developer** specializing in **AI Agents** and business automation. I help businesses transform through intelligent automation, voice agents, and AI-powered customer support.
+I'm the **Founder of an AI automation agency**, helping businesses transform through AI Agents and voice automation. My background in deep AI/ML work (Kandinsky, X-FLUX) gives me the technical depth to build solutions that actually work.
 
-## My Journey
+## From AI Research to Business Automation
 
-### AI Agents & Business Automation
+**My Journey:**
+Started in AI/ML research and open-source:
+- **Sberbank (SberAI)** — Worked on Kandinsky diffusion model (one of leading Russian AI models)
+- **XLabs AI** — Built X-FLUX ecosystem (4K+ GitHub stars, 1M+ downloads, used by Disney/Netflix creators)
+- **Deforum-Kandinsky** — Created text-to-video pipeline (1,000+ content creators)
 
-Currently **Senior AI Developer at Skygen.ai**, building AI agent systems and products. Founder of an **AI automation agency** helping businesses across different industries:
+**Realized**: The real value of AI is in solving business problems, not just research papers.
 
-**Services & Solutions:**
+**Transitioned** to business automation:
+- Founded **AnyAgent** platform (built in public)
+- Now run **AI automation agency** helping real businesses
+- In parallel: **Senior AI Developer at Skygen.ai**
+
+## What I Do Now
+
+**My Agency** helps businesses automate and scale through AI:
+
+**Services:**
 - Voice AI agents for customer support and sales
 - Customer support automation systems
-- Business process automation through AI
-- AI product development (MVPs to production)
-- Custom AI integrations and consulting
+- Business process automation
+- AI product development (MVPs → production)
+- Custom AI consulting and integrations
 
-**Client Portfolio:**
-- Infobiz businesses (course creators, coaches, consultants)
-- E-commerce and retail automation
-- Service businesses optimizing operations
-- Startups building AI-first products
+**Clients:**
+- Infobiz (course creators, coaches, consultants)
+- E-commerce and retail
+- Service businesses
+- AI-first startups
 
-### Previous Work & Open Source
+**My Approach:** I understand AI deeply (not just chatbots) — so I can build systems that actually work and create ROI, not just demos.
 
-Founded **AnyAgent** — an AI agent platform built in public. Started at **Sberbank (SberAI)** working on Kandinsky diffusion model, then **XLabs AI** where I contributed to the **X-FLUX ecosystem** (4K+ GitHub stars, 1M+ downloads, used by Disney/Netflix creators).
-
-## Current Focus
+## Technical Stack
 
 - **AI Agents**: LangChain, MCP Protocol, multi-agent systems
-- **Voice AI**: Voice agents, speech-to-text, text-to-speech pipelines
-- **Automation**: Customer support bots, workflow automation, integration platforms
-- **Product Development**: From concept to deployment
-- **Full-Stack**: Building complete AI products end-to-end
+- **Voice AI**: Speech pipelines, voice agents
+- **Automation**: Workflow systems, integrations
+- **Full-Stack**: End-to-end product development
+- **Background**: Diffusion models, Computer Vision, MLOps
 
 ## Competitions
 

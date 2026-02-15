@@ -24,7 +24,7 @@ export const GET: APIRoute = async () => {
   // Build llms.txt content
   let content = `# Said Azizov
 
-> AI Developer specializing in AI Agents, voice agents, and business automation. Senior AI Developer at Skygen.ai and Founder of AI automation agency helping businesses transform through intelligent automation.
+> Founder of AI automation agency. AI background from Kandinsky (Sberbank) and X-FLUX (1M+ downloads). Now helping businesses automate through AI Agents, voice systems, and customer support automation. Also Senior AI Developer at Skygen.ai.
 
 **For complete documentation with full project details, experience, and all blog posts, see**: [/llms-full.txt](https://azizov.dev/llms-full.txt)
 
