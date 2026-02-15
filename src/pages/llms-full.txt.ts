@@ -30,7 +30,6 @@ export const GET: APIRoute = async () => {
 
 ${profile?.bio || ''}
 
-**Location**: ${profile?.location || 'Dubai, UAE'}
 **Email**: ${profile?.email || 'said@azizov.dev'}
 **Available for**: AI consulting, agent development, business automation projects
 
