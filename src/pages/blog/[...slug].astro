@@ -63,7 +63,7 @@ const relatedPosts = allPosts
   .slice(0, 3);
 ---
 
-<MainLayout title={`${title} | Said Azizov`} description={description} type="article">
+<MainLayout title={`${title} | Said Azizov`} description={description} type="article" image={`/og/${post.id}.png`}>
   <article class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
     {/* BlogPosting JSON-LD */}
     <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
