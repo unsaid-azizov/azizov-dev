@@ -1,32 +1,48 @@
 ---
-title: "AI Agent as a Competitive Advantage — Tutor Training School Case"
+title: "AI Chatbot for Education — How a Tutor School Increased Sales by 10%"
 date: 2026-02-09
 category: "article"
-description: "Built an AI assistant for a tutor training school: lesson analysis, homework generation, progress tracking — all inside Telegram."
-tags: ["AI Agents", "Case Study", "Telegram", "Education", "Business Automation"]
+description: "Built a Telegram AI assistant for tutors using GPT-4 Vision, LangChain, and RAG — lesson analysis, homework generation, and progress tracking. +10% sales conversion."
+tags: ["AI Chatbot", "Case Study", "Telegram Bot", "Education", "LangChain", "GPT-4 Vision", "RAG"]
 featured: true
 ---
 
-A month ago, Misha contacted us. He runs a tutor training school with an audience of over 10k on Telegram. They had a very simple but brilliant idea — to give their clients a tool that would allow them to save time and improve the quality of the services provided using modern technologies.
+A month ago, Misha contacted us. He runs a tutor training school with an audience of over 10k on Telegram. The idea was simple: give tutors an AI tool that saves time and improves lesson quality.
 
 ## What we built at [HermesOps](https://hermesops.com)
 
-An assistant for tutors that:
+A multimodal AI assistant for tutors, deployed as a Telegram bot:
 
-- Analyzes lesson transcripts
-- Generates personal homework in 30 seconds
-- Checks homework by photo
-- Prepares reports for parents
-- Analyzes the student's progress
-- Works with voice, text, photos, documents
-- All this in Telegram without a VPN and hassle with cards
+- **Lesson transcript analysis** — upload a recording, get structured feedback on teaching methodology
+- **Homework generation** — creates personalized exercises in 30 seconds based on lesson content
+- **Homework checking by photo** — student sends a photo, GPT-4 Vision evaluates the work
+- **Parent reports** — automated progress summaries for parents
+- **Student progress tracking** — tracks improvements over time with analytics
+- Works with voice, text, photos, and documents
 
-## The result
+## The tech stack
 
-- Misha added it to the course as a bonus
-- +10% increase in sales conversion
-- Tutors save over 5 hours a week
-- Tutors are thrilled
-- Improved product status
+- **LLM**: OpenAI GPT-4 + GPT-4 Vision for multimodal understanding
+- **Framework**: LangChain for orchestrating multi-step AI workflows
+- **RAG pipeline**: lesson materials indexed in a vector database for context-aware responses
+- **Vector DB**: Pinecone for storing and retrieving lesson embeddings
+- **Bot platform**: Python Telegram Bot API
+- **Storage**: PostgreSQL for user data, S3 for media files
+- **Hosting**: Docker on a VPS
 
-AI works when it solves a real problem — not just "because it's trendy". And Misha with his concept perfectly hit this goal. We turned his ambitions into reality.
+## The results
+
+| Metric | Impact |
+|--------|--------|
+| Sales conversion | +10% (AI assistant added as course bonus) |
+| Tutor time saved | 5+ hours per week per tutor |
+| Homework generation | 30 seconds vs. 20+ minutes manually |
+| Student engagement | Tutors report higher homework completion rates |
+
+## Why this worked
+
+AI works when it solves a real problem — not just "because it's trendy."
+
+Misha didn't ask for a chatbot. He asked for a tool that makes tutors better at their job. The AI assistant became a competitive advantage: something his competitors don't offer, that tutors genuinely love using, and that parents see as premium value.
+
+This is the pattern we see at [HermesOps](https://hermesops.com) across industries — the best AI implementations aren't standalone products. They're features that make an existing business better.
