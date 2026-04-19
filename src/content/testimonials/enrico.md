@@ -11,4 +11,4 @@ featured: true
 order: 1
 ---
 
-Shout out to @simonbalfe and @said_hustle. They're building my business an AI voice agent solution. Real grafters. Real solutions.
+Shout out to @simonbalfe and @said_azizow. They're building my business an AI voice agent solution. Real grafters. Real solutions.
