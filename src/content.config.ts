@@ -101,7 +101,7 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    category: z.enum(["hackathon", "award", "talk", "publication"]),
+    category: z.enum(["hackathon", "award", "talk", "publication", "article"]),
     description: z.string(),
     coverImage: z.string().optional(),
     result: z.string().optional(),

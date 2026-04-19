@@ -15,7 +15,7 @@ const { Content } = await render(project);
 const { title, description, tags, coverImage, links } = project.data;
 ---
 
-<MainLayout title={`${title} | Said Azizov`}>
+<MainLayout title={`${title} | Said Azizov`} description={description} type="article">
   <article class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
     {/* Back button */}
     <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">

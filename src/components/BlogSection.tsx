@@ -5,7 +5,7 @@ interface BlogPost {
   id: string;
   title: string;
   date: string;
-  category: "hackathon" | "award" | "talk" | "publication";
+  category: "hackathon" | "award" | "talk" | "publication" | "article";
   description: string;
   coverImage?: string;
   result?: string;
@@ -24,6 +24,7 @@ const categoryLabels: Record<BlogPost["category"], string> = {
   award: "Award",
   talk: "Talk",
   publication: "Publication",
+  article: "Article",
 };
 
 const categoryColors: Record<BlogPost["category"], string> = {
@@ -31,6 +32,7 @@ const categoryColors: Record<BlogPost["category"], string> = {
   award: "bg-amber-500/20 text-amber-400 border-amber-500/30",
   talk: "bg-sky-500/20 text-sky-400 border-sky-500/30",
   publication: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  article: "bg-violet-500/20 text-violet-400 border-violet-500/30",
 };
 
 export default function BlogSection({ posts, showViewAll = true }: BlogSectionProps) {
@@ -40,7 +42,7 @@ export default function BlogSection({ posts, showViewAll = true }: BlogSectionPr
         Blog
       </h2>
       <p className="text-center text-stone-500 font-sans mb-12">
-        Hackathons, awards & talks
+        Hackathons, awards, talks & articles
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
