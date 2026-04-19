@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/main.astro";
+
+const profileEntries = await getCollection("profile");
+const profile = profileEntries[0]?.data;
+
+const experience = (await getCollection("experience"))
+  .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
+---
+
+<MainLayout
+  title="About Said Azizov — AI Engineer & HermesOps Founder"
+  description="From school hackathons to Senior AI Engineer. Built Kandinsky and X-FLUX (1M+ downloads) at Sberbank. Now founder of HermesOps — custom AI operations automation for businesses in Dubai and London."
+  type="profile"
+>
+  <div class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
+    {/* Nav */}
+    <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-6 py-4">
+        <a
+          href="/"
+          class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
+        >
+          &larr; Home
+        </a>
+      </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      {/* Hero */}
+      <h1 class="font-serif font-bold text-4xl md:text-5xl text-stone-100 mb-4">
+        Said Azizov
+      </h1>
+      <p class="text-xl text-[#c9a87c] font-sans mb-8">
+        AI Engineer &amp; Founder of <a href="https://hermesops.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#e0c090] transition-colors">HermesOps</a>
+      </p>
+
+      <div class="prose-custom">
+        <p>From school hackathons to Senior AI Engineer in 1.5 years. From presenting to government leaders on national television to building AI systems that generate ROI for businesses across the UK and Middle East.</p>
+
+        <h2>The journey</h2>
+
+        <p>Got into machine learning in 10th grade in Kaspiysk, Dagestan. Won <strong>10+ hackathon medals</strong> including:</p>
+        <ul>
+          <li><a href="/blog/aiijc-2021/">1st place at AIIJC</a> — Russia's largest AI competition. Presented the winning solution to government leaders on national TV.</li>
+          <li><a href="/blog/google-kaggle-2023/">Top 5% in Google's Kaggle competition</a> — silver medal among 1,000+ teams worldwide.</li>
+          <li><a href="/blog/talent-match-2024/">1st place at Talent Match</a> — RAG-based system using the same tech stack behind our current AI agent work.</li>
+        </ul>
+
+        <p>This opened the door to <strong>Sberbank (SberAI)</strong>, where I worked on <a href="/projects/deforum-kandinsky/project/">Kandinsky</a> — one of Russia's leading generative AI models. Then <strong>XLabs AI</strong>, where our team built the <a href="/projects/x-flux/project/">X-FLUX ecosystem</a>: 4,000+ GitHub stars, nearly 1 million downloads, used by Disney and Netflix creators.</p>
+
+        <h2>What I do now</h2>
+
+        <p>Founded <a href="https://hermesops.com" target="_blank" rel="noopener noreferrer">HermesOps</a> — an AI operations automation agency. We design and deploy custom AI systems for businesses:</p>
+
+        <ul>
+          <li><strong>AI Voice Agents</strong> — <a href="/blog/surveying-firm-case-2026/">reduced a UK firm's call costs from £24K to £4K/year</a></li>
+          <li><strong>AI Assistants</strong> — <a href="/blog/tutor-ai-agent-2026/">built a tutor AI that increased sales conversion by 10%</a></li>
+          <li><strong>Workflow Automation</strong> — CRM updates, data entry, reporting, outreach</li>
+          <li><strong>Data &amp; Intelligence</strong> — lead scoring, document processing, analytics</li>
+        </ul>
+
+        <p>Clients from Moscow, Dubai, and London — from industrial enterprises to coaching businesses.</p>
+
+        <p>In parallel: <strong>Senior AI Engineer at Skygen.ai</strong>, building multi-agent systems.</p>
+
+        <h2>Beyond business</h2>
+
+        <p>Leading a volunteer project to preserve the <strong>Lezgin language</strong> through AI. With 1,000+ volunteers, we built the <a href="/blog/lezgin-translator-2-2026/">first Lezgin translator and text-to-speech system</a>. Honored with the <a href="/blog/lezgi-star-2025/">Lezgi Star award</a> for this work. Also building <a href="/projects/lekion/project/">Lekion</a> — a professional network for the Lezgian community.</p>
+
+        <h2>Press</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/p/DVQT6bRDVop/" target="_blank" rel="noopener noreferrer">Featured on @tellsef</a> — "From school hackathons to Senior AI. The path from presenting to the president to developing Kandinsky and X-FLUX."</li>
+        </ul>
+
+        <h2>Connect</h2>
+        <p>
+          <a href="https://x.com/said_azizow" target="_blank" rel="noopener noreferrer">Twitter/X</a> ·
+          <a href="https://www.linkedin.com/in/said-azizov/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+          <a href="https://github.com/unsaid-azizov" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+          <a href="https://www.instagram.com/said.azizow/" target="_blank" rel="noopener noreferrer">Instagram</a> ·
+          <a href="https://www.youtube.com/@said_azizov" target="_blank" rel="noopener noreferrer">YouTube</a> ·
+          <a href="https://huggingface.co/stazizov" target="_blank" rel="noopener noreferrer">HuggingFace</a> ·
+          <a href="https://scholar.google.com/citations?user=ueDU47EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>
