@@ -21,5 +21,13 @@ export default defineConfig({
     },
   },
 
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
+  ],
 });
