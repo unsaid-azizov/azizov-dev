@@ -11,6 +11,9 @@ const fontBold = readFileSync(
 const fontRegular = readFileSync(
   join(process.cwd(), "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff")
 );
+const playfairBold = readFileSync(
+  join(process.cwd(), "node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff")
+);
 
 const categoryColors: Record<string, string> = {
   hackathon: "#c9a87c",
@@ -115,8 +118,9 @@ export const GET: APIRoute = async ({ props }) => {
                   type: "div",
                   props: {
                     style: {
-                      fontSize: title.length > 60 ? "36px" : "46px",
+                      fontSize: title.length > 60 ? "38px" : "48px",
                       fontWeight: 700,
+                      fontFamily: "Playfair Display",
                       color: "#e8e0d8",
                       lineHeight: 1.2,
                     },
@@ -216,6 +220,12 @@ export const GET: APIRoute = async ({ props }) => {
           name: "Inter",
           data: fontRegular,
           weight: 400,
+          style: "normal" as const,
+        },
+        {
+          name: "Playfair Display",
+          data: playfairBold,
+          weight: 700,
           style: "normal" as const,
         },
       ],
