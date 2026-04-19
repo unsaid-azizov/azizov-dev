@@ -1,15 +1,15 @@
 ---
-title: "Lezghian ML Community"
-description: "Founded a community of ML enthusiasts and linguists to preserve the Lezghian language through AI. Built a Russian-Lezghian translator, TTS model, and language corpus."
+title: "Lezghian ML — AI for Language Preservation"
+description: "Founded a 1,000+ volunteer community preserving the Lezgin language through AI. Built the first Russian-Lezgin translator, TTS model, and open-source language corpus."
 category: "personal"
 tags: ["NLP", "Translation", "TTS", "Language Preservation", "HuggingFace", "Python"]
 featured: true
 coverImage: "/images/projects/lezghian-ml-cover.jpg"
 metrics:
-  teamMembers: "16"
+  volunteers: "1,000+"
   models: "6"
   datasets: "5"
-  bibleCorpus: "13.8K sentences"
+  syntheticCorpus: "200K sentences"
 links:
   huggingface: "https://huggingface.co/leks-forever"
   telegramBot: "https://t.me/lek_translator_bot"
@@ -20,44 +20,48 @@ status: "active"
 order: 5
 ---
 
-# Lezghian ML Community
+# Lezghian ML — AI for Language Preservation
 
-Founded an international community of ML enthusiasts and linguists dedicated to preserving the Lezghian language through modern AI technologies.
+Founded an international community of ML enthusiasts and linguists dedicated to preserving the Lezgin language — a UNESCO-classified vulnerable language spoken by ~800,000 people in Dagestan and Azerbaijan.
 
-## Mission
+Honored with the [Lezgi Star award](/blog/lezgi-star-2025/) for this work.
 
-Create accessible tools and resources that preserve and advance the Lezghian language — an endangered language spoken by ~800,000 people — using state-of-the-art AI.
+## What we built
 
-## What We Built
+### Russian ↔ Lezgin Translator 2.0
 
-### Russian ↔ Lezghian Translator
-Fine-tuned NLLB-200-distilled-600M model for accurate translation between Russian and Lezghian. Available as a Telegram bot (@lek_translator_bot) for everyday use by native speakers.
+Fine-tuned NLLB-200-distilled-600M model for translation between Russian and Lezgin. The [2.0 release](/blog/lezgin-translator-2-2026/) trained on a 200K synthetic corpus tagged via Gemini, significantly improving quality over v1. Available as a [Telegram bot](https://t.me/lek_translator_bot) and on [HuggingFace](https://huggingface.co/spaces/leks-forever/lez-rus_2).
 
-### Lezghian TTS (Text-to-Speech)
-Trained a VITS-based TTS model to generate natural Lezghian speech from text. One of the first TTS systems for the Lezghian language.
+### Lezgin Text-to-Speech
 
-### Language Corpus & Datasets
-Assembled the largest open Lezghian language corpus with a team of 16 volunteers:
+Trained a VITS-based TTS model using 30 hours of studio-recorded speech in collaboration with publicdictionary.org. One of the first TTS systems for the Lezgin language — integrated directly into the translator.
+
+### Language corpus & datasets
+
+Assembled the largest open Lezgin language corpus with 1,000+ volunteers:
 
 | Dataset | Size | Description |
 |---------|------|-------------|
-| Bible (Lezghian-Russian) | 13.8K parallel sentences | Largest parallel corpus |
+| Synthetic corpus | 200K sentences | Tagged via Gemini, used for Translator 2.0 |
+| Manual annotations | 40K sentences | Community-validated by linguistic experts |
+| Bible (Lezgin-Russian) | 13.8K parallel sentences | Largest parallel corpus |
 | Lezgi Gazet Archives | 402 articles | News articles corpus |
-| CNAL Lezghian-Russian | 762 entries | Literary translations |
+| CNAL Lezgin-Russian | 762 entries | Literary translations |
 | Lez Wiki | 4.4K articles | Wikipedia dump |
-| Secret of Third Planet | 361 entries | Children's book translation |
 
-### Multilingual Embeddings
-Fine-tuned multilingual-e5-large and LaBSE models for Lezghian language understanding and semantic search.
+### Multilingual embeddings
+
+Fine-tuned multilingual-e5-large and LaBSE models for Lezgin language understanding and semantic search.
 
 ## Impact
 
-- First open-source NLP toolkit for the Lezghian language
-- 16 active community members and growing
+- **1,000+ volunteers** contributing translations and validations
+- First open-source NLP toolkit for the Lezgin language
 - Telegram bot used by native speakers daily
-- Contributing to digital preservation of an endangered language
-- All models and datasets freely available on HuggingFace
+- [Lezgi Star award](/blog/lezgi-star-2025/) for cultural preservation through AI
+- All models and datasets freely available on [HuggingFace](https://huggingface.co/leks-forever)
+- Also building [Lekion](/projects/lekion/project/) — a professional network for the Lezgian community
 
 ## Technologies
 
-Python, PyTorch, HuggingFace Transformers, NLLB, VITS, LaBSE, mT5
+Python, PyTorch, HuggingFace Transformers, NLLB, VITS, LaBSE, Gemini, mT5
