@@ -18,6 +18,36 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const imageUrl = new URL(image, Astro.site).href;
 
+// Breadcrumb structured data from URL path
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).href }
+];
+let cumulativePath = "";
+for (let i = 0; i < pathSegments.length; i++) {
+  cumulativePath += `/${pathSegments[i]}`;
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: i + 2,
+    name: i === pathSegments.length - 1 ? title.split(" | ")[0] : pathSegments[i].charAt(0).toUpperCase() + pathSegments[i].slice(1),
+    item: new URL(cumulativePath + "/", Astro.site).href,
+  });
+}
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems,
+};
+
+// WebSite schema for sitelinks search box
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Said Azizov",
+  url: "https://azizov.dev",
+  description: "AI Automation Agency Founder — helping businesses automate through AI Agents and voice systems.",
+};
+
 // Structured Data (JSON-LD) for LLMs and search engines
 const personSchema = {
   "@context": "https://schema.org",
@@ -32,7 +62,10 @@ const personSchema = {
     "https://github.com/unsaid-azizov",
     "https://linkedin.com/in/said-azizov",
     "https://huggingface.co/stazizov",
-    "https://x.com/said_azizow"
+    "https://x.com/said_azizow",
+    "https://t.me/astex_channel",
+    "https://t.me/said_azizov",
+    "https://www.instagram.com/said.azizow/"
   ],
   knowsAbout: [
     "AI Agents",
@@ -96,6 +129,10 @@ const personSchema = {
 		
 		{/* Structured Data (JSON-LD) */}
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+		{breadcrumbItems.length > 1 && (
+			<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+		)}
 		
 		{/* Favicon */}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
