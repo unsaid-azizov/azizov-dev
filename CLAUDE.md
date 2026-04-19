@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Custom Skills
+
+- `/add-post [topic or raw text]` — create a new blog post with proper SEO, keywords, tech stacks, and HermesOps branding
+- `/add-project [name or description]` — add a new project to the portfolio
+- `/add-testimonial [client, platform, quote]` — add a client testimonial
+- `/seo-audit` — run a full SEO audit (structured data, meta, content quality, linking)
+
 ## Commands
 
 ```bash
