@@ -46,7 +46,7 @@ Started in AI/ML research and open-source:
 
 **Transitioned** to business automation:
 - Founded **AnyAgent** platform (built in public)
-- Now run **AI automation agency** helping real businesses
+- Now run **[HermesOps](https://hermesops.com)** — custom AI operations automation
 - In parallel: **Senior AI Developer at Skygen.ai**
 
 ## What I Do Now

@@ -2,7 +2,7 @@
 title: "Case Study: UK Surveying Firm Cuts Call Costs from £24K to £4K"
 date: 2026-02-05
 category: "article"
-description: "How we replaced a £2,000/month outsourced call handling service with an AI voice agent at £60/month for a UK surveying firm."
+description: "How HermesOps replaced a £2,000/month outsourced call handling service with an AI voice agent at £60/month for a UK surveying firm."
 tags: ["AI Voice Agent", "Case Study", "ElevenLabs", "Twilio", "Business Automation"]
 featured: true
 ---
@@ -13,7 +13,7 @@ I just helped a surveying firm in the UK reduce their call reception costs from 
 
 The guys were paying Moneypenny £2,000/month for outsourced call handling. Professionally, but expensively.
 
-We made them an AI assistant that:
+At [HermesOps](https://hermesops.com), we made them an AI assistant that:
 
 - Answers every call like a live person
 - Determines what service the client needs

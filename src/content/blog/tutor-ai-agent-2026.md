@@ -9,7 +9,7 @@ featured: true
 
 A month ago, Misha contacted us. He runs a tutor training school with an audience of over 10k on Telegram. They had a very simple but brilliant idea — to give their clients a tool that would allow them to save time and improve the quality of the services provided using modern technologies.
 
-## What we built
+## What we built at [HermesOps](https://hermesops.com)
 
 An assistant for tutors that:
 

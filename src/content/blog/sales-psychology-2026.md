@@ -2,12 +2,12 @@
 title: "You Don't Know How to Sell If You Don't Know How to Buy"
 date: 2026-03-13
 category: "article"
-description: "Reflections on sales psychology — why becoming a quality consumer first makes you a better seller."
+description: "Reflections on sales psychology at HermesOps — why becoming a quality consumer first makes you a better seller."
 tags: ["Sales", "Business", "Psychology"]
 featured: true
 ---
 
-In recent months, I've been immersed in creating offers for our AI agency. I've been reading books on sales, testing various hypotheses, and started observing myself from the perspective of a buyer when purchasing any services or products.
+In recent months, I've been immersed in creating offers for [HermesOps](https://hermesops.com). I've been reading books on sales, testing various hypotheses, and started observing myself from the perspective of a buyer when purchasing any services or products.
 
 As developers, we often like to take pride in building our own tools from scratch, gathering analytics from scratch, and scraping data ourselves instead of buying a list.
 
