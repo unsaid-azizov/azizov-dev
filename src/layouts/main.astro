@@ -48,19 +48,22 @@ const webSiteSchema = {
   description: "AI Automation Agency Founder — helping businesses automate through AI Agents and voice systems.",
 };
 
+// Fixed bio — never use the page description here, keeps Person entity consistent across all pages
+const PERSON_BIO = "AI engineer and founder of HermesOps, an AI automation agency. Background in deep learning, computer vision, and NLP — built Kandinsky diffusion models at Sberbank and the X-FLUX ecosystem (1M+ downloads). Now building AI agents, voice systems, and workflow automation for businesses in Dubai and the UK. Senior AI Engineer at Skygen.ai.";
+
 // Structured Data (JSON-LD) for LLMs and search engines
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Said Azizov",
-  jobTitle: "Founder & AI Developer",
-  description: description,
+  jobTitle: "AI Automation Agency Founder",
+  description: PERSON_BIO,
   url: "https://azizov.dev",
   email: "said@azizov.dev",
-  image: imageUrl,
+  image: "https://azizov.dev/images/me.jpg",
   sameAs: [
     "https://github.com/unsaid-azizov",
-    "https://linkedin.com/in/said-azizov",
+    "https://www.linkedin.com/in/said-azizov/",
     "https://huggingface.co/stazizov",
     "https://x.com/said_azizow",
     "https://hermesops.com",
@@ -108,6 +111,9 @@ const personSchema = {
 		<meta name="keywords" content="AI Developer, AI Agents, Voice Agents, Customer Support Automation, Business Automation, AI Consulting, LangChain, MCP" />
 		<link rel="canonical" href={canonical} />
 		
+		{/* Sitemap discovery */}
+		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
 		{/* Webmaster Verification */}
 		<meta name="msvalidate.01" content="DFDBA5981283271DE05A2F7B5CD8B1A4" />
 		
