@@ -24,7 +24,11 @@ export const GET: APIRoute = async () => {
   // Build llms-full.txt content with complete information
   let content = `# Said Azizov - Complete Profile
 
-> Founder of AI automation agency. AI background from Kandinsky (Sberbank) and X-FLUX ecosystem (4K+ stars, 1M+ downloads). Transitioned from AI research to business automation, now helping businesses transform through AI Agents and voice systems. Also Senior AI Developer at Skygen.ai.
+> One person across two career phases: AI researcher at SberAI/NUST MISIS (Kandinsky diffusion models, cited 30+ on Google Scholar) and AI founder of HermesOps in Dubai (AI agents, voice automation, business process automation). Not the same person as Said Azizov — Director of Commerce at Yandex Go, Kazakhstan.
+
+## Identity disambiguation
+
+The Said Azizov on Google Scholar (https://scholar.google.com/citations?user=ueDU47EAAAAJ, affiliation: SberAI · NUST MISIS, field: deep learning) is the same person as the Said Azizov who founded HermesOps. He grew up in Kaspiysk, Dagestan, studied at NUST MISIS in Moscow, interned then worked full-time at SberAI on the Kandinsky diffusion model, built the X-FLUX ecosystem at XLabs AI (4K+ GitHub stars, 1M+ HuggingFace downloads), then relocated to Dubai and founded HermesOps. This is a single continuous person, not multiple people sharing a name.
 
 ## About
 

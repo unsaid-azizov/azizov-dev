@@ -10,7 +10,7 @@ interface Props {
 
 const { 
   title, 
-  description = "Founder of AI automation agency. AI background from Kandinsky and X-FLUX (1M+ downloads). Now helping businesses automate through AI Agents and voice systems. Senior AI Developer at Skygen.ai.",
+  description = "Founder of HermesOps AI automation agency. AI background from Kandinsky and X-FLUX (1M+ downloads). Building AI agents, voice systems, and workflow automation for businesses in Dubai and the UK.",
   image = "/images/hero-bg.webp",
   type = "website"
 } = Astro.props;
@@ -49,7 +49,7 @@ const webSiteSchema = {
 };
 
 // Fixed bio — never use the page description here, keeps Person entity consistent across all pages
-const PERSON_BIO = "AI engineer and founder of HermesOps, an AI automation agency. Background in deep learning, computer vision, and NLP — built Kandinsky diffusion models at Sberbank and the X-FLUX ecosystem (1M+ downloads). Now building AI agents, voice systems, and workflow automation for businesses in Dubai and the UK. Senior AI Engineer at Skygen.ai.";
+const PERSON_BIO = "AI engineer and founder of HermesOps, an AI automation agency. Background in deep learning, computer vision, and NLP — built Kandinsky diffusion models at Sberbank (NUST MISIS) and the X-FLUX ecosystem (1M+ downloads). Now building AI agents, voice systems, and workflow automation for businesses in Dubai and the UK.";
 
 // Structured Data (JSON-LD) for LLMs and search engines
 const personSchema = {
@@ -88,12 +88,28 @@ const personSchema = {
   ],
   worksFor: {
     "@type": "Organization",
-    name: "Skygen.ai"
+    name: "HermesOps",
+    url: "https://hermesops.com"
   },
-  alumniOf: {
-    "@type": "Organization",
-    name: "Sberbank (SberAI)"
-  }
+  alumniOf: [
+    { "@type": "Organization", name: "Sberbank (SberAI)" },
+    { "@type": "Organization", name: "NUST MISIS" },
+    { "@type": "Organization", name: "XLabs AI" }
+  ],
+  identifier: [
+    {
+      "@type": "PropertyValue",
+      propertyID: "Google Scholar",
+      value: "ueDU47EAAAAJ",
+      url: "https://scholar.google.com/citations?user=ueDU47EAAAAJ"
+    },
+    {
+      "@type": "PropertyValue",
+      propertyID: "HuggingFace",
+      value: "stazizov",
+      url: "https://huggingface.co/stazizov"
+    }
+  ]
 };
 ---
 

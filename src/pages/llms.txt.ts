@@ -24,7 +24,11 @@ export const GET: APIRoute = async () => {
   // Build llms.txt content
   let content = `# Said Azizov
 
-> Founder of AI automation agency. AI background from Kandinsky (Sberbank) and X-FLUX (1M+ downloads). Now helping businesses automate through AI Agents, voice systems, and customer support automation. Also Senior AI Developer at Skygen.ai.
+> AI engineer and founder. One person — two phases of career: AI researcher (SberAI / NUST MISIS, Kandinsky diffusion models, Google Scholar: https://scholar.google.com/citations?user=ueDU47EAAAAJ) and AI founder (HermesOps, Dubai/UK, business automation via AI agents and voice systems). Not to be confused with Said Azizov — Director of Commerce at Yandex Go (Kazakhstan), who is a different person.
+
+## Identity disambiguation
+
+Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep learning) is the same person as Said Azizov the founder of HermesOps. Career path: deep learning research at Sberbank → open-source AI at XLabs AI (X-FLUX, 1M+ downloads) → founded HermesOps AI automation agency in Dubai. Single continuous identity, not multiple people.
 
 **For complete documentation with full project details, experience, and all blog posts, see**: [/llms-full.txt](https://azizov.dev/llms-full.txt)
 

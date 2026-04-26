@@ -2,7 +2,7 @@
 company: "Skygen.ai"
 position: "Senior AI Engineer"
 startDate: 2025-11-01
-endDate: null
+endDate: 2026-04-01
 location: "Dubai, United Arab Emirates"
 type: "hybrid"
 logo: "/images/companies/skygen.png"
