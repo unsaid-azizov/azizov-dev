@@ -46,3 +46,5 @@ AI works when it solves a real problem — not just "because it's trendy."
 Misha didn't ask for a chatbot. He asked for a tool that makes tutors better at their job. The AI assistant became a competitive advantage: something his competitors don't offer, that tutors genuinely love using, and that parents see as premium value.
 
 This is the pattern we see at [HermesOps](https://hermesops.com) across industries — the best AI implementations aren't standalone products. They're features that make an existing business better.
+
+For a different kind of ROI story, see how we [cut a UK firm's call costs from £24K to £4K with an AI voice agent](/blog/surveying-firm-case-2026/).

@@ -41,7 +41,7 @@ At [HermesOps](https://hermesops.com) we're already seeing clients ask for this:
 
 - **Model serving**: vLLM, TGI, or Ollama for efficient inference
 - **Hardware**: single A100 40GB or consumer GPU like RTX 4090 for smaller workloads
-- **RAG pipeline**: [LangChain](/blog/docker-mcp-toolkit-2026/) + Qdrant / Pinecone for knowledge retrieval
+- **RAG pipeline**: LangChain + Qdrant / Pinecone for knowledge retrieval (see also: [Docker MCP Toolkit for AI integrations](/blog/docker-mcp-toolkit-2026/))
 - **Orchestration**: n8n or custom FastAPI service for workflow automation
 - **Monitoring**: Langfuse or custom logging for performance tracking
 

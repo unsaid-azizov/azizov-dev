@@ -22,3 +22,5 @@ Developed a multimodal pipeline that fuses visual embeddings from video frames w
 ## Takeaway
 
 This competition pushed me deeper into multimodal AI — the same skill set that now powers the document processing and data intelligence systems we build at [HermesOps](https://hermesops.com).
+
+For more on the AI competition journey: [1st place at AIIJC](/blog/aiijc-2021/) and [top 5% in Google's Kaggle competition](/blog/google-kaggle-2023/).

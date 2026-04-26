@@ -20,3 +20,5 @@ Built a real-time neural network for recognizing finger-spelling letters and ind
 Presented the winning solution to senior government officials on national television. The competition brought together thousands of participants from across the country, and our project was selected as the absolute best in the inclusive environment track.
 
 This was the moment that opened the door to everything that followed — Sberbank, XLabs, and eventually founding my own agency.
+
+See the full journey in [the about page](/about/) or read about the [Google Kaggle silver medal](/blog/google-kaggle-2023/) that came two years later.

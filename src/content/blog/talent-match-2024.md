@@ -23,3 +23,5 @@ The system matches candidates to job descriptions using:
 This is the exact same architecture behind the AI systems we build at [HermesOps](https://hermesops.com) — retrieval-augmented generation, LLM orchestration, and domain-specific knowledge bases. The difference is we now apply it to customer support, lead qualification, and business process automation.
 
 Winning this competition was a validation that our technical approach works — and works better than the alternatives.
+
+See this RAG stack in production: [AI Chatbot for Education — +10% Sales Conversion](/blog/tutor-ai-agent-2026/).

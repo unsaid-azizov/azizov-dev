@@ -22,4 +22,4 @@ Built a multi-class classification model combining temporal and spatial features
 
 ## Why it matters
 
-This was my second major project in sign language AI (after AIIJC). Competing against seasoned Kaggle grandmasters and placing in the top 5% validated that the skills I was building were world-class.
+This was my second major project in sign language AI (after [AIIJC](/blog/aiijc-2021/)). Competing against seasoned Kaggle grandmasters and placing in the top 5% validated that the skills I was building were world-class.

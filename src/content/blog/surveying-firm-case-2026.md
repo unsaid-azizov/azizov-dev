@@ -67,3 +67,5 @@ This same architecture works for any business that handles inbound calls:
 - **Trades & services** — plumbers, electricians, HVAC — capturing leads after hours
 
 ROI is instantaneous. The agent paid for itself in the first week.
+
+After phased testing, this agent [went live handling 100% of inbound calls](/blog/agent-first-leads-2026/) — capturing two qualified leads on the first day.

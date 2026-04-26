@@ -38,3 +38,5 @@ Thank you to everyone who tagged, recorded, and tested. You are making history.
 - [Community group](https://t.me/lek_translator_info)
 
 Our team is putting everything in open source and is open to collaborations.
+
+This work was recognized with the [Lezgi Star Award (Lezgi Ghed)](/blog/lezgi-star-2025/) by FLNK for AI-driven language preservation.

@@ -44,3 +44,5 @@ Once accuracy and lead capture rates meet our threshold (95%+ intent recognition
 An AI voice agent that works 24/7 doesn't just save money — it captures opportunities that would otherwise be lost. Evenings, weekends, holidays. Every call answered, every lead qualified, every opportunity captured.
 
 This is the difference between an answering machine and an AI receptionist.
+
+Read the full case study: [AI Voice Agent Cuts Call Costs from £24K to £4K](/blog/surveying-firm-case-2026/).

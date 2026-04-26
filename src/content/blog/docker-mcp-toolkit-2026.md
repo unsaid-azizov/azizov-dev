@@ -51,3 +51,5 @@ If you're building AI agents, chatbots, or automation systems, MCP is becoming t
 - **n8n** — MCP nodes for workflow automation
 
 Docker MCP Toolkit is the fastest way to get started. It's the same protocol we use at [HermesOps](https://hermesops.com) to connect AI agents to client systems — CRMs, databases, communication tools, and custom APIs.
+
+If you're thinking about running models locally rather than through APIs, also see: [Qwen3.6-27B — Why Local LLMs Just Got Real for Business](/blog/qwen3-6-27b-local-llm-2026/).
