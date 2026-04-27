@@ -11,6 +11,6 @@ featured: true
 order: 5
 ---
 
-Саид, спасибо! Ты красавчик, отработано чётко. Оперативно отвечаешь, сделал больше чем обещал. Ахуенно, очень ценно. Щас всё зафиналим, оттестим — думаю дальше улучшать функционал будем с тобой.
+Said, thank you! You're a star — clean execution. Quick to respond, delivered more than you promised. Really impressive, very valuable. We'll wrap this up and test it — I'm thinking we'll keep improving the functionality together.
 
 Built an [AI tutor agent](/blog/tutor-ai-agent-2026/) for Mike's tutoring course — keeps a diary of each student, generates personalized homework, and tracks progress stats. Used by tutors who took his course on scaling tutoring revenue.
