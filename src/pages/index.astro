@@ -43,6 +43,28 @@ const blogPosts = (await getCollection("blog"))
       client:load
     />
 
+    {/* Testimonials */}
+    <section
+      id="testimonials"
+      class="snap-start min-h-screen bg-[#0e0e0e] py-24 flex items-center"
+    >
+      <TestimonialsSection
+        testimonials={testimonials.map((t) => ({
+          id: t.id,
+          clientName: t.data.clientName,
+          company: t.data.company,
+          role: t.data.role,
+          quote: t.body ?? "",
+          rating: t.data.rating,
+          platform: t.data.platform,
+          handle: t.data.handle,
+          sourceUrl: t.data.sourceUrl,
+          avatar: t.data.avatar,
+        }))}
+        client:visible
+      />
+    </section>
+
     {/* About */}
     <section
       id="about"
@@ -91,28 +113,6 @@ const blogPosts = (await getCollection("blog"))
           type: e.data.type,
           highlights: e.data.highlights,
           skills: e.data.skills,
-        }))}
-        client:visible
-      />
-    </section>
-
-    {/* Testimonials */}
-    <section
-      id="testimonials"
-      class="snap-start min-h-screen bg-[#0e0e0e] py-24 flex items-center"
-    >
-      <TestimonialsSection
-        testimonials={testimonials.map((t) => ({
-          id: t.id,
-          clientName: t.data.clientName,
-          company: t.data.company,
-          role: t.data.role,
-          quote: t.body ?? "",
-          rating: t.data.rating,
-          platform: t.data.platform,
-          handle: t.data.handle,
-          sourceUrl: t.data.sourceUrl,
-          avatar: t.data.avatar,
         }))}
         client:visible
       />
