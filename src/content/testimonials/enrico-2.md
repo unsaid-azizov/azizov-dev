@@ -1,6 +1,6 @@
 ---
 clientName: "Enrico"
-company: "Rico Systems"
+company: "Ekron Surveyors"
 role: "Founder"
 rating: 5
 platform: "twitter"
