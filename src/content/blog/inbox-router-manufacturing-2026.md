@@ -1,5 +1,6 @@
 ---
 title: "AI Email Routing for Factories — Zero Manual Sorting, CRM Connected"
+pageTitle: "AI Email Routing for Manufacturing — Inbox Router Case Study"
 date: 2026-04-25
 category: "article"
 description: "How HermesOps built Inbox Router for two manufacturing clients — 16 inboxes routed in 2 weeks, leads reach sales in 1.2 seconds, everything logged to CRM."

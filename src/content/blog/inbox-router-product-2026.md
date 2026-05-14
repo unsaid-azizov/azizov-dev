@@ -1,5 +1,6 @@
 ---
 title: "Inbox Router — How We Built AI Email Routing for Shared Inboxes"
+pageTitle: "AI Email Routing for Shared Inboxes — Inbox Router"
 date: 2026-04-26
 category: "article"
 description: "Inside Inbox Router by HermesOps: AI email classification that routes shared inboxes in 1.2 seconds. Plain-language rules, full audit log, on-prem LLM option."

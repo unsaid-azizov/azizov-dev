@@ -1,5 +1,6 @@
 ---
 title: "AI Chatbot for Education — How a Tutor School Increased Sales by 10%"
+pageTitle: "AI Tutor Agent — 10% Sales Increase for a Tutor School"
 date: 2026-02-09
 category: "article"
 description: "Built a Telegram AI assistant for tutors using GPT-4 Vision, LangChain, and RAG — lesson analysis, homework generation, and progress tracking. +10% sales conversion."

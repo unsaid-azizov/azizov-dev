@@ -1,5 +1,6 @@
 ---
 title: "Lezgin Translator 2.0 — When 1000 People Change the Future of a Language"
+pageTitle: "Lezgin Translator 2.0 — Built by 1,000 Volunteers"
 date: 2026-03-15
 category: "article"
 description: "Major update to the Lezgin translator: significantly improved quality via synthetic corpus, integrated text-to-speech, and 1000+ volunteers behind the project."

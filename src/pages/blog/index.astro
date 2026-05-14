@@ -23,6 +23,10 @@ const allPosts = (await getCollection("blog"))
 
     {/* Content */}
     <div class="py-24">
+      <header class="max-w-6xl mx-auto px-6 pb-12">
+        <h1 class="font-serif font-bold text-4xl md:text-5xl text-stone-100 mb-4">Writing</h1>
+        <p class="text-stone-400 font-sans text-lg max-w-2xl">Case studies, competition recaps, and thoughts on AI automation — from building diffusion models at Sberbank to deploying voice agents for UK businesses.</p>
+      </header>
       <BlogSection
         posts={allPosts.map((b) => ({
           id: b.id,
