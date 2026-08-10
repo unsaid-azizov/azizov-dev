@@ -1,11 +1,11 @@
 ---
 name: add-project
-description: Add a new project to the azizov.dev portfolio
+description: Add a new project to the azizovhq.com portfolio
 disable-model-invocation: true
 argument-hint: [project name or description]
 ---
 
-Create a new project entry for azizov.dev based on: $ARGUMENTS
+Create a new project entry for azizovhq.com based on: $ARGUMENTS
 
 ## File location
 

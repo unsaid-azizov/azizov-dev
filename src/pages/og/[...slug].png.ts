@@ -194,7 +194,7 @@ export const GET: APIRoute = async ({ props }) => {
                             fontSize: "14px",
                             fontWeight: 400,
                           },
-                          children: "azizov.dev",
+                          children: "azizovhq.com",
                         },
                       },
                     ],

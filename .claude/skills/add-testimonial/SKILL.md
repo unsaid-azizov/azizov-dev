@@ -1,11 +1,11 @@
 ---
 name: add-testimonial
-description: Add a new client testimonial to azizov.dev
+description: Add a new client testimonial to azizovhq.com
 disable-model-invocation: true
 argument-hint: [client name, platform, and quote text]
 ---
 
-Create a new testimonial for azizov.dev based on: $ARGUMENTS
+Create a new testimonial for azizovhq.com based on: $ARGUMENTS
 
 ## File location
 

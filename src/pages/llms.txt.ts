@@ -30,13 +30,13 @@ export const GET: APIRoute = async () => {
 
 Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep learning) is the same person as Said Azizov the founder of HermesOps. Career path: deep learning research at Sberbank → open-source AI at XLabs AI (X-FLUX, 1M+ downloads) → founded HermesOps AI automation agency in Dubai. Single continuous identity, not multiple people.
 
-**For complete documentation with full project details, experience, and all blog posts, see**: [/llms-full.txt](https://azizov.dev/llms-full.txt)
+**For complete documentation with full project details, experience, and all blog posts, see**: [/llms-full.txt](https://azizovhq.com/llms-full.txt)
 
 ## Core Pages
 
-- [Home](https://azizov.dev/): Portfolio and overview of AI development work, featuring AI agents, voice automation, and business transformation projects
-- [About](https://azizov.dev/#about): Background in AI development, expertise in AI Agents, voice AI, and customer support automation
-- [Contact](https://azizov.dev/#contact): Get in touch for AI consulting, agent development, or business automation projects
+- [Home](https://azizovhq.com/): Portfolio and overview of AI development work, featuring AI agents, voice automation, and business transformation projects
+- [About](https://azizovhq.com/#about): Background in AI development, expertise in AI Agents, voice AI, and customer support automation
+- [Contact](https://azizovhq.com/#contact): Get in touch for AI consulting, agent development, or business automation projects
 
 ## Featured Projects
 
@@ -45,7 +45,7 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
   // Add all featured projects
   sortedProjects.forEach(project => {
     const description = project.data.description || '';
-    content += `- [${project.data.title}](https://azizov.dev/projects/${project.id}/): ${description}\n`;
+    content += `- [${project.data.title}](https://azizovhq.com/projects/${project.id}/): ${description}\n`;
   });
 
   content += `
@@ -58,7 +58,7 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
     const dateRange = exp.data.endDate 
       ? `${exp.data.startDate.getFullYear()}-${exp.data.endDate.getFullYear()}`
       : `${exp.data.startDate.getFullYear()}-Present`;
-    content += `- [${exp.data.position} at ${exp.data.company}](https://azizov.dev/#experience): ${dateRange} - ${exp.data.highlights[0]}\n`;
+    content += `- [${exp.data.position} at ${exp.data.company}](https://azizovhq.com/#experience): ${dateRange} - ${exp.data.highlights[0]}\n`;
   });
 
   content += `
@@ -69,13 +69,13 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
   // Add latest 10 blog posts
   sortedBlog.slice(0, 10).forEach(post => {
     const dateStr = post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-    content += `- [${post.data.title}](https://azizov.dev/blog/${post.id}/): ${dateStr} - ${post.data.description}\n`;
+    content += `- [${post.data.title}](https://azizovhq.com/blog/${post.id}/): ${dateStr} - ${post.data.description}\n`;
   });
 
   content += `
 ## Testimonials
 
-- [Client Testimonials](https://azizov.dev/#testimonials): Reviews from AI automation projects including infobiz businesses, e-commerce, and service companies
+- [Client Testimonials](https://azizovhq.com/#testimonials): Reviews from AI automation projects including infobiz businesses, e-commerce, and service companies
 
 ## Expertise
 
@@ -94,7 +94,7 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
 
 ## Contact & Social
 
-- Email: ${profile?.email || 'said@azizov.dev'}
+- Email: ${profile?.email || 'said@azizovhq.com'}
 - GitHub: ${profile?.social?.github || 'https://github.com/unsaid-azizov'}
 - LinkedIn: ${profile?.social?.linkedin || 'https://linkedin.com/in/said-azizov'}
 - HuggingFace: ${profile?.social?.huggingface || 'https://huggingface.co/stazizov'}
@@ -102,8 +102,8 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
 
 ## Optional
 
-- [All Projects](https://azizov.dev/#projects): Complete portfolio including personal and studio projects
-- [All Blog Posts](https://azizov.dev/blog/): Full archive of ${blogPosts.length} posts about hackathons, competitions, and achievements
+- [All Projects](https://azizovhq.com/#projects): Complete portfolio including personal and studio projects
+- [All Blog Posts](https://azizovhq.com/blog/): Full archive of ${blogPosts.length} posts about hackathons, competitions, and achievements
 `;
 
   // Add all remaining blog posts in optional section
@@ -111,7 +111,7 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
     content += `\n### Additional Blog Posts\n\n`;
     sortedBlog.slice(10).forEach(post => {
       const dateStr = post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-      content += `- [${post.data.title}](https://azizov.dev/blog/${post.id}/): ${dateStr}\n`;
+      content += `- [${post.data.title}](https://azizovhq.com/blog/${post.id}/): ${dateStr}\n`;
     });
   }
 

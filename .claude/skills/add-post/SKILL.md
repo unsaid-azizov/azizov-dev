@@ -1,11 +1,11 @@
 ---
 name: add-post
-description: Add a new blog post to azizov.dev with proper SEO, keywords, and brand positioning
+description: Add a new blog post to azizovhq.com with proper SEO, keywords, and brand positioning
 disable-model-invocation: true
 argument-hint: [topic or raw text of the post]
 ---
 
-Create a new blog post for azizov.dev based on: $ARGUMENTS
+Create a new blog post for azizovhq.com based on: $ARGUMENTS
 
 ## Brand context
 

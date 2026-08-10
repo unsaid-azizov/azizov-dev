@@ -1,10 +1,10 @@
 ---
 name: seo-audit
-description: Audit azizov.dev for SEO issues — check meta tags, structured data, internal linking, content quality
+description: Audit azizovhq.com for SEO issues — check meta tags, structured data, internal linking, content quality
 disable-model-invocation: true
 ---
 
-Run an SEO audit on azizov.dev. Check the following:
+Run an SEO audit on azizovhq.com. Check the following:
 
 ## 1. Structured data
 

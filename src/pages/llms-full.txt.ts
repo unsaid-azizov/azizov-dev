@@ -34,7 +34,7 @@ The Said Azizov on Google Scholar (https://scholar.google.com/citations?user=ueD
 
 ${profile?.bio || ''}
 
-**Email**: ${profile?.email || 'said@azizov.dev'}
+**Email**: ${profile?.email || 'said@azizovhq.com'}
 **Available for**: AI consulting, agent development, business automation projects
 
 **Current Title**: ${profile?.title || 'Senior AI Developer & Agency Founder'}
@@ -66,7 +66,7 @@ ${profile?.bio || ''}
     const metrics = project.data.metrics || {};
     
     content += `### ${project.data.title}\n\n`;
-    content += `**URL**: https://azizov.dev/projects/${project.id}/\n`;
+    content += `**URL**: https://azizovhq.com/projects/${project.id}/\n`;
     content += `**Category**: ${project.data.category === 'personal' ? 'Personal' : 'Studio'}\n`;
     content += `**Description**: ${project.data.description}\n\n`;
     
@@ -130,7 +130,7 @@ ${profile?.bio || ''}
     content += `### ${post.data.title}\n\n`;
     content += `**Date**: ${dateStr}\n`;
     content += `**Category**: ${post.data.category}\n`;
-    content += `**URL**: https://azizov.dev/blog/${post.id}/\n\n`;
+    content += `**URL**: https://azizovhq.com/blog/${post.id}/\n\n`;
     
     if (post.data.result) {
       content += `**Result**: ${post.data.result}\n\n`;
@@ -150,7 +150,7 @@ ${profile?.bio || ''}
   });
 
   content += `## Contact & Social Media\n\n`;
-  content += `**Email**: ${profile?.email || 'said@azizov.dev'}\n\n`;
+  content += `**Email**: ${profile?.email || 'said@azizovhq.com'}\n\n`;
   content += `**Social Profiles**:\n`;
   
   if (profile?.social) {
@@ -165,7 +165,7 @@ ${profile?.bio || ''}
   }
 
   content += `\n---\n\n`;
-  content += `**Website**: https://azizov.dev\n`;
+  content += `**Website**: https://azizovhq.com\n`;
   content += `**Last Updated**: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}\n`;
 
   return new Response(content, {

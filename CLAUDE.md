@@ -21,7 +21,7 @@ No linting or test suite is configured.
 
 ## Architecture
 
-This is a personal portfolio site for Said Azizov, built with **Astro 5 + React 19 + Tailwind CSS 4**. It deploys as a static site to GitHub Pages at https://azizov.dev.
+This is a personal portfolio site for Said Azizov, built with **Astro 5 + React 19 + Tailwind CSS 4**. It deploys as a static site to GitHub Pages at https://azizovhq.com.
 
 ### Content Collections (`/src/content`)
 

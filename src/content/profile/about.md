@@ -3,7 +3,7 @@ name: "Said Azizov"
 title: "AI Automation Agency Founder"
 tagline: "AI background → Business automation"
 bio: "AI engineer and AI founder. Transitioned from deep learning research (Kandinsky diffusion models at Sberbank, X-FLUX computer vision ecosystem with 1M+ downloads) to running HermesOps — an AI automation agency. Background spans neural networks, computer vision, and natural language processing, now applied to business automation through AI agents, voice systems, and workflow orchestration."
-email: "said@azizov.dev"
+email: "said@azizovhq.com"
 location: "Dubai, UAE"
 available: true
 social:
