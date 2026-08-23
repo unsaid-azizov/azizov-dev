@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/main.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -12,7 +14,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, pageTitle, description, category, tags, date, result, emoji, link, coverImage } = post.data;
+const { title, pageTitle, description, category, tags, date, result, link } = post.data;
 
 const categoryLabels: Record<string, string> = {
   hackathon: "Hackathon",
@@ -27,6 +29,10 @@ const formattedDate = date.toLocaleDateString("en-US", {
   day: "numeric",
   year: "numeric",
 });
+
+// Older posts use long dashes in titles and summaries. Keep the original source
+// content intact while presenting the current HQ punctuation in the template.
+const displayText = (value: string) => value.replace(/[—–]/g, "-");
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 
@@ -64,88 +70,59 @@ const relatedPosts = allPosts
 ---
 
 <MainLayout title={`${pageTitle ?? title} | Said Azizov`} description={description} type="article" image={`/og/${post.id}.png`}>
-  <article class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
-    {/* BlogPosting JSON-LD */}
-    <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main class="article-page">
+    <article class="site-shell article-layout">
+    <header class="article-hero">
+      <div class="article-hero__meta">
+        <a href="/blog/">All insights</a>
+        <span>{categoryLabels[category]}</span>
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+      </div>
 
-    {/* Nav */}
-    <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
-      <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a
-          href="/blog/"
-          class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
-        >
-          &larr; All posts
+      <h1>{displayText(title)}</h1>
+      <p class="article-hero__summary">{displayText(description)}</p>
+
+      {result && <p class="article-hero__result">{displayText(result)}</p>}
+
+      {link && (
+        <a class="article-source" href={link} target="_blank" rel="noopener noreferrer">
+          Open source <b>↗</b>
         </a>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-[#c9a87c] hover:text-[#e0c090] transition-colors text-sm font-sans"
-          >
-            Source &rarr;
-          </a>
-        )}
-      </div>
-    </nav>
-
-    {/* Header */}
-    <header class="max-w-4xl mx-auto px-6 pt-16 pb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="px-3 py-1 text-xs font-sans uppercase tracking-wider text-[#c9a87c] border border-[#c9a87c]/30 rounded-full">
-          {categoryLabels[category]}
-        </span>
-        <span class="text-sm text-stone-500 font-sans">{formattedDate}</span>
-      </div>
-
-      <h1 class="font-serif font-bold text-4xl md:text-5xl text-stone-100 mb-4">
-        {title}
-      </h1>
-
-      <p class="text-lg text-stone-400 mb-6 font-sans">{description}</p>
-
-      {result && (
-        <p class="text-[#c9a87c] font-sans font-medium mb-6">{result}</p>
       )}
-
-      <div class="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span class="px-3 py-1 text-xs font-sans uppercase tracking-wider text-stone-500 border border-white/10 rounded-full">
-            {tag}
-          </span>
-        ))}
-      </div>
     </header>
 
-    {/* Markdown Content */}
-    <div class="max-w-4xl mx-auto px-6 pb-16">
-      <div class="prose-custom">
+    <div class="article-content-grid">
+      <aside class="article-rail">
+        <p>Topics</p>
+        <ul>
+          {tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </aside>
+
+      <div class="prose-custom article-prose">
         <Content />
       </div>
     </div>
 
-    {/* Related Posts */}
     {relatedPosts.length > 0 && (
-      <div class="max-w-4xl mx-auto px-6 pb-24">
-        <div class="border-t border-white/5 pt-12">
-          <h2 class="font-serif text-2xl text-stone-100 mb-8">Related posts</h2>
-          <div class="grid md:grid-cols-3 gap-6">
-            {relatedPosts.map((related) => (
-              <a href={`/blog/${related.id}/`} class="group block">
-                <div class="p-5 bg-[#1a1917] border border-white/5 rounded-lg hover:border-[#c9a87c]/20 transition-all duration-300">
-                  <span class="text-xs text-stone-600 font-sans">
-                    {related.data.date.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
-                  </span>
-                  <h3 class="text-stone-200 font-serif font-semibold mt-2 leading-snug group-hover:text-[#c9a87c] transition-colors">
-                    {related.data.title}
-                  </h3>
-                </div>
-              </a>
-            ))}
-          </div>
+      <section class="article-related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Keep reading</h2>
+        <div class="article-related__list">
+          {relatedPosts.map((related) => (
+            <a href={`/blog/${related.id}/`}>
+              <span>
+                {categoryLabels[related.data.category]} · {related.data.date.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+              </span>
+              <h3>{displayText(related.data.title)}</h3>
+              <b>Read insight ↗</b>
+            </a>
+          ))}
         </div>
-      </div>
+      </section>
     )}
-  </article>
+    </article>
+  </main>
+  <SiteFooter />
 </MainLayout>
