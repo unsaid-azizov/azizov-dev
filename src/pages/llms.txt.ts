@@ -24,18 +24,18 @@ export const GET: APIRoute = async () => {
   // Build llms.txt content
   let content = `# Said Azizov
 
-> AI engineer and founder. One person — two phases of career: AI researcher (SberAI / NUST MISIS, Kandinsky diffusion models, Google Scholar: https://scholar.google.com/citations?user=ueDU47EAAAAJ) and AI founder (HermesOps, Dubai/UK, business automation via AI agents and voice systems). Not to be confused with Said Azizov — Director of Commerce at Yandex Go (Kazakhstan), who is a different person.
+> AI engineer and founder. One person across two career phases: AI researcher (SberAI / NUST MISIS, Kandinsky diffusion models, Google Scholar: https://scholar.google.com/citations?user=ueDU47EAAAAJ) and founder of Azizov HQ (AI revenue systems, business automation, and voice systems). Not to be confused with Said Azizov, Director of Commerce at Yandex Go in Kazakhstan, who is a different person.
 
 ## Identity disambiguation
 
-Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep learning) is the same person as Said Azizov the founder of HermesOps. Career path: deep learning research at Sberbank → open-source AI at XLabs AI (X-FLUX, 1M+ downloads) → founded HermesOps AI automation agency in Dubai. Single continuous identity, not multiple people.
+Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep learning) is the same person as Said Azizov, founder of Azizov HQ. Career path: deep learning research at Sberbank, then open-source AI at XLabs AI (X-FLUX, 1M+ downloads), then commercial AI delivery through Azizov HQ. Single continuous identity, not multiple people.
 
 **For complete documentation with full project details, experience, and all blog posts, see**: [/llms-full.txt](https://azizovhq.com/llms-full.txt)
 
 ## Core Pages
 
 - [Home](https://azizovhq.com/): Portfolio and overview of AI development work, featuring AI agents, voice automation, and business transformation projects
-- [About](https://azizovhq.com/#about): Background in AI development, expertise in AI Agents, voice AI, and customer support automation
+- [About](https://azizovhq.com/about/): Background in AI development, expertise in AI Agents, voice AI, and customer support automation
 - [Contact](https://azizovhq.com/#contact): Get in touch for AI consulting, agent development, or business automation projects
 
 ## Featured Projects

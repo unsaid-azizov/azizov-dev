@@ -1,99 +1,69 @@
 ---
-import { getCollection } from "astro:content";
 import MainLayout from "../layouts/main.astro";
-
-const profileEntries = await getCollection("profile");
-const profile = profileEntries[0]?.data;
-
-const experience = (await getCollection("experience"))
-  .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { revenueMapFormUrl } from "../lib/conversion-links";
 ---
 
 <MainLayout
-  title="About Said Azizov — AI Engineer & HermesOps Founder"
-  description="From school hackathons to Senior AI Engineer. Built Kandinsky and X-FLUX (1M+ downloads) at Sberbank. Now founder of HermesOps — custom AI operations automation for businesses in Dubai and London."
+  title="About Said Azizov | Azizov HQ"
+  description="Said Azizov is an AI engineer and founder of Azizov HQ, building AI revenue systems for home-service businesses."
   type="profile"
 >
-  <div class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
-    {/* Nav */}
-    <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
-      <div class="max-w-4xl mx-auto px-6 py-4">
-        <a
-          href="/"
-          class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
-        >
-          &larr; Home
-        </a>
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell about-hero">
+      <div class="about-hero__copy">
+        <p class="eyebrow">Founder profile</p>
+        <h1>Said Azizov.<br /><em>AI engineer.</em></h1>
+        <p class="about-hero__lede">I build AI systems that are technically sound, commercially useful, and ready to live inside a real team&apos;s workflow.</p>
+        <div class="about-hero__actions">
+          <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+          <a class="text-link" href="https://www.linkedin.com/in/said-azizov/" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-    </nav>
+      <figure class="about-hero__image">
+        <img src="/images/me.jpg" width="640" height="640" fetchpriority="high" alt="Said Azizov" />
+        <figcaption>Founder of Azizov HQ</figcaption>
+      </figure>
+    </section>
 
-    <div class="max-w-4xl mx-auto px-6 py-16">
-      {/* Hero */}
-      <h1 class="font-serif font-bold text-4xl md:text-5xl text-stone-100 mb-4">
-        Said Azizov
-      </h1>
-      <p class="text-xl text-[#c9a87c] font-sans mb-8">
-        AI Engineer, AI Founder &amp; Creator of <a href="https://hermesops.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#e0c090] transition-colors">HermesOps</a>
-      </p>
+    <section class="site-shell about-proof-strip" aria-label="Selected career proof">
+      <div><strong>1M+</strong><span>Model downloads</span><small>X-FLUX ecosystem</small></div>
+      <div><strong>4K+</strong><span>GitHub stars</span><small>Open-source AI work</small></div>
+      <div><strong>10+</strong><span>Hackathon medals</span><small>National and international competitions</small></div>
+    </section>
 
-      <div class="prose-custom">
-        <p>Said Azizov — AI engineer and AI founder. From school hackathons to Senior AI Engineer in 1.5 years. From presenting to government leaders on national television to building AI systems that generate ROI for businesses across the UK and Middle East. (Not the Said Azizov who is Director of Commerce at Yandex Go — that is a different person based in Kazakhstan.)</p>
-
-        <h2>Background in AI research</h2>
-
-        <p>My career in artificial intelligence started with deep learning and computer vision — the same research lineage as Geoffrey Hinton, Yann LeCun, and Alex Krizhevsky, whose work on neural networks and image recognition laid the foundation for modern AI technology. As a computer scientist working on production ML systems, I've shipped neural network research to millions of users through Kandinsky and X-FLUX.</p>
-
-        <h2>The journey</h2>
-
-        <p>Got into machine learning in 10th grade in Kaspiysk, Dagestan. Won <strong>10+ hackathon medals</strong> in competitive AI research including:</p>
-        <ul>
-          <li><a href="/blog/aiijc-2021/">1st place at AIIJC</a> — Russia's largest AI competition. Presented the winning solution to government leaders on national TV.</li>
-          <li><a href="/blog/google-kaggle-2023/">Top 5% in Google's Kaggle competition</a> — silver medal among 1,000+ teams worldwide.</li>
-          <li><a href="/blog/talent-match-2024/">1st place at Talent Match</a> — RAG-based system using the same tech stack behind our current AI agent work.</li>
-        </ul>
-
-        <p>This opened the door to <strong>Sberbank (SberAI)</strong> — while studying at <strong>NUST MISIS</strong> in Moscow — where I worked on <a href="/projects/deforum-kandinsky/project/">Kandinsky</a>, one of Russia's leading generative AI models. My research from this period is published on <a href="https://scholar.google.com/citations?user=ueDU47EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> (30+ citations). Then <strong>XLabs AI</strong>, where our team built the <a href="/projects/x-flux/project/">X-FLUX ecosystem</a>: 4,000+ GitHub stars, nearly 1 million downloads, used by Disney and Netflix creators.</p>
-
-        <h2>What I do now</h2>
-
-        <p>Founded <a href="https://hermesops.com" target="_blank" rel="noopener noreferrer">HermesOps</a> — an AI operations automation agency. We design and deploy custom AI systems for businesses:</p>
-
-        <ul>
-          <li><strong>AI Voice Agents</strong> — <a href="/blog/surveying-firm-case-2026/">reduced a UK firm's call costs from £24K to £4K/year</a></li>
-          <li><strong>AI Assistants</strong> — <a href="/blog/tutor-ai-agent-2026/">built a tutor AI that increased sales conversion by 10%</a></li>
-          <li><strong>Workflow Automation</strong> — CRM updates, data entry, reporting, outreach</li>
-          <li><strong>Data &amp; Intelligence</strong> — lead scoring, document processing, analytics</li>
-        </ul>
-
-        <h2>AI consulting for industry</h2>
-
-        <p>Over the past few months my AI consulting work has expanded into heavy industry and mid-market B2B. I'm currently helping <strong>several factories and medium-sized businesses</strong> automate their operational processes — everything from production floor data capture and anomaly detection to AI-powered quality control, inventory forecasting, and maintenance scheduling.</p>
-
-        <p>In parallel, I'm building <strong>B2B AI products</strong> — productized solutions designed for industrial clients who need more than one-off consulting: repeatable AI systems that scale across multiple facilities, integrate with ERP and MES systems, and deliver measurable ROI within weeks. This is the natural next step from case-by-case consulting: turning each successful deployment into a reusable product for the broader industrial and mid-market segment.</p>
-
-        <p>Clients from Moscow, Dubai, and London — from industrial enterprises and manufacturing facilities to coaching businesses.</p>
-
-
-        <h2>Beyond business</h2>
-
-        <p>Leading a volunteer project to preserve the <strong>Lezgin language</strong> through AI. With 1,000+ volunteers, we built the <a href="/blog/lezgin-translator-2-2026/">first Lezgin translator and text-to-speech system</a>. Honored with the <a href="/blog/lezgi-star-2025/">Lezgi Star award</a> for this work. Also building <a href="/projects/lekion/project/">Lekion</a> — a professional network for the Lezgian community.</p>
-
-        <h2>Press</h2>
-        <ul>
-          <li><a href="https://www.instagram.com/p/DVQT6bRDVop/" target="_blank" rel="noopener noreferrer">Featured on @tellsef</a> — "From school hackathons to Senior AI. The path from presenting to the president to developing Kandinsky and X-FLUX."</li>
-        </ul>
-
-        <h2>Connect</h2>
-        <p>
-          <a href="https://x.com/said_azizow" target="_blank" rel="noopener noreferrer">Twitter/X</a> ·
-          <a href="https://www.linkedin.com/in/said-azizov/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
-          <a href="https://github.com/unsaid-azizov" target="_blank" rel="noopener noreferrer">GitHub</a> ·
-          <a href="https://www.instagram.com/said.azizow/" target="_blank" rel="noopener noreferrer">Instagram</a> ·
-          <a href="https://www.youtube.com/@said_azizov" target="_blank" rel="noopener noreferrer">YouTube</a> ·
-          <a href="https://huggingface.co/stazizov" target="_blank" rel="noopener noreferrer">HuggingFace</a> ·
-          <a href="https://scholar.google.com/citations?user=ueDU47EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-        </p>
+    <section class="site-shell about-story">
+      <div>
+        <p class="eyebrow">The through line</p>
+        <h2>From model research to systems that <em>move real work.</em></h2>
       </div>
-    </div>
-  </div>
+      <div class="about-story__body">
+        <p>My background is in deep learning, computer vision, natural language processing, and open-source AI. At SberAI, I worked on the Kandinsky diffusion model. At XLabs AI, I built in the X-FLUX ecosystem.</p>
+        <p>That technical foundation matters when a business needs more than a chatbot. The job is to fit AI into lead capture, qualification, CRM, follow-up, team handoff, and the operational habits that already exist.</p>
+      </div>
+    </section>
+
+    <section class="site-shell about-builds">
+      <div class="about-builds__intro">
+        <p class="eyebrow">What I build today</p>
+        <h2>Revenue infrastructure that helps teams respond, qualify, and follow through.</h2>
+      </div>
+      <div class="about-builds__list">
+        <article><span>01</span><h3>Voice and booking AI</h3><p>Answer inbound calls, qualify demand, and place qualified appointments in the calendar.</p></article>
+        <article><span>02</span><h3>Inbox and CRM operations</h3><p>Route messages, keep sales context intact, and stop enquiries dying between teams.</p></article>
+        <article><span>03</span><h3>Lead qualification and estimating</h3><p>Use the right data, including images where useful, to focus teams on work worth winning.</p></article>
+        <article><span>04</span><h3>Private AI systems</h3><p>Build controlled knowledge and workflow systems for organisations with stronger security requirements.</p></article>
+      </div>
+    </section>
+
+    <section class="site-shell about-contact">
+      <p class="eyebrow">Work with Azizov HQ</p>
+      <h2>Start with the bottleneck that costs your team the most.</h2>
+      <p>We will map the current journey and identify the system worth building first.</p>
+      <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+    </section>
+  </main>
+  <SiteFooter />
 </MainLayout>

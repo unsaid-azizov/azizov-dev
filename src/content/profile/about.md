@@ -1,8 +1,8 @@
 ---
 name: "Said Azizov"
-title: "AI Automation Agency Founder"
-tagline: "AI background → Business automation"
-bio: "AI engineer and AI founder. Transitioned from deep learning research (Kandinsky diffusion models at Sberbank, X-FLUX computer vision ecosystem with 1M+ downloads) to running HermesOps — an AI automation agency. Background spans neural networks, computer vision, and natural language processing, now applied to business automation through AI agents, voice systems, and workflow orchestration."
+title: "Founder and AI Engineer"
+tagline: "AI research → Revenue systems"
+bio: "AI engineer and founder of Azizov HQ. Transitioned from deep learning research, including Kandinsky diffusion models at Sberbank and the X-FLUX computer vision ecosystem with 1M+ downloads, to building AI revenue systems. Background spans neural networks, computer vision, and natural language processing, now applied to voice systems, lead qualification, CRM operations, and workflow orchestration."
 email: "said@azizovhq.com"
 location: "Dubai, UAE"
 available: true
@@ -34,7 +34,7 @@ stats:
 
 I'm an **AI engineer and AI founder** building production artificial intelligence systems. My background spans deep learning, computer vision, natural language processing, and neural network research — from Kandinsky diffusion models at Sberbank to the X-FLUX image generation ecosystem with nearly 1 million downloads on HuggingFace.
 
-Today I run **[HermesOps](https://hermesops.com)**, an AI automation agency helping businesses transform through AI agents, voice systems, and workflow orchestration. As an AI founder targeting Dubai and UK markets, I combine deep machine learning expertise with practical ROI-driven business automation.
+Today I run **Azizov HQ**, building AI revenue systems through voice agents, lead qualification, CRM operations, and workflow orchestration. I combine deep machine learning expertise with practical, ROI-driven business automation.
 
 ## From AI Research to Business Automation
 
@@ -48,7 +48,7 @@ Started in AI/ML research and open-source:
 
 **Transitioned** to business automation:
 - Founded **AnyAgent** platform (built in public)
-- Now run **[HermesOps](https://hermesops.com)** — custom AI operations automation
+- Now run **Azizov HQ** — AI revenue systems for commercial operations
 
 ## What I Do Now
 

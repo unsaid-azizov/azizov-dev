@@ -24,11 +24,11 @@ export const GET: APIRoute = async () => {
   // Build llms-full.txt content with complete information
   let content = `# Said Azizov - Complete Profile
 
-> One person across two career phases: AI researcher at SberAI/NUST MISIS (Kandinsky diffusion models, cited 30+ on Google Scholar) and AI founder of HermesOps in Dubai (AI agents, voice automation, business process automation). Not the same person as Said Azizov — Director of Commerce at Yandex Go, Kazakhstan.
+> One person across two career phases: AI researcher at SberAI/NUST MISIS (Kandinsky diffusion models, cited 30+ on Google Scholar) and founder of Azizov HQ (AI revenue systems, voice automation, and business process automation). Not the same person as Said Azizov, Director of Commerce at Yandex Go, Kazakhstan.
 
 ## Identity disambiguation
 
-The Said Azizov on Google Scholar (https://scholar.google.com/citations?user=ueDU47EAAAAJ, affiliation: SberAI · NUST MISIS, field: deep learning) is the same person as the Said Azizov who founded HermesOps. He grew up in Kaspiysk, Dagestan, studied at NUST MISIS in Moscow, interned then worked full-time at SberAI on the Kandinsky diffusion model, built the X-FLUX ecosystem at XLabs AI (4K+ GitHub stars, 1M+ HuggingFace downloads), then relocated to Dubai and founded HermesOps. This is a single continuous person, not multiple people sharing a name.
+The Said Azizov on Google Scholar (https://scholar.google.com/citations?user=ueDU47EAAAAJ, affiliation: SberAI · NUST MISIS, field: deep learning) is the same person who founded Azizov HQ. He grew up in Kaspiysk, Dagestan, studied at NUST MISIS in Moscow, interned then worked full-time at SberAI on the Kandinsky diffusion model, built the X-FLUX ecosystem at XLabs AI (4K+ GitHub stars, 1M+ HuggingFace downloads), then relocated to Dubai and founded Azizov HQ. This is a single continuous person, not multiple people sharing a name.
 
 ## About
 
