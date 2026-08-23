@@ -18,21 +18,12 @@ const categoryLabels: Record<string, string> = {
   article: "Article",
 };
 
-const featureMedia: Record<string, string> = {
-  "docker-mcp-toolkit-setup-2026": "/images/mcp-toolkit/mcp-toolkit-catalog.png",
-  "inbox-router-manufacturing-2026": "/images/blog/preview-email.jpg",
-};
-
 const displayText = (value: string) => value.replace(/\s*[—–]\s*/g, ": ");
 const formatDate = (date: Date) => date.toLocaleDateString("en-US", {
   month: "short",
   year: "numeric",
 });
 
-const featuredImage = featuredPost && (featuredPost.data.coverImage ?? featureMedia[featuredPost.id]);
-const featuredImageDimensions = featuredPost?.id === "inbox-router-manufacturing-2026"
-  ? { width: 557, height: 389 }
-  : { width: 1280, height: 720 };
 ---
 
 <MainLayout
@@ -50,16 +41,6 @@ const featuredImageDimensions = featuredPost?.id === "inbox-router-manufacturing
 
       {featuredPost && (
         <a class="insights-featured" href={`/blog/${featuredPost.id}/`} data-pointer-card>
-          {featuredImage && (
-            <img
-              src={featuredImage}
-              alt=""
-              width={featuredImageDimensions.width}
-              height={featuredImageDimensions.height}
-              loading="eager"
-              decoding="async"
-            />
-          )}
           <div class="insights-featured__content">
             <div class="insights-meta">
               <span>{categoryLabels[featuredPost.data.category]}</span>
