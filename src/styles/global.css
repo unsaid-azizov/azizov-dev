@@ -448,6 +448,13 @@
   color: var(--foreground);
 }
 
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  border-color: var(--primary);
+  background: #dcff8f;
+  color: var(--primary-foreground);
+}
+
 .button--compact {
   min-height: 2.5rem;
   padding-inline: 0.75rem;
