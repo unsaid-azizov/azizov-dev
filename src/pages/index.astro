@@ -5,6 +5,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import { FlickeringGrid } from "../components/ui/flickering-grid";
+import { bookingCalendarUrl, revenueMapFormUrl } from "../lib/conversion-links";
 
 const solutions = (await getCollection("solutions"))
   .filter((solution) => solution.data.featured && solution.data.category === "revenue")
@@ -39,8 +40,8 @@ const renderedCaseStudies = await Promise.all(
         <h1>Turn demand into <em>profitable jobs.</em></h1>
         <p class="hero-sales__lede">We connect lead capture, estimating, CRM, follow-up, and reactivation into the operating system your team needs to grow.</p>
         <div class="hero-sales__actions">
-          <a class="button" href="/revenue-systems-audit/">Map my revenue leaks</a>
-          <a class="button button--secondary" href="/case-studies/">See deployed systems</a>
+          <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+          <a class="button button--secondary" href={bookingCalendarUrl}>Book a call</a>
         </div>
       </div>
       <dl class="hero-sales__proof" aria-label="Selected deployment outcomes">
@@ -153,7 +154,7 @@ const renderedCaseStudies = await Promise.all(
         <h2>Not sure where AI makes commercial sense in your business?</h2>
         <p>We will map the current lead journey, identify where demand is lost, and recommend the system worth building first.</p>
       </div>
-      <a class="button" href="/revenue-systems-audit/">Map my revenue leaks</a>
+      <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
     </section>
   </main>
   <SiteFooter />

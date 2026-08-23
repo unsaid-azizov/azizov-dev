@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/main.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
+import { revenueMapFormUrl } from "../../lib/conversion-links";
 
 export async function getStaticPaths() {
   const solutions = await getCollection("solutions");
@@ -20,7 +21,7 @@ const { Content } = await render(entry);
       <p class="eyebrow">Solution</p>
       <h1>{entry.data.headline}</h1>
       <p class="page-intro__lede">{entry.data.description}</p>
-      <a class="button" href="/revenue-systems-audit/">{entry.data.category === "revenue" ? "Map my revenue leaks" : "Discuss your AI requirements"}</a>
+      <a class="button" href={entry.data.category === "revenue" ? revenueMapFormUrl : "/revenue-systems-audit/"}>{entry.data.category === "revenue" ? "Map my revenue leaks" : "Discuss your AI requirements"}</a>
     </section>
     <section class="site-shell detail-grid">
       <article class="prose-custom">
