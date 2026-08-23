@@ -29,7 +29,7 @@ const { Content } = await render(entry);
             <iframe
               src={entry.data.demoLoomUrl.replace("/share/", "/embed/")}
               title={`${entry.data.title} demonstration`}
-              loading="lazy"
+              loading="eager"
               allow="fullscreen; picture-in-picture"
               allowfullscreen
             ></iframe>

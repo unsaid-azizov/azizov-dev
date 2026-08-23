@@ -32,7 +32,7 @@ const { Content } = await render(entry);
             <iframe
               src={entry.data.loomUrl.replace("/share/", "/embed/")}
               title={`${entry.data.client} workflow demonstration`}
-              loading="lazy"
+              loading="eager"
               allow="fullscreen; picture-in-picture"
               allowfullscreen
             ></iframe>

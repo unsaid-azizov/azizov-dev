@@ -1,48 +1,95 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/main.astro";
-import BlogSection from "../../components/BlogSection";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
 
-const allPosts = (await getCollection("blog"))
+const posts = (await getCollection("blog"))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const featuredPost = posts.find((post) => post.id === "inbox-router-manufacturing-2026") ?? posts[0];
+const remainingPosts = posts.filter((post) => post.id !== featuredPost?.id);
+
+const categoryLabels: Record<string, string> = {
+  hackathon: "Competition",
+  award: "Recognition",
+  talk: "Talk",
+  publication: "Publication",
+  article: "Article",
+};
+
+const featureMedia: Record<string, string> = {
+  "docker-mcp-toolkit-setup-2026": "/images/mcp-toolkit/mcp-toolkit-catalog.png",
+  "inbox-router-manufacturing-2026": "/images/inbox-router/slide-09.png",
+};
+
+const displayText = (value: string) => value.replace(/\s*[—–]\s*/g, ": ");
+const formatDate = (date: Date) => date.toLocaleDateString("en-US", {
+  month: "short",
+  year: "numeric",
+});
+
+const featuredImage = featuredPost && (featuredPost.data.coverImage ?? featureMedia[featuredPost.id]);
 ---
 
-<MainLayout title="Blog | Said Azizov">
-  <div class="min-h-screen bg-[#0e0e0e] text-[#e8e0d8]">
-    {/* Nav */}
-    <nav class="sticky top-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-6 py-4">
-        <a
-          href="/"
-          class="text-stone-400 hover:text-stone-200 transition-colors text-sm font-sans uppercase tracking-[0.15em]"
-        >
-          &larr; Home
-        </a>
+<MainLayout
+  title="Insights | Azizov HQ"
+  description="Writing on AI revenue systems, implementation decisions, and the engineering behind commercial AI."
+>
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main class="insights-page">
+    <section class="site-shell insights-hero">
+      <div class="insights-hero__intro">
+        <p class="eyebrow">Insights</p>
+        <h1>Practical writing about <em>AI that earns its keep.</em></h1>
+        <p>Deployment breakdowns, technical decisions, and lessons from building AI systems that move real work forward.</p>
       </div>
-    </nav>
 
-    {/* Content */}
-    <div class="py-24">
-      <header class="max-w-6xl mx-auto px-6 pb-12">
-        <h1 class="font-serif font-bold text-4xl md:text-5xl text-stone-100 mb-4">Writing</h1>
-        <p class="text-stone-400 font-sans text-lg max-w-2xl">Case studies, competition recaps, and thoughts on AI automation — from building diffusion models at Sberbank to deploying voice agents for UK businesses.</p>
-      </header>
-      <BlogSection
-        posts={allPosts.map((b) => ({
-          id: b.id,
-          title: b.data.title,
-          date: b.data.date.toISOString(),
-          category: b.data.category,
-          description: b.data.description,
-          coverImage: b.data.coverImage,
-          result: b.data.result,
-          emoji: b.data.emoji,
-          tags: b.data.tags,
-          link: b.data.link,
-        }))}
-        showViewAll={false}
-        client:load
-      />
-    </div>
-  </div>
+      {featuredPost && (
+        <a class="insights-featured" href={`/blog/${featuredPost.id}/`} data-pointer-card>
+          {featuredImage && (
+            <img
+              src={featuredImage}
+              alt=""
+              width="1280"
+              height="720"
+              loading="eager"
+              decoding="async"
+            />
+          )}
+          <div class="insights-featured__content">
+            <div class="insights-meta">
+              <span>{categoryLabels[featuredPost.data.category]}</span>
+              <time datetime={featuredPost.data.date.toISOString()}>{formatDate(featuredPost.data.date)}</time>
+            </div>
+            <h2>{displayText(featuredPost.data.title)}</h2>
+            <p>{displayText(featuredPost.data.description)}</p>
+            <span class="insights-read">Read article <b aria-hidden="true">↗</b></span>
+          </div>
+        </a>
+      )}
+    </section>
+
+    <section class="site-shell insights-archive" aria-labelledby="all-insights">
+      <div class="insights-archive__heading">
+        <h2 id="all-insights">More writing</h2>
+        <p>Case-study context, technical how-tos, and the background behind the work.</p>
+      </div>
+      <div class="insights-grid">
+        {remainingPosts.map((post) => (
+          <a class="insights-card" href={`/blog/${post.id}/`} data-pointer-card>
+            <div class="insights-meta">
+              <span>{categoryLabels[post.data.category]}</span>
+              <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+            </div>
+            <h3>{displayText(post.data.title)}</h3>
+            {post.data.result && <strong>{displayText(post.data.result)}</strong>}
+            <p>{displayText(post.data.description)}</p>
+            <span class="insights-read">Read article <b aria-hidden="true">↗</b></span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
 </MainLayout>
