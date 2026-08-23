@@ -1,0 +1,58 @@
+---
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/main.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+
+export async function getStaticPaths() {
+  const solutions = await getCollection("solutions");
+  return solutions.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<MainLayout title={`${entry.data.seoTitle ?? entry.data.title}${entry.data.category === "revenue" ? " for Home Services" : ""} | Azizov HQ`} description={entry.data.description}>
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell page-intro page-intro--detail">
+      <p class="eyebrow">Solution</p>
+      <h1>{entry.data.headline}</h1>
+      <p class="page-intro__lede">{entry.data.description}</p>
+      <a class="button" href="/revenue-systems-audit/">{entry.data.category === "revenue" ? "Map my revenue leaks" : "Discuss your AI requirements"}</a>
+    </section>
+    <section class="site-shell detail-grid">
+      <article class="prose-custom">
+        {entry.data.demoLoomUrl && (
+          <figure class="demo-media demo-media--wide">
+            <iframe
+              src={entry.data.demoLoomUrl.replace("/share/", "/embed/")}
+              title={`${entry.data.title} demonstration`}
+              loading="lazy"
+              allow="fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <figcaption>Live workflow demonstration</figcaption>
+          </figure>
+        )}
+        {entry.data.demoVideo && (
+          <figure class="solution-demo">
+            <video controls preload="metadata" playsinline aria-label="Booking agent demonstration">
+              <source src={entry.data.demoVideo} type="video/mp4" />
+              Your browser does not support this video.
+            </video>
+            <figcaption>Live booking-agent demonstration</figcaption>
+          </figure>
+        )}
+        <Content />
+      </article>
+      <aside class="detail-aside">
+        <p class="eyebrow">{entry.data.category === "revenue" ? "Built to connect" : "Built to control"}</p>
+        <p>{entry.data.category === "revenue" ? "Lead sources, CRM records, assignments, follow-up, and the next action are designed as one system." : "Data sources, permissions, deployment constraints, and operational workflows are designed as one usable system."}</p>
+        <a class="text-link" href="/case-studies/">See deployed systems <span aria-hidden="true">↗</span></a>
+      </aside>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

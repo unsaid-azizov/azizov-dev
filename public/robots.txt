@@ -26,6 +26,6 @@ User-agent: FacebookBot
 Allow: /
 
 # Sitemap
-Sitemap: https://azizov.dev/sitemap-index.xml
+Sitemap: https://azizovhq.com/sitemap-index.xml
 
-# LLM-friendly content: https://azizov.dev/llms.txt and https://azizov.dev/llms-full.txt
+# LLM-friendly content: https://azizovhq.com/llms.txt and https://azizovhq.com/llms-full.txt

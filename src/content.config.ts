@@ -52,6 +52,7 @@ const projects = defineCollection({
   loader: glob({ pattern: "**/project.md", base: "./src/content/projects" }),
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().optional(),
     description: z.string(),
     category: z.enum(["personal", "studio"]),
     tags: z.array(z.string()),
@@ -113,6 +114,47 @@ const blog = defineCollection({
   }),
 });
 
+const solutions = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/solutions" }),
+  schema: z.object({
+    title: z.string(),
+    seoTitle: z.string().optional(),
+    headline: z.string(),
+    description: z.string(),
+    summary: z.string(),
+    category: z.enum(["revenue", "private-ai"]).default("revenue"),
+    order: z.number(),
+    featured: z.boolean().default(true),
+    demoVideo: z.string().optional(),
+    demoLoomUrl: z.string().url().optional(),
+    relatedCaseStudies: z.array(z.string()).default([]),
+  }),
+});
+
+const caseStudies = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
+  schema: z.object({
+    client: z.string(),
+    industry: z.string(),
+    title: z.string(),
+    description: z.string(),
+    system: z.string(),
+    result: z.string(),
+    engagement: z.enum(["direct", "subcontract", "advisory"]).default("direct"),
+    metrics: z.array(z.object({
+      value: z.string(),
+      label: z.string(),
+      context: z.string(),
+    })),
+    demoVideo: z.string().optional(),
+    loomUrl: z.string().url().optional(),
+    featured: z.boolean().default(true),
+    order: z.number(),
+    gateTitle: z.string(),
+    gateDescription: z.string(),
+  }),
+});
+
 export const collections = {
   profile,
   experience,
@@ -120,4 +162,6 @@ export const collections = {
   hackathons,
   testimonials,
   blog,
+  solutions,
+  caseStudies,
 };

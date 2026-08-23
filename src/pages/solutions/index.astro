@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/main.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+
+const solutions = (await getCollection("solutions")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<MainLayout title="AI Revenue Systems for Home Services | Azizov HQ" description="AI systems for lead capture, estimating, CRM, follow-up, and reactivation in home-service businesses.">
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main class="site-shell page-intro">
+    <p class="eyebrow">Solutions</p>
+    <h1>Systems built around the moments where good demand gets lost.</h1>
+    <p class="page-intro__lede">Each system connects to your actual process. The goal is not to add another tool. It is to move more viable work from enquiry to booked job.</p>
+    <div class="solution-list">
+      {solutions.map((solution) => (
+        <a href={`/solutions/${solution.id}/`} data-pointer-card>
+          <span>0{solution.data.order}</span>
+          <div><h2>{solution.data.title}</h2><p>{solution.data.description}</p></div>
+          <b aria-hidden="true">↗</b>
+        </a>
+      ))}
+    </div>
+  </main>
+  <SiteFooter />
+</MainLayout>

@@ -1,0 +1,42 @@
+---
+import MainLayout from "../../layouts/main.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+
+const submitted = Astro.url.searchParams.get("submitted") === "1";
+const caseStudy = Astro.url.searchParams.get("case") ?? "";
+---
+
+<MainLayout title="Map My Revenue Leaks | Azizov HQ" description="Request a practical map of where your home-service business loses leads, estimates, follow-up, and repeat revenue.">
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main class="site-shell audit-page">
+    <div class="audit-page__intro">
+      <p class="eyebrow">Revenue systems audit</p>
+      <h1>Find the point where your demand stops turning into jobs.</h1>
+      <p>Tell us how leads currently arrive and where the process breaks. We will review the journey and recommend the first system worth building.</p>
+      <ul>
+        <li>Calls, forms, messages, and missed-lead handling</li>
+        <li>Estimating, job routing, and CRM handoff</li>
+        <li>Follow-up and old-lead reactivation</li>
+      </ul>
+    </div>
+    <div class="audit-form-wrap">
+      {submitted ? (
+        <div class="audit-success"><p class="eyebrow">Request received</p><h2>We have your details.</h2><p>We will review the information and reply with the next step.</p></div>
+      ) : (
+        <form class="audit-form" method="post" action="/api/leads">
+          <input type="hidden" name="formType" value={caseStudy ? "case_unlock" : "audit"} />
+          <input type="hidden" name="caseStudy" value={caseStudy} />
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <label>Name<input name="name" autocomplete="name" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required /></label>
+          <label>Company<input name="company" autocomplete="organization" required /></label>
+          <label>What are you trying to improve?<select name="challenge"><option value="">Select one</option><option>More booked jobs</option><option>Faster estimates</option><option>Missed calls and follow-up</option><option>CRM cleanup and automation</option><option>Reactivating old leads</option></select></label>
+          <button class="button" type="submit">Request my revenue map</button>
+          <p class="audit-form__note">No spam. We use this only to respond to your request.</p>
+        </form>
+      )}
+    </div>
+  </main>
+  <SiteFooter />
+</MainLayout>

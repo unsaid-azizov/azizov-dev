@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/main.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import CaseStudyCard from "../../components/CaseStudyCard.astro";
+import { FlickeringGrid } from "../../components/ui/flickering-grid";
+
+const caseStudies = (await getCollection("caseStudies")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<MainLayout title="AI Revenue System Case Studies | Azizov HQ" description="Deployed AI revenue systems for lead capture, qualification, CRM workflows, and operational follow-up.">
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell case-archive-hero">
+      <div class="case-archive-hero__field" aria-hidden="true">
+        <FlickeringGrid client:visible className="case-archive-hero__flicker" squareSize={2} gridGap={7} flickerChance={0.07} color="#dfff9d" maxOpacity={0.32} />
+        <span></span>
+      </div>
+      <div class="case-archive-hero__copy">
+        <p class="eyebrow">Impact archive</p>
+        <h1>Proof, not <em>promises.</em></h1>
+        <p>Deployment records for AI systems that capture, qualify, route, and recover commercial demand.</p>
+      </div>
+      <dl class="case-archive-hero__stats">
+        <div><dt>Additional work captured</dt><dd>~£10K</dd><small>Reported by Ekron in the first 3 months</small></div>
+        <div><dt>Operating-cost reduction</dt><dd>83%</dd><small>Voice-agent deployment</small></div>
+        <div><dt>Inboxes connected</dt><dd>16</dd><small>One routing workflow</small></div>
+      </dl>
+    </section>
+    <section class="site-shell case-archive-list">
+      <p class="eyebrow">Selected deployments</p>
+      <div class="case-grid">
+      {caseStudies.map((caseStudy) => (
+        <CaseStudyCard slug={caseStudy.id} client={caseStudy.data.client} industry={caseStudy.data.industry} title={caseStudy.data.title} result={caseStudy.data.result} metrics={caseStudy.data.metrics} />
+      ))}
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  slug: string;
+  client: string;
+  industry: string;
+  title: string;
+  result: string;
+  engagement?: "direct" | "subcontract" | "advisory";
+  metrics: Array<{ value: string; label: string }>;
+  href?: string;
+  linkLabel?: string;
+}
+
+const { slug, client, industry, title, result, engagement = "direct", metrics, href = `/case-studies/${slug}/`, linkLabel = "Read the case study" } = Astro.props;
+const engagementLabel = engagement === "advisory" ? "Advisory · " : engagement === "subcontract" ? "Delivery partner · " : "";
+---
+
+<a class="case-card" href={href} data-pointer-card>
+  <p class="eyebrow">{engagementLabel}{industry} · {client}</p>
+  <h3>{title}</h3>
+  <p class="case-card__result">{result}</p>
+  <div class="case-card__metrics">
+    {metrics.slice(0, 2).map((metric) => (
+      <div><strong>{metric.value}</strong><span>{metric.label}</span></div>
+    ))}
+  </div>
+  <span class="text-link">{linkLabel} <span aria-hidden="true">↗</span></span>
+</a>

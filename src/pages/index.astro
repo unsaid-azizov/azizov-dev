@@ -1,155 +1,160 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import MainLayout from "../layouts/main.astro";
-import { Hero } from "../components/Hero";
-import ProjectsSection from "../components/ProjectsSection";
-import ExperienceSection from "../components/ExperienceSection";
-import TestimonialsSection from "../components/TestimonialsSection";
-import BlogSection from "../components/BlogSection";
-import AboutSection from "../components/AboutSection";
-import ContactSection from "../components/ContactSection";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import { FlickeringGrid } from "../components/ui/flickering-grid";
 
-const profileEntries = await getCollection("profile");
-const profile = profileEntries[0]?.data;
-
-const experienceEntries = (await getCollection("experience"))
-  .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
-
-const projects = (await getCollection("projects"))
-  .filter((p) => p.data.featured)
+const solutions = (await getCollection("solutions"))
+  .filter((solution) => solution.data.featured && solution.data.category === "revenue")
   .sort((a, b) => a.data.order - b.data.order);
 
-const testimonials = (await getCollection("testimonials"))
-  .filter((t) => t.data.featured)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const privateAiSolutions = (await getCollection("solutions"))
+  .filter((solution) => solution.data.featured && solution.data.category === "private-ai")
+  .sort((a, b) => a.data.order - b.data.order);
 
-const blogPosts = (await getCollection("blog"))
-  .filter((b) => b.data.featured)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 6);
+const caseStudies = (await getCollection("caseStudies"))
+  .filter((caseStudy) => caseStudy.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
 
+const renderedCaseStudies = await Promise.all(
+  caseStudies.map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+);
 ---
 
 <MainLayout
-  title="Said Azizov | AI Automation Agency Founder"
-  description="Founder of AI automation agency. AI background from Kandinsky and X-FLUX (1M+ downloads). Now helping businesses automate through AI Agents and voice systems."
-  image="/images/me.jpg"
+  title="Azizov HQ — AI Revenue Systems"
+  description="Azizov HQ builds AI revenue systems that turn inbound demand into qualified, booked, profitable work for home-service businesses."
 >
-  <main class="scroll-smooth snap-y snap-mandatory overflow-y-scroll h-screen">
-    {/* Hero */}
-    <Hero
-      name="Said Azizov"
-      backgroundImage="/images/hero-bg.webp"
-      client:load
-    />
-
-    {/* Testimonials */}
-    <section
-      id="testimonials"
-      class="snap-start min-h-screen bg-[#0e0e0e] py-24 flex items-center"
-    >
-      <TestimonialsSection
-        testimonials={testimonials.map((t) => ({
-          id: t.id,
-          clientName: t.data.clientName,
-          company: t.data.company,
-          role: t.data.role,
-          quote: t.body ?? "",
-          rating: t.data.rating,
-          platform: t.data.platform,
-          handle: t.data.handle,
-          sourceUrl: t.data.sourceUrl,
-          avatar: t.data.avatar,
-        }))}
-        client:visible
-      />
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell hero-sales">
+      <div class="hero-sales__field" aria-hidden="true">
+        <FlickeringGrid client:visible className="hero-sales__flicker" squareSize={2} gridGap={7} flickerChance={0.09} color="#dfff9d" maxOpacity={0.52} />
+        <span></span>
+      </div>
+      <div class="hero-sales__copy">
+        <p class="eyebrow">AI revenue systems for home services</p>
+        <h1>Turn demand into <em>profitable jobs.</em></h1>
+        <p class="hero-sales__lede">We connect lead capture, estimating, CRM, follow-up, and reactivation into the operating system your team needs to grow.</p>
+        <div class="hero-sales__actions">
+          <a class="button" href="/revenue-systems-audit/">Map my revenue leaks</a>
+          <a class="button button--secondary" href="/case-studies/">See deployed systems</a>
+        </div>
+      </div>
+      <dl class="hero-sales__proof" aria-label="Selected deployment outcomes">
+        <div><dt>Additional work captured</dt><dd>~£10K</dd><small>Ekron Surveyors in the first 3 months</small></div>
+        <div><dt>Operating-cost reduction</dt><dd>83%</dd><small>Voice-agent deployment</small></div>
+        <div><dt>Qualified demand handled</dt><dd>100+</dd><small>Leads per day, MIX-STROY workflow</small></div>
+      </dl>
     </section>
 
-    {/* About */}
-    <section
-      id="about"
-      class="snap-start h-screen bg-[#1a1a1a] flex items-center justify-center"
-    >
-      <AboutSection
-        title={profile.title}
-        tagline={profile.tagline}
-        bio={profile.bio}
-        client:visible
-      />
+    <section class="site-shell section-space">
+      <p class="eyebrow">How we help</p>
+      <h2 class="section-title">One commercial system, built around where revenue gets lost.</h2>
+      <div class="solution-grid">
+        {solutions.map((solution) => (
+          <a class="solution-card" href={`/solutions/${solution.id}/`} data-pointer-card>
+            <span class="solution-card__number">0{solution.data.order}</span>
+            <h3>{solution.data.title}</h3>
+            <p>{solution.data.summary}</p>
+            <span class="text-link">Explore system <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
+      </div>
     </section>
 
-    {/* Projects */}
-    <section
-      id="projects"
-      class="snap-start min-h-screen bg-[#141414] py-24"
-    >
-      <ProjectsSection
-        projects={projects.map((p) => ({
-          id: p.id,
-          title: p.data.title,
-          description: p.data.description,
-          tags: p.data.tags,
-          category: p.data.category,
-          metrics: p.data.metrics,
-          links: p.data.links,
-          coverImage: p.data.coverImage ?? "",
-        }))}
-        client:visible
-      />
+    <section class="site-shell private-ai-panel">
+      <div>
+        <p class="eyebrow">Private AI systems</p>
+        <h2>AI for teams that cannot treat company knowledge like public data.</h2>
+        <p>For privacy-sensitive and enterprise environments, we also build controlled AI systems for internal operations—not just lead generation.</p>
+      </div>
+      <div class="private-ai-panel__solutions">
+        {privateAiSolutions.map((solution) => (
+          <a href={`/solutions/${solution.id}/`} data-pointer-card>
+            <span>0{solution.data.order}</span>
+            <h3>{solution.data.title}</h3>
+            <p>{solution.data.summary}</p>
+            <b aria-hidden="true">↗</b>
+          </a>
+        ))}
+      </div>
     </section>
 
-    {/* Experience */}
-    <section
-      id="experience"
-      class="snap-start min-h-screen bg-[#111111] py-24"
-    >
-      <ExperienceSection
-        experience={experienceEntries.map((e) => ({
-          company: e.data.company,
-          position: e.data.position,
-          startDate: e.data.startDate.toISOString(),
-          endDate: e.data.endDate?.toISOString() ?? null,
-          location: e.data.location,
-          type: e.data.type,
-          highlights: e.data.highlights,
-          skills: e.data.skills,
-        }))}
-        client:visible
-      />
+    <section class="site-shell section-space section-space--proof" id="case-studies">
+      <p class="eyebrow">Selected engagements</p>
+      <h2 class="section-title">The proof is in the operational detail.</h2>
+      <div class="case-grid">
+        {caseStudies.map((caseStudy) => (
+          <CaseStudyCard
+            slug={caseStudy.id}
+            client={caseStudy.data.client}
+            industry={caseStudy.data.industry}
+            title={caseStudy.data.title}
+            result={caseStudy.data.result}
+            engagement={caseStudy.data.engagement}
+            metrics={caseStudy.data.metrics}
+            href={`#${caseStudy.id}`}
+            linkLabel="Explore this deployment"
+          />
+        ))}
+      </div>
+      <div class="case-library">
+        {renderedCaseStudies.map(({ entry, Content }) => (
+          <article class="case-inline" id={entry.id}>
+            <div class="case-inline__summary">
+              <p class="eyebrow">{entry.data.engagement === "advisory" ? "Advisory · " : entry.data.engagement === "subcontract" ? "Delivery partner · " : ""}{entry.data.industry} · {entry.data.client}</p>
+              <h3>{entry.data.title}</h3>
+              <p>{entry.data.result}</p>
+            </div>
+            <div class="case-inline__detail">
+              <div class="case-inline__metrics">
+                {entry.data.metrics.map((metric) => <div><strong>{metric.value}</strong><span>{metric.label}</span><small>{metric.context}</small></div>)}
+              </div>
+              {entry.data.loomUrl && (
+                <figure class="demo-media demo-media--wide">
+                  <iframe
+                    src={entry.data.loomUrl.replace("/share/", "/embed/")}
+                    title={`${entry.data.client} workflow demonstration`}
+                    loading="lazy"
+                    allow="fullscreen; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                  <figcaption>Workflow demonstration</figcaption>
+                </figure>
+              )}
+              {entry.data.demoVideo && (
+                <figure class="demo-media">
+                  <video controls preload="metadata" playsinline aria-label={`${entry.data.client} demonstration`}>
+                    <source src={entry.data.demoVideo} type="video/mp4" />
+                    Your browser does not support this video.
+                  </video>
+                  <figcaption>Live workflow demonstration</figcaption>
+                </figure>
+              )}
+              <div class="prose-custom"><Content /></div>
+              <div class="case-inline__gate">
+                <p class="eyebrow">Implementation details</p>
+                <h4>{entry.data.gateTitle}</h4>
+                <p>{entry.data.gateDescription}</p>
+                <a class="text-link" href={`/revenue-systems-audit/?case=${entry.id}`}>Request the full build brief <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
-    {/* Contact */}
-    <section
-      id="contact"
-      class="snap-start h-screen bg-[#0a0a0a] flex items-center justify-center"
-    >
-      <ContactSection
-        email={profile.email}
-        social={profile.social}
-        client:visible
-      />
-    </section>
-
-    {/* Blog */}
-    <section
-      id="blog"
-      class="snap-start min-h-screen bg-[#080808] py-24"
-    >
-      <BlogSection
-        posts={blogPosts.map((b) => ({
-          id: b.id,
-          title: b.data.title,
-          date: b.data.date.toISOString(),
-          category: b.data.category,
-          description: b.data.description,
-          coverImage: b.data.coverImage,
-          result: b.data.result,
-          emoji: b.data.emoji,
-          tags: b.data.tags,
-          link: b.data.link,
-        }))}
-        client:visible
-      />
+    <section class="site-shell audit-banner">
+      <div>
+        <p class="eyebrow">Start with the revenue leak</p>
+        <h2>Not sure where AI makes commercial sense in your business?</h2>
+        <p>We will map the current lead journey, identify where demand is lost, and recommend the system worth building first.</p>
+      </div>
+      <a class="button" href="/revenue-systems-audit/">Map my revenue leaks</a>
     </section>
   </main>
+  <SiteFooter />
 </MainLayout>

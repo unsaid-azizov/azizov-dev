@@ -1,0 +1,15 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  context?: string;
+}
+
+const { value, label, context } = Astro.props;
+---
+
+<article class="proof-metric">
+  <p class="proof-metric__value">{value}</p>
+  <h3>{label}</h3>
+  {context && <p class="proof-metric__context">{context}</p>}
+</article>

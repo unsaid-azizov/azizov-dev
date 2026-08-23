@@ -1,0 +1,66 @@
+---
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/main.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import ProofMetric from "../../components/ProofMetric.astro";
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection("caseStudies");
+  return caseStudies.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<MainLayout title={`${entry.data.client} Case Study | Azizov HQ`} description={entry.data.description} type="article">
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell case-hero">
+      <p class="eyebrow">{entry.data.engagement === "advisory" ? "Advisory · " : entry.data.engagement === "subcontract" ? "Delivery partner · " : ""}{entry.data.industry} · {entry.data.client}</p>
+      <h1>{entry.data.title}</h1>
+      <p>{entry.data.description}</p>
+    </section>
+    <section class="site-shell case-metrics">
+      {entry.data.metrics.map((metric) => <ProofMetric value={metric.value} label={metric.label} context={metric.context} />)}
+    </section>
+    <section class="site-shell detail-grid">
+      <article class="prose-custom">
+        {entry.data.loomUrl && (
+          <figure class="demo-media demo-media--wide">
+            <iframe
+              src={entry.data.loomUrl.replace("/share/", "/embed/")}
+              title={`${entry.data.client} workflow demonstration`}
+              loading="lazy"
+              allow="fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <figcaption>Workflow demonstration</figcaption>
+          </figure>
+        )}
+        {entry.data.demoVideo && (
+          <figure class="demo-media">
+            <video controls preload="metadata" playsinline aria-label={`${entry.data.client} demonstration`}>
+              <source src={entry.data.demoVideo} type="video/mp4" />
+              Your browser does not support this video.
+            </video>
+            <figcaption>Live workflow demonstration</figcaption>
+          </figure>
+        )}
+        <Content />
+      </article>
+      <aside class="detail-aside">
+        <p class="eyebrow">{entry.data.engagement === "advisory" ? "Advisory engagement" : "System deployed"}</p>
+        <p>{entry.data.system}</p>
+      </aside>
+    </section>
+    <section class="site-shell case-gate">
+      <p class="eyebrow">Implementation detail</p>
+      <h2>{entry.data.gateTitle}</h2>
+      <p>{entry.data.gateDescription}</p>
+      <a class="button" href={`/revenue-systems-audit/?case=${entry.id}`}>Request the full build brief</a>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

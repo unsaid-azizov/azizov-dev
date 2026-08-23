@@ -2,8 +2,7 @@ import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 interface HeroProps {
-    name: string; 
-    backgroundImage: string; 
+    name: string;
 } 
 
 const navItems = [
@@ -19,19 +18,12 @@ function scrollTo(id: string) {
     document.querySelector(`#${id}`)?.scrollIntoView({ behavior: "smooth" });
 }
 
-export function Hero({ name, backgroundImage }: HeroProps) {
+export function Hero({ name }: HeroProps) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <section className="relative h-screen w-full overflow-hidden snap-start"> 
-            {/* Background Image */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat sepia-[0.4] saturate-[0.6] brightness-[0.65]"
-                style={{ backgroundImage: `url(${backgroundImage})` }}
-            /> 
-            
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-black/20 to-transparent" />
+        <section className="relative h-screen w-full overflow-hidden snap-start bg-[#0a0a0a]">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
             {/* Navigation — desktop */}
             <nav className="relative flex items-center justify-end px-8 py-6 mix-blend-difference">

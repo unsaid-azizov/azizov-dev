@@ -1,0 +1,22 @@
+---
+const { currentPath = "" } = Astro.props;
+
+const navigation = [
+  { href: "/solutions/", label: "Solutions" },
+  { href: "/case-studies/", label: "Case studies" },
+  { href: "/blog/", label: "Insights" },
+  { href: "/about/said-azizov/", label: "About" },
+];
+---
+
+<header class="site-header">
+  <div class="site-shell site-header__inner">
+    <a class="brand" href="/" aria-label="Azizov HQ home"><span class="brand__name">Azizov</span><span class="brand__hq">HQ</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      {navigation.map((item) => (
+        <a href={item.href} aria-current={currentPath.startsWith(item.href) ? "page" : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <a class="button button--compact" href="/revenue-systems-audit/">Map my revenue leaks</a>
+  </div>
+</header>

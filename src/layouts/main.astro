@@ -10,8 +10,8 @@ interface Props {
 
 const { 
   title, 
-  description = "Founder of HermesOps AI automation agency. AI background from Kandinsky and X-FLUX (1M+ downloads). Building AI agents, voice systems, and workflow automation for businesses in Dubai and the UK.",
-  image = "/images/hero-bg.webp",
+  description = "Azizov HQ builds AI revenue systems that turn inbound demand into qualified, booked, profitable work for home-service businesses.",
+  image = "/images/me.jpg",
   type = "website"
 } = Astro.props;
 
@@ -39,34 +39,48 @@ const breadcrumbSchema = {
   itemListElement: breadcrumbItems,
 };
 
-// WebSite schema for sitelinks search box
+const siteUrl = "https://azizovhq.com";
+const organizationId = `${siteUrl}/#organization`;
+const personId = `${siteUrl}/about/said-azizov/#person`;
+
 const webSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Said Azizov",
-  url: "https://azizovhq.com",
-  description: "AI Automation Agency Founder — helping businesses automate through AI Agents and voice systems.",
+  "@id": `${siteUrl}/#website`,
+  name: "Azizov HQ",
+  alternateName: "Said Azizov",
+  url: siteUrl,
+  description: "AI revenue systems for home-service businesses.",
 };
 
-// Fixed bio — never use the page description here, keeps Person entity consistent across all pages
-const PERSON_BIO = "AI engineer and founder of HermesOps, an AI automation agency. Background in deep learning, computer vision, and NLP — built Kandinsky diffusion models at Sberbank (NUST MISIS) and the X-FLUX ecosystem (1M+ downloads). Now building AI agents, voice systems, and workflow automation for businesses in Dubai and the UK.";
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": organizationId,
+  name: "Azizov HQ",
+  url: siteUrl,
+  email: "said@azizovhq.com",
+  description: "Azizov HQ builds AI revenue systems for home-service businesses, including lead capture, qualification, estimating, CRM, follow-up, and reactivation.",
+  founder: { "@id": personId },
+};
 
-// Structured Data (JSON-LD) for LLMs and search engines
+const PERSON_BIO = "AI engineer and founder of Azizov HQ. Said builds AI revenue systems for businesses and has a background in deep learning, computer vision, NLP, and open-source AI.";
+
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": personId,
   name: "Said Azizov",
-  jobTitle: "AI Automation Agency Founder",
+  jobTitle: "Founder and AI Engineer",
   description: PERSON_BIO,
-  url: "https://azizovhq.com",
+  url: `${siteUrl}/about/said-azizov/`,
   email: "said@azizovhq.com",
-  image: "https://azizovhq.com/images/me.jpg",
+  image: `${siteUrl}/images/me.jpg`,
   sameAs: [
     "https://github.com/unsaid-azizov",
     "https://www.linkedin.com/in/said-azizov/",
     "https://huggingface.co/stazizov",
     "https://x.com/said_azizow",
-    "https://hermesops.com",
     "https://t.me/astex_channel",
     "https://www.instagram.com/said.azizow/",
     "https://scholar.google.com/citations?user=ueDU47EAAAAJ&hl=en",
@@ -86,16 +100,8 @@ const personSchema = {
     "MCP Protocol",
     "On-Premise LLM Deployment"
   ],
-  worksFor: {
-    "@type": "Organization",
-    name: "HermesOps",
-    url: "https://hermesops.com"
-  },
-  alumniOf: [
-    { "@type": "Organization", name: "Sberbank (SberAI)" },
-    { "@type": "Organization", name: "NUST MISIS" },
-    { "@type": "Organization", name: "XLabs AI" }
-  ],
+  worksFor: { "@id": organizationId },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "NUST MISIS" },
   identifier: [
     {
       "@type": "PropertyValue",
@@ -123,8 +129,7 @@ const personSchema = {
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		<meta name="author" content="Said Azizov" />
-		<meta name="keywords" content="AI Developer, AI Agents, Voice Agents, Customer Support Automation, Business Automation, AI Consulting, LangChain, MCP" />
+		<meta name="author" content="Said Azizov, Azizov HQ" />
 		<link rel="canonical" href={canonical} />
 		
 		{/* Sitemap discovery */}
@@ -139,7 +144,7 @@ const personSchema = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
-		<meta property="og:site_name" content="Said Azizov" />
+		<meta property="og:site_name" content="Azizov HQ" />
 		<meta property="og:locale" content="en_US" />
 		
 		{/* Twitter / X */}
@@ -158,6 +163,7 @@ const personSchema = {
 		{/* Structured Data (JSON-LD) */}
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 		{breadcrumbItems.length > 1 && (
 			<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 		)}
@@ -166,17 +172,17 @@ const personSchema = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		
-		{/* Preconnect to Google Fonts */}
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		
-		{/* Load fonts with font-display=swap */}
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-		
-		{/* Preload critical resources */}
-		<link rel="preload" href="/images/hero-bg.webp" as="image" type="image/webp" />
 	</head>
 	<body>
 		<slot />
+		<script>
+			for (const card of document.querySelectorAll<HTMLElement>("[data-pointer-card]")) {
+				card.addEventListener("pointermove", (event) => {
+					const bounds = card.getBoundingClientRect();
+					card.style.setProperty("--pointer-x", `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
+					card.style.setProperty("--pointer-y", `${((event.clientY - bounds.top) / bounds.height) * 100}%`);
+				});
+			}
+		</script>
 	</body>
 </html>
