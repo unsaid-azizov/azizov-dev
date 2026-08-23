@@ -20,7 +20,7 @@ const categoryLabels: Record<string, string> = {
 
 const featureMedia: Record<string, string> = {
   "docker-mcp-toolkit-setup-2026": "/images/mcp-toolkit/mcp-toolkit-catalog.png",
-  "inbox-router-manufacturing-2026": "/images/inbox-router/slide-09.png",
+  "inbox-router-manufacturing-2026": "/images/blog/preview-email.jpg",
 };
 
 const displayText = (value: string) => value.replace(/\s*[—–]\s*/g, ": ");
@@ -30,6 +30,9 @@ const formatDate = (date: Date) => date.toLocaleDateString("en-US", {
 });
 
 const featuredImage = featuredPost && (featuredPost.data.coverImage ?? featureMedia[featuredPost.id]);
+const featuredImageDimensions = featuredPost?.id === "inbox-router-manufacturing-2026"
+  ? { width: 557, height: 389 }
+  : { width: 1280, height: 720 };
 ---
 
 <MainLayout
@@ -51,8 +54,8 @@ const featuredImage = featuredPost && (featuredPost.data.coverImage ?? featureMe
             <img
               src={featuredImage}
               alt=""
-              width="1280"
-              height="720"
+              width={featuredImageDimensions.width}
+              height={featuredImageDimensions.height}
               loading="eager"
               decoding="async"
             />
