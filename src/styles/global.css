@@ -1019,14 +1019,12 @@
 
 .insights-featured > img {
   width: 100%;
-  height: clamp(11rem, 18vw, 15rem);
+  height: auto;
   min-height: 0;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(1.05) brightness(0.78);
-  transition: filter 220ms ease, transform 360ms ease;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #080a08;
 }
-
-.insights-featured:hover > img { filter: saturate(0.95) contrast(1.05) brightness(0.9); transform: scale(1.015); }
 
 .insights-featured__content {
   display: flex;
@@ -1378,7 +1376,7 @@
   .case-archive-hero__stats { grid-template-columns: 1fr; gap: 1.25rem; padding-top: 1rem; }
   .insights-hero { grid-template-columns: 1fr; padding-top: 3.5rem; }
   .insights-hero__intro { padding-bottom: 0; }
-  .insights-featured > img { height: 12rem; max-height: none; }
+  .insights-featured > img { height: auto; max-height: none; }
   .insights-grid { grid-template-columns: 1fr; gap: 0; }
   .insights-card:nth-child(even) { border-left: 0; padding-left: 0; }
   .insights-card:nth-child(3n) { padding-inline: 0; background: none; }
