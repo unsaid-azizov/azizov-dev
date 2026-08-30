@@ -29,7 +29,7 @@ const catalogServices = services
             <ul>{service.pricing.features.map((feature) => <li>{feature}</li>)}</ul>
             {service.pricing.addOns.length > 0 && (
               <div class="service-price-card__addons">
-                <p>Add-ons</p>
+                <p>{service.pricing.addOnsLabel ?? 'Add-ons'}</p>
                 <ul>{service.pricing.addOns.map((addOn) => <li>{addOn}</li>)}</ul>
               </div>
             )}

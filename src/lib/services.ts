@@ -27,6 +27,7 @@ export type ServiceDefinition = {
     features: string[];
     timeline?: string;
     addOns: string[];
+    addOnsLabel?: string;
     terms: string;
   };
 };
@@ -236,9 +237,10 @@ export const services: ServiceDefinition[] = [
     relatedSolutions: ["private-ai-on-premise", "knowledge-base-rag"],
     pricing: {
       label: "From $2k/mo",
-      detail: "Personal technical guidance, delivery, and long-term support",
-      features: ["Goal and opportunity audit", "AI systems for growth, operations, or product", "Ongoing technical guidance and iteration"],
-      addOns: ["Corporate knowledge base and RAG", "CRM, internal tooling, or SaaS product work", "Private deployment and additional integrations"],
+      detail: "Strategy, build, and long-term support for your AI goals",
+      features: ["One senior technical partner from audit through support", "AI work tied directly to revenue and operating goals", "Move faster without hiring a full in-house AI team"],
+      addOnsLabel: "Examples of work",
+      addOns: ["Lead generation, inbound, and outbound systems", "Corporate knowledge bases and internal tools", "CRM workflows and customer-facing SaaS"],
       terms: "We define the goals, first delivery plan, and ongoing support rhythm together.",
     },
     testimonial: {
