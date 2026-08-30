@@ -7,13 +7,12 @@ const services = [
   { name: "AI Revenue Systems", slug: "ai-revenue-systems", desc: "Lead capture to booked job pipeline." },
   { name: "Private AI Systems", slug: "private-ai-systems", desc: "Enterprise-controlled internal AI." },
   { name: "Lead Capture & Estimating", slug: "lead-capture-estimating", desc: "Demand intake and quote automation." },
-  { name: "Reactivation & Follow-up", slug: "reactivation-follow-up", desc: "Re-engagement and retention flows." }
+  { name: "Reactivation & Follow-up", slug: "reactivation-follow-up", desc: "Re-engagement and retention flows." },
 ];
 ---
-<MainLayout title="Services — Azizov HQ" description="AI revenue services: Voice Agents, Chatbots, CRM Automation, Private AI, Lead Capture, Reactivation.">
+<MainLayout title="Services — Azizov HQ" description="AI services: Voice Agents, Chatbots, CRM Automation, Revenue Systems, Private AI, Lead Capture, Reactivation.">
   <h1>Services</h1>
   <ul>
-    {services.map(s => <li><a href={`/services/${s.slug}`}>{s.name}</a> — {s.desc}</li>)}
+    {services.map(s => <li><a href={`/services/${s.slug}/`}>{s.name}</a> — {s.desc}</li>)}
   </ul>
-  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","serviceType":"AI Services","provider":{"@type":"Person","name":"Said Azizov"},"areaServed":"Worldwide"})} />
 </MainLayout>
