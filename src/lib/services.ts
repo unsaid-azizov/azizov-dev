@@ -24,7 +24,7 @@ export type ServiceDefinition = {
     label: string;
     detail: string;
     features: string[];
-    timeline: string;
+    timeline?: string;
     addOns: string[];
     terms: string;
   };
@@ -236,7 +236,6 @@ export const services: ServiceDefinition[] = [
       label: "Scoped build",
       detail: "Build the workflow only your business has",
       features: ["Workflow, tools, and human-handoff design", "Required integrations and knowledge access", "Testing against real operating scenarios"],
-      timeline: "Typical build: 3–6 weeks",
       addOns: ["RAG and source-linked answers", "Private or on-prem deployment", "Custom settings UI and extra integrations"],
       terms: "A short discovery defines the delivery plan before the build starts.",
     },

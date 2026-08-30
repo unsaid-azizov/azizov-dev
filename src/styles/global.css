@@ -502,7 +502,7 @@
   min-height: 23rem;
   flex-direction: column;
   border: 1px solid var(--border);
-  background: #101310;
+  background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 10%, transparent), transparent 36%), #101310;
   color: inherit;
   padding: 1.5rem;
   text-decoration: none;
@@ -1614,6 +1614,8 @@
   padding: clamp(1.1rem, 1.5vw, 1.35rem);
 }
 .service-price-card--chatbots h2 { max-width: none; font-size: clamp(1.08rem, 1.25vw, 1.4rem); white-space: nowrap; }
+.service-price-card--chatbots { background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 16%, transparent), transparent 42%), #101310; }
+.service-price-card--ai-voice-agents { border-color: rgba(157, 135, 255, 0.46); background: radial-gradient(circle at 100% 0, rgba(137, 116, 255, 0.22), transparent 58%), linear-gradient(145deg, #171222, #101310 70%); }
 .service-price-card--custom-ai-agent-development { border-color: rgba(157, 135, 255, 0.46); background: radial-gradient(circle at 100% 0, rgba(137, 116, 255, 0.26), transparent 58%), linear-gradient(145deg, #171222, #101310 70%); }
 .service-price-card--ai-revenue-systems { border-color: #c7ff3f; background: #c7ff3f; box-shadow: 0 1rem 3rem rgba(199, 255, 63, 0.12); }
 .service-price-card--ai-revenue-systems .service-price-card__label,

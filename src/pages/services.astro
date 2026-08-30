@@ -25,7 +25,7 @@ const catalogServices = services
             <p class="service-price-card__label">{service.pricing.detail}</p>
             <h2>{service.name}</h2>
             <div class="service-price-card__price"><strong>{service.pricing.label}</strong></div>
-            <p class="service-price-card__timeline">{service.pricing.timeline}</p>
+            {service.pricing.timeline && <p class="service-price-card__timeline">{service.pricing.timeline}</p>}
             <ul>{service.pricing.features.map((feature) => <li>{feature}</li>)}</ul>
             {service.pricing.addOns.length > 0 && (
               <div class="service-price-card__addons">

@@ -70,7 +70,7 @@ const serviceSchema = {
       <div class="service-package__intro">
         <p class="eyebrow">Starting package</p>
         <h2 id="package-heading">{service.pricing.label}</h2>
-        <p>{service.pricing.detail}. {service.pricing.timeline}.</p>
+        <p>{service.pricing.detail}{service.pricing.timeline && ` · ${service.pricing.timeline}`}.</p>
       </div>
       <div class="service-package__scope">
         <div>
