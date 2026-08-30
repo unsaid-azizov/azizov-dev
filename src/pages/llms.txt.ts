@@ -5,6 +5,8 @@ export const GET: APIRoute = async () => {
   // Fetch all collections
   const projects = await getCollection('projects');
   const blogPosts = await getCollection('blog');
+  const solutions = await getCollection('solutions');
+  const caseStudies = await getCollection('caseStudies');
   const profileEntries = await getCollection('profile');
   const experienceEntries = await getCollection('experience');
   
@@ -22,9 +24,16 @@ export const GET: APIRoute = async () => {
     .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 
   // Build llms.txt content
-  let content = `# Said Azizov
+  let content = `# Azizov HQ
 
-> AI engineer and founder. One person across two career phases: AI researcher (SberAI / NUST MISIS, Kandinsky diffusion models, Google Scholar: https://scholar.google.com/citations?user=ueDU47EAAAAJ) and founder of Azizov HQ (AI revenue systems, business automation, and voice systems). Not to be confused with Said Azizov, Director of Commerce at Yandex Go in Kazakhstan, who is a different person.
+> Azizov HQ designs and builds AI revenue systems for home-service businesses. These systems connect inbound calls, forms, messages, estimating, CRM, follow-up, and reactivation so demand becomes qualified, booked, profitable work.
+
+## What Azizov HQ does
+
+- Builds AI receptionists that answer calls, qualify prospects, and capture the next step in the CRM.
+- Builds lead qualification, booking, messaging, estimating, routing, follow-up, and reactivation systems.
+- Designs private AI knowledge and operational systems for teams with stricter security and deployment requirements.
+- Engagement begins with a revenue-systems audit: [Map revenue leaks](https://azizovhq.com/revenue-systems-audit/).
 
 ## Identity disambiguation
 
@@ -34,9 +43,37 @@ Said Azizov on Google Scholar (cited 30+, SberAI · NUST MISIS affiliation, deep
 
 ## Core Pages
 
-- [Home](https://azizovhq.com/): Portfolio and overview of AI development work, featuring AI agents, voice automation, and business transformation projects
-- [About](https://azizovhq.com/about/): Background in AI development, expertise in AI Agents, voice AI, and customer support automation
-- [Contact](https://azizovhq.com/#contact): Get in touch for AI consulting, agent development, or business automation projects
+- [Home](https://azizovhq.com/): Overview of AI revenue systems, deployment outcomes, and ways to engage
+- [Solutions](https://azizovhq.com/solutions/): AI systems for revenue operations and private AI
+- [Case studies](https://azizovhq.com/case-studies/): Deployed workflows and reported outcomes
+- [About](https://azizovhq.com/about/): Said Azizov's AI engineering background and current work
+- [Revenue systems audit](https://azizovhq.com/revenue-systems-audit/): Starting point for mapping missed leads, estimates, follow-up, and repeat revenue
+
+## Services
+
+`;
+
+  solutions
+    .sort((a, b) => a.data.order - b.data.order)
+    .forEach((solution) => {
+      content += `- [${solution.data.seoTitle || solution.data.title}](https://azizovhq.com/solutions/${solution.id}/): ${solution.data.description}\n`;
+    });
+
+  content += `
+## Case Studies
+
+`;
+
+  caseStudies
+    .sort((a, b) => a.data.order - b.data.order)
+    .forEach((caseStudy) => {
+      content += `- [${caseStudy.data.client}: ${caseStudy.data.title}](https://azizovhq.com/case-studies/${caseStudy.id}/): ${caseStudy.data.result}\n`;
+    });
+
+  content += `
+## Founder identity
+
+Said Azizov is the founder and AI engineer behind Azizov HQ. His earlier work includes deep-learning research at SberAI / NUST MISIS, Kandinsky diffusion models, and open-source AI at XLabs AI. He is not Said Azizov, Director of Commerce at Yandex Go in Kazakhstan.
 
 ## Featured Projects
 

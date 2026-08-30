@@ -62,6 +62,20 @@ const organizationSchema = {
   email: "said@azizovhq.com",
   description: "Azizov HQ builds AI revenue systems for home-service businesses, including lead capture, qualification, estimating, CRM, follow-up, and reactivation.",
   founder: { "@id": personId },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "said@azizovhq.com",
+    availableLanguage: "English",
+  },
+  knowsAbout: [
+    "AI revenue systems",
+    "Lead qualification",
+    "AI receptionists",
+    "CRM automation",
+    "Sales follow-up automation",
+    "Private AI systems",
+  ],
 };
 
 const PERSON_BIO = "AI engineer and founder of Azizov HQ. Said builds AI revenue systems for businesses and has a background in deep learning, computer vision, NLP, and open-source AI.";
@@ -102,6 +116,19 @@ const personSchema = {
   ],
   worksFor: { "@id": organizationId },
   alumniOf: { "@type": "CollegeOrUniversity", name: "NUST MISIS" },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Services by Said Azizov",
+    itemListElement: [
+      {"@type":"Offer","name":"AI Voice Agents","itemOffered":{"@type":"Service","name":"AI Voice Agents"}},
+      {"@type":"Offer","name":"Chatbots","itemOffered":{"@type":"Service","name":"Chatbots"}},
+      {"@type":"Offer","name":"Inbox & CRM Automation","itemOffered":{"@type":"Service","name":"Inbox & CRM Automation"}},
+      {"@type":"Offer","name":"AI Revenue Systems","itemOffered":{"@type":"Service","name":"AI Revenue Systems"}},
+      {"@type":"Offer","name":"Private AI Systems","itemOffered":{"@type":"Service","name":"Private AI Systems"}},
+      {"@type":"Offer","name":"Lead Capture & Estimating","itemOffered":{"@type":"Service","name":"Lead Capture & Estimating"}},
+      {"@type":"Offer","name":"Reactivation & Follow-up","itemOffered":{"@type":"Service","name":"Reactivation & Follow-up"}}
+    ]
+  },
   identifier: [
     {
       "@type": "PropertyValue",
@@ -189,3 +216,7 @@ const personSchema = {
 		</script>
 	</body>
 </html>
+<!-- Persona schema: Said Azizov - AI Voice Agents, Chatbots, Inbox & CRM Automation -->
+<script type="application/ld+json">
+{ "@context":"https://schema.org", "@type":"Person", "name":"Said Azizov", "url":"https://azizovhq.com", "sameAs":["https://www.upwork.com/freelancers/azizov"], "jobTitle":"AI Revenue Systems Engineer", "worksFor":{"@type":"Organization","name":"Azizov HQ"}, "knowsAbout":["AI Voice Agents","Chatbots","CRM Automation","Answer Engine Optimization"] }
+</script>

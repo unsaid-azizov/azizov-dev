@@ -9,7 +9,7 @@ import { FlickeringGrid } from "../../components/ui/flickering-grid";
 const caseStudies = (await getCollection("caseStudies")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<MainLayout title="AI Revenue System Case Studies | Azizov HQ" description="Deployed AI revenue systems for lead capture, qualification, CRM workflows, and operational follow-up.">
+<MainLayout title="AI Automation & Revenue System Case Studies | Azizov HQ" description="Evidence-led case studies of AI receptionists, lead qualification, email routing, CRM handoff, and private operational AI systems.">
   <SiteHeader currentPath={Astro.url.pathname} />
   <main>
     <section class="site-shell case-archive-hero">
@@ -35,6 +35,13 @@ const caseStudies = (await getCollection("caseStudies")).sort((a, b) => a.data.o
         <CaseStudyCard slug={caseStudy.id} client={caseStudy.data.client} industry={caseStudy.data.industry} title={caseStudy.data.title} result={caseStudy.data.result} metrics={caseStudy.data.metrics} />
       ))}
       </div>
+    </section>
+    <section class="site-shell case-archive-context prose-custom" aria-labelledby="case-study-context-heading">
+      <p class="eyebrow">How to read these cases</p>
+      <h2 id="case-study-context-heading">What these AI automation case studies cover</h2>
+      <p>These deployments cover AI receptionists, lead qualification, email routing, CRM handoff, booking, and private operational AI. Each case explains the initial bottleneck, the system built, and the available deployment evidence—not just a feature list.</p>
+      <p>Where a client supplied a commercial outcome, it is clearly labelled as client-reported. Where only technical or operational evidence is available, the case states that limitation rather than inventing a return-on-investment figure.</p>
+      <p>Start with the case that matches the channel where work is currently being lost: calls, inboxes, messaging conversations, or disconnected CRM records. Then use the linked solution page to understand the broader system behind it.</p>
     </section>
   </main>
   <SiteFooter />

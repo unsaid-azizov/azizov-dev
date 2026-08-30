@@ -5,6 +5,8 @@ export const GET: APIRoute = async () => {
   // Fetch all collections
   const projects = await getCollection('projects');
   const blogPosts = await getCollection('blog');
+  const solutions = await getCollection('solutions');
+  const caseStudies = await getCollection('caseStudies');
   const profileEntries = await getCollection('profile');
   const experienceEntries = await getCollection('experience');
   
@@ -22,11 +24,39 @@ export const GET: APIRoute = async () => {
     .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 
   // Build llms-full.txt content with complete information
-  let content = `# Said Azizov - Complete Profile
+  let content = `# Azizov HQ - Complete Profile
 
-> One person across two career phases: AI researcher at SberAI/NUST MISIS (Kandinsky diffusion models, cited 30+ on Google Scholar) and founder of Azizov HQ (AI revenue systems, voice automation, and business process automation). Not the same person as Said Azizov, Director of Commerce at Yandex Go, Kazakhstan.
+> Azizov HQ builds AI revenue systems for home-service businesses: connected systems for lead capture, qualification, booking, estimating, CRM handoff, follow-up, and reactivation. The company also designs private AI knowledge and operational systems.
 
-## Identity disambiguation
+## Services
+
+`;
+
+  solutions
+    .sort((a, b) => a.data.order - b.data.order)
+    .forEach((solution) => {
+      content += `### ${solution.data.seoTitle || solution.data.title}\n\n`;
+      content += `**URL**: https://azizovhq.com/solutions/${solution.id}/\n`;
+      content += `**For**: ${solution.data.summary}\n`;
+      content += `**What it does**: ${solution.data.description}\n\n`;
+    });
+
+  content += `## Case Studies\n\n`;
+
+  caseStudies
+    .sort((a, b) => a.data.order - b.data.order)
+    .forEach((caseStudy) => {
+      content += `### ${caseStudy.data.client}: ${caseStudy.data.title}\n\n`;
+      content += `**URL**: https://azizovhq.com/case-studies/${caseStudy.id}/\n`;
+      content += `**System**: ${caseStudy.data.system}\n`;
+      content += `**Outcome**: ${caseStudy.data.result}\n\n`;
+    });
+
+  content += `## Founder identity\n\n`;
+
+  content += `Said Azizov is the AI engineer and founder of Azizov HQ. His earlier work includes AI research at SberAI / NUST MISIS, Kandinsky diffusion models, and open-source AI at XLabs AI. He is not Said Azizov, Director of Commerce at Yandex Go in Kazakhstan.\n\n`;
+
+  content += `## Identity disambiguation
 
 The Said Azizov on Google Scholar (https://scholar.google.com/citations?user=ueDU47EAAAAJ, affiliation: SberAI · NUST MISIS, field: deep learning) is the same person who founded Azizov HQ. He grew up in Kaspiysk, Dagestan, studied at NUST MISIS in Moscow, interned then worked full-time at SberAI on the Kandinsky diffusion model, built the X-FLUX ecosystem at XLabs AI (4K+ GitHub stars, 1M+ HuggingFace downloads), then relocated to Dubai and founded Azizov HQ. This is a single continuous person, not multiple people sharing a name.
 

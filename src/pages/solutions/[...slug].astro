@@ -12,9 +12,57 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const relatedCaseStudies = (await getCollection("caseStudies"))
+  .filter((caseStudy) => entry.data.relatedCaseStudies.includes(caseStudy.id))
+  .sort((a, b) => a.data.order - b.data.order);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const serviceName = entry.data.seoTitle ?? entry.data.title;
+const organizationId = "https://azizovhq.com/#organization";
+
+// These answers are rendered on the page as well as structured for parsers.
+// Keeping one source of truth prevents schema from drifting from visible copy.
+const quickAnswers = [
+  {
+    question: `What is ${serviceName}?`,
+    answer: entry.data.description,
+  },
+  {
+    question: `Who is ${serviceName} for?`,
+    answer: entry.data.summary,
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: serviceName,
+      description: entry.data.description,
+      url: canonical,
+      provider: { "@id": organizationId },
+      serviceType: serviceName,
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: entry.data.category === "revenue" ? "Home-service businesses" : "Privacy-sensitive, regulated, and enterprise teams",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: quickAnswers.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
+    },
+  ],
+};
 ---
 
 <MainLayout title={`${entry.data.seoTitle ?? entry.data.title}${entry.data.category === "revenue" ? " for Home Services" : ""} | Azizov HQ`} description={entry.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <SiteHeader currentPath={Astro.url.pathname} />
   <main>
     <section class="site-shell page-intro page-intro--detail">
@@ -47,6 +95,33 @@ const { Content } = await render(entry);
           </figure>
         )}
         <Content />
+
+        <section class="answer-section" aria-labelledby="quick-answers-heading">
+          <h2 id="quick-answers-heading">Quick answers</h2>
+          {quickAnswers.map(({ question, answer }) => (
+            <div class="answer-section__item">
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </div>
+          ))}
+        </section>
+
+        {relatedCaseStudies.length > 0 && (
+          <section class="related-proof" aria-labelledby="related-proof-heading">
+            <p class="eyebrow">Deployment evidence</p>
+            <h2 id="related-proof-heading">Related case studies</h2>
+            <div class="related-proof__list">
+              {relatedCaseStudies.map((caseStudy) => (
+                <a href={`/case-studies/${caseStudy.id}/`}>
+                  <span>{caseStudy.data.industry} · {caseStudy.data.client}</span>
+                  <h3>{caseStudy.data.title}</h3>
+                  <p>{caseStudy.data.result}</p>
+                  <b>Read case study ↗</b>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
       </article>
       <aside class="detail-aside">
         <p class="eyebrow">{entry.data.category === "revenue" ? "Built to connect" : "Built to control"}</p>

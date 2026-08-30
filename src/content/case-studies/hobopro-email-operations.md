@@ -1,31 +1,37 @@
 ---
 client: "Hobopro"
 industry: "Commercial operations"
-title: "From one shared inbox to a six-department email operation."
-description: "Hobopro began with one inbox and no routing infrastructure. We mapped how each department needed to work, set up six dedicated inboxes, then installed AI monitoring and routing on top."
-system: "Departmental email infrastructure with AI classification, monitoring, routing, and operational visibility."
-result: "A single unstructured inbox became a six-department operating system with clear ownership and automated email triage."
+title: "How HoboPro built corporate email infrastructure, then automated the inbox."
+description: "HoboPro first needed a usable corporate email foundation. After the infrastructure was in place, an AI routing and classification layer was deployed to organise incoming work."
+system: "Corporate email setup combined with AI email classification and routing, using the same operational pattern proven in multi-inbox manufacturing deployments."
+result: "A repeatable implementation that starts with reliable email infrastructure, then adds AI-based routing and classification instead of bolting automation onto an unstructured inbox."
 metrics:
-  - value: "1 → 6"
-    label: "department inboxes"
-    context: "A single shared email address became a purpose-built department setup."
+  - value: "2 layers"
+    label: "infrastructure and automation"
+    context: "Corporate email was set up before the AI routing layer was deployed."
   - value: "AI"
-    label: "email monitor"
-    context: "Incoming mail is classified, monitored, and routed to the right team."
+    label: "classification and routing"
+    context: "Incoming mail is organised by purpose and routed into the right workflow."
 featured: true
 order: 5
-gateTitle: "See the Hobopro operating model"
-gateDescription: "Request the department map, mailbox design, and AI routing logic used to turn a single inbox into an operating layer."
+gateTitle: "See the HoboPro deployment approach"
+gateDescription: "Request the infrastructure checklist and routing design used to build an operational email system from the ground up."
 ---
 
-## The problem
+## The problem: there was no email operating layer to automate
 
-Hobopro had one shared inbox and no operational structure around it. Messages for different departments arrived in the same place, leaving routing and ownership to manual judgement.
+HoboPro needed more than an inbox automation tool. The business first needed corporate email infrastructure that could support clear ownership, reliable communication, and future automation. Adding an AI layer before that foundation exists simply moves the disorder into another tool.
 
-## What we built
+## What we built: the foundation before the workflow
 
-First, we mapped the work each department needed to receive and created six dedicated inboxes. Then we deployed an AI email monitor that classifies incoming mail, makes the routing visible, and sends the right work to the right department.
+We set up HoboPro's corporate email infrastructure, then deployed an AI email automation layer on top. The routing system classifies incoming mail by purpose and sends it into the appropriate operational workflow rather than leaving every message for manual sorting.
 
-## What changed
+This followed the same routing and classification pattern used in prior multi-inbox deployments: establish the channels and ownership model first, then give the system clear rules for which messages belong where.
 
-Instead of adding an AI layer onto a messy setup, the business now has the infrastructure required to operate it: clear department channels, clear ownership, and an automated routing layer from day one.
+## Why infrastructure comes first
+
+Email automation is most useful when it has a stable system to act on. That means defined mailboxes, accountable owners, and a clear idea of which messages require action, which should be routed, and which are noise. The technical implementation can use cloud or local models depending on the organisation's privacy requirements; the operating design comes before either choice.
+
+## What this case demonstrates
+
+HoboPro is evidence that the inbox-routing pattern can be deployed beyond its original environment, including for a business that needs the underlying corporate email system built from scratch. It is not presented as a quantified time-saving or revenue case because a verified outcome measurement was not available at publication.

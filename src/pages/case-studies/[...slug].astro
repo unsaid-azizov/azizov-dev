@@ -12,9 +12,26 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#case-study`,
+  headline: entry.data.title,
+  description: entry.data.description,
+  url: canonical,
+  mainEntityOfPage: canonical,
+  author: { "@id": "https://azizovhq.com/about/#person" },
+  publisher: { "@id": "https://azizovhq.com/#organization" },
+  about: {
+    "@type": "Service",
+    name: entry.data.system,
+  },
+};
 ---
 
-<MainLayout title={`${entry.data.client} Case Study | Azizov HQ`} description={entry.data.description} type="article">
+<MainLayout title={`${entry.data.title} | Azizov HQ`} description={entry.data.description} type="article">
+  <script type="application/ld+json" set:html={JSON.stringify(caseStudySchema)} />
   <SiteHeader currentPath={Astro.url.pathname} />
   <main>
     <section class="site-shell case-hero">

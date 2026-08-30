@@ -46,15 +46,12 @@ const blogPostingSchema = {
   dateModified: date.toISOString(),
   url: canonical,
   author: {
-    "@type": "Person",
-    name: "Said Azizov",
-    url: "https://azizovhq.com",
+    "@id": "https://azizovhq.com/about/#person",
   },
   publisher: {
-    "@type": "Person",
-    name: "Said Azizov",
-    url: "https://azizovhq.com",
+    "@id": "https://azizovhq.com/#organization",
   },
+  image: new URL(`/og/${post.id}.png`, Astro.site).href,
   keywords: tags.join(", "),
   mainEntityOfPage: canonical,
 };
