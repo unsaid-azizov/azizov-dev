@@ -4,7 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { services } from '../lib/services';
 
-const catalogOrder = ['chatbots', 'ai-voice-agents', 'custom-ai-agent-development', 'ai-revenue-systems'];
+const catalogOrder = ['ai-revenue-systems', 'chatbots', 'ai-voice-agents', 'custom-ai-agent-development'];
 const catalogServices = services
   .filter((service) => service.showInCatalog !== false)
   .sort((a, b) => catalogOrder.indexOf(a.slug) - catalogOrder.indexOf(b.slug));
@@ -50,8 +50,8 @@ const catalogServices = services
               <p class="service-price-card__terms">{service.pricing.terms}</p>
               {service.supportingLink && <a class="text-link service-price-card__case-link" href={service.supportingLink.href}>{service.supportingLink.label} <span aria-hidden="true">↗</span></a>}
               <div class="service-price-card__actions">
-                <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`} target={service.ctaHref?.startsWith('http') ? '_blank' : undefined} rel={service.ctaHref?.startsWith('http') ? 'noreferrer' : undefined}>{service.ctaLabel ?? 'See details'}</a>
                 {service.secondaryCta && <a class="button button--secondary service-price-card__action" href={service.secondaryCta.href} target="_blank" rel="noreferrer">{service.secondaryCta.label}</a>}
+                <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`} target={service.ctaHref?.startsWith('http') ? '_blank' : undefined} rel={service.ctaHref?.startsWith('http') ? 'noreferrer' : undefined}>{service.ctaLabel ?? 'See details'}</a>
               </div>
             </div>
           </article>
