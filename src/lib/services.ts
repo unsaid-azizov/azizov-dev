@@ -18,6 +18,7 @@ export type ServiceDefinition = {
   complementaryWith?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  supportingLink?: { label: string; href: string };
   testimonial?: { quote: string; cardQuote?: string; name: string; role: string; sourceUrl: string };
   pricing: {
     label: string;
@@ -66,7 +67,7 @@ export const services: ServiceDefinition[] = [
       label: "From $300/mo",
       detail: "Stop missing inbound calls",
       features: ["Inbound receptionist, call summaries, and handoff", "Custom dialling and routing workflows", "Different voices and tailored call scripts", "Calendar, HubSpot, GoHighLevel, or CRM integration"],
-      timeline: "Typical launch: 1–2 weeks",
+      timeline: "Typical launch: 1–8 weeks",
       addOns: ["SMS confirmations and reminders", "After-hours or overflow-only handling", "Extra phone lines or languages", "Lead Qual & Nurturing handoff"],
       terms: "One-time launch work and call usage are scoped from your call volume and integrations.",
     },
@@ -74,8 +75,8 @@ export const services: ServiceDefinition[] = [
   },
   {
     slug: "chatbots",
-    name: "Lead Qual & Nurturing",
-    seoTitle: "AI Lead Qualification & Nurturing Systems",
+    name: "Lead Qual and nurturing",
+    seoTitle: "AI Lead Qualification and Nurturing Systems",
     description: "AI lead qualification turns website, messaging, and social enquiries into qualified opportunities with useful context for the next person.",
     headline: "Turn the first enquiry into a qualified opportunity.",
     lede: "The system asks the practical questions that shape a quote or booking, uses approved business information, and moves the enquiry into the right human workflow when needed. It can run in web chat or the messaging channels where customers already contact you.",
@@ -108,7 +109,7 @@ export const services: ServiceDefinition[] = [
       label: "From $200/mo",
       detail: "Turn enquiries into qualified opportunities",
       features: ["Lead qualification and nurture logic", "Approved knowledge and conversation tuning", "Qualified handoff and follow-up triggers"],
-      timeline: "Typical launch: 1–2 weeks",
+      timeline: "Typical launch: 1–8 weeks",
       addOns: ["RAG knowledge base", "Multi-step quote intake", "Live data, warehouse, or stock connections"],
       terms: "One-time launch work and message usage are scoped from the selected channels and data sources.",
     },
@@ -198,6 +199,7 @@ export const services: ServiceDefinition[] = [
     },
     ctaLabel: "Get free audit",
     ctaHref: "/revenue-systems-audit/",
+    supportingLink: { label: "See the case studies", href: "/case-studies/" },
   },
   {
     slug: "custom-ai-agent-development",

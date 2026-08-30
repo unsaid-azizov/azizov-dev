@@ -47,6 +47,7 @@ const catalogServices = services
               </blockquote>
             )}
             <p class="service-price-card__terms">{service.pricing.terms}</p>
+            {service.supportingLink && <a class="text-link service-price-card__case-link" href={service.supportingLink.href}>{service.supportingLink.label} <span aria-hidden="true">↗</span></a>}
             <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`}>{service.ctaLabel ?? 'See details'}</a>
           </article>
         ))}
