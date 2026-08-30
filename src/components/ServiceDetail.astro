@@ -14,7 +14,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const caseStudies = (await getCollection("caseStudies"))
   .filter((caseStudy) => service.relatedCaseStudies.includes(caseStudy.id))
   .sort((a, b) => service.relatedCaseStudies.indexOf(a.id) - service.relatedCaseStudies.indexOf(b.id));
-const relatedServices = services.filter((item) => item.slug !== service.slug).slice(0, 3);
+const relatedServices = services
+  .filter((item) => item.slug !== service.slug && item.showInCatalog !== false)
+  .slice(0, 3);
 const serviceSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -62,6 +64,25 @@ const serviceSchema = {
       <div class="site-shell proof-strip__grid">
         {service.proof.map((metric) => <ProofMetric {...metric} />)}
       </div>
+    </section>
+
+    <section class="site-shell service-package" aria-labelledby="package-heading">
+      <div class="service-package__intro">
+        <p class="eyebrow">Starting package</p>
+        <h2 id="package-heading">{service.pricing.label}</h2>
+        <p>{service.pricing.detail}. {service.pricing.timeline}.</p>
+      </div>
+      <div class="service-package__scope">
+        <div>
+          <h3>Included</h3>
+          <ul>{service.pricing.features.map((feature) => <li>{feature}</li>)}</ul>
+        </div>
+        <div>
+          <h3>Optional add-ons</h3>
+          <ul>{service.pricing.addOns.map((addOn) => <li>{addOn}</li>)}</ul>
+        </div>
+      </div>
+      <p class="service-package__terms">{service.pricing.terms}</p>
     </section>
 
     <section class="site-shell service-section" aria-labelledby="capabilities-heading">

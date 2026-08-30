@@ -12,11 +12,15 @@ export type ServiceDefinition = {
   faqs: Array<{ question: string; answer: string }>;
   relatedCaseStudies: string[];
   relatedSolutions: string[];
+  showInCatalog?: boolean;
   upworkProductUrl?: string;
   pricing: {
     label: string;
     detail: string;
     features: string[];
+    timeline: string;
+    addOns: string[];
+    terms: string;
   };
 };
 
@@ -54,18 +58,21 @@ export const services: ServiceDefinition[] = [
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai"],
     upworkProductUrl: "https://www.upwork.com/services/product/development-it-ai-voice-agent-that-answers-your-calls-24-7-and-books-appointments-2080956394428355760",
     pricing: {
-      label: "Custom quote",
+      label: "From $300/mo",
       detail: "Stop missing inbound calls",
-      features: ["Answer calls around the clock", "Qualify and book the next step", "Send the context to your team"],
+      features: ["Inbound receptionist and call handoff", "Qualification, booking, and call summaries", "Calendar or CRM connection"],
+      timeline: "Typical launch: 1–2 weeks",
+      addOns: ["SMS confirmations and reminders", "After-hours or overflow-only handling", "Extra phone lines or languages"],
+      terms: "One-time launch work and call usage are scoped from your call volume and integrations.",
     },
   },
   {
     slug: "chatbots",
-    name: "Chatbots",
-    seoTitle: "AI Chatbots for Lead Qualification",
-    description: "AI chatbots turn website, messaging, and social enquiries into qualified conversations with useful context for the next person.",
-    headline: "Turn the first message into a real sales conversation.",
-    lede: "A useful chatbot does more than answer FAQs. It asks the practical questions that shape a quote or booking, uses approved business information, and moves the conversation into the right human workflow when needed.",
+    name: "Lead Qual & Nurturing",
+    seoTitle: "AI Lead Qualification & Nurturing Systems",
+    description: "AI lead qualification turns website, messaging, and social enquiries into qualified opportunities with useful context for the next person.",
+    headline: "Turn the first enquiry into a qualified opportunity.",
+    lede: "The system asks the practical questions that shape a quote or booking, uses approved business information, and moves the enquiry into the right human workflow when needed. It can run in web chat or the messaging channels where customers already contact you.",
     audience: "For teams receiving enquiries through web chat, WhatsApp, Instagram, Telegram, or other messaging channels where context is routinely lost before sales can act.",
     capabilities: [
       { title: "Respond with approved context", description: "Use the information, catalogue, policies, and instructions the business has approved rather than inventing an answer." },
@@ -84,17 +91,20 @@ export const services: ServiceDefinition[] = [
       { value: "1", label: "CRM view", context: "Qualified records are routed into Bitrix24 for the sales team." },
     ],
     faqs: [
-      { question: "What makes a business chatbot useful?", answer: "A useful chatbot has a defined job: answer from approved information, collect the details that matter, and create a clear next action instead of trapping people in a generic conversation." },
-      { question: "Can a chatbot use product or company information?", answer: "Yes. The system can be connected to approved knowledge or live operational sources, with boundaries for what it should answer and when it should escalate." },
-      { question: "Can a chatbot hand conversations to sales?", answer: "Yes. Once the conversation reaches the agreed qualification point, it can create or update a CRM record and route the context to the correct owner." },
+      { question: "What does AI lead qualification do?", answer: "It answers from approved information, collects the details that determine fit, and creates a clear next action—such as a quote-ready handoff, booking, or escalation to sales." },
+      { question: "Can it use product or company information?", answer: "Yes. The system can be connected to approved knowledge or live operational sources, with boundaries for what it should answer and when it should escalate." },
+      { question: "Can it hand qualified enquiries to sales?", answer: "Yes. Once an enquiry reaches the agreed qualification point, it can create or update a CRM record and route the captured context to the correct owner." },
     ],
     relatedCaseStudies: ["mix-stroy-lead-qualification", "dubai-real-estate-booking-agent"],
     relatedSolutions: ["messaging-and-dm-conversion", "inquiry-and-booking-ai"],
     upworkProductUrl: "https://www.upwork.com/services/product/development-it-ai-chatbot-that-captures-leads-and-books-appointments-2080990669338647831",
     pricing: {
-      label: "Custom quote",
-      detail: "Turn messages into booked work",
-      features: ["Reply on your customer channels", "Collect the details that matter", "Hand qualified leads to sales"],
+      label: "From $200/mo",
+      detail: "Turn enquiries into qualified opportunities",
+      features: ["One customer channel or website chat", "Lead capture and qualified handoff", "Approved knowledge and conversation tuning"],
+      timeline: "Typical launch: 1–2 weeks",
+      addOns: ["RAG knowledge base", "WhatsApp, Instagram, or Telegram", "HubSpot or GoHighLevel integration", "Multi-step quote intake, calendar, and live-data connections"],
+      terms: "One-time launch work and message usage are scoped from the selected channels and data sources.",
     },
   },
   {
@@ -130,13 +140,17 @@ export const services: ServiceDefinition[] = [
     relatedSolutions: ["crm-follow-up-and-reactivation", "private-ai-on-premise"],
     upworkProductUrl: "https://www.upwork.com/services/product/development-it-ai-inbox-router-that-sorts-and-routes-your-shared-email-2081037298182050992",
     pricing: {
-      label: "From $490",
+      label: "From $300/mo",
       detail: "Keep shared inboxes under control",
-      features: ["Route email to the right person", "Keep customer context in one place", "Use rules your team can edit"],
+      features: ["One shared inbox and routing rules", "Classification, owner handoff, and audit trail", "CRM record or team-notification connection"],
+      timeline: "Typical launch: about 2 weeks",
+      addOns: ["Additional inboxes and departments", "Local-model / on-prem deployment", "Follow-up sequences and CRM cleanup"],
+      terms: "One-time launch work is scoped from the number of inboxes, routes, and systems connected.",
     },
   },
   {
     slug: "ai-revenue-systems",
+    showInCatalog: false,
     name: "AI Revenue Systems",
     seoTitle: "AI Revenue Systems for Home Services",
     description: "AI revenue systems connect lead capture, qualification, routing, booking, CRM, and follow-up into one operating workflow.",
@@ -167,9 +181,12 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai", "crm-follow-up-and-reactivation"],
     pricing: {
-      label: "Custom quote",
+      label: "Start with a revenue audit",
       detail: "Fix the leak in your sales process",
       features: ["Connect calls, messages, and CRM", "Find where leads go cold", "Build the highest-value fix first"],
+      timeline: "Timeline follows the first system selected",
+      addOns: ["Voice and messaging channels", "CRM, calendar, and follow-up", "Reporting and ongoing improvement"],
+      terms: "The audit identifies the first build and the delivery scope before implementation begins.",
     },
   },
   {
@@ -204,13 +221,17 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["universal-ai-receptionist", "inbox-router"],
     relatedSolutions: ["private-ai-on-premise", "knowledge-base-rag"],
     pricing: {
-      label: "Custom quote",
+      label: "Scoped build",
       detail: "Build the workflow only your business has",
-      features: ["Agent design around the real task", "Connections to the tools you use", "Private or local setup when needed"],
+      features: ["Workflow, tools, and human-handoff design", "Required integrations and knowledge access", "Testing against real operating scenarios"],
+      timeline: "Typical build: 3–6 weeks",
+      addOns: ["RAG and source-linked answers", "Private or on-prem deployment", "Custom settings UI and extra integrations"],
+      terms: "A short discovery defines the delivery plan before the build starts.",
     },
   },
   {
     slug: "lead-capture-estimating",
+    showInCatalog: false,
     name: "Lead Capture & Estimating",
     seoTitle: "AI Lead Capture & Estimating",
     description: "AI lead capture and estimating systems turn incomplete enquiries into structured, quote-ready opportunities and the right next action.",
@@ -241,13 +262,17 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["mix-stroy-lead-qualification"],
     relatedSolutions: ["estimating-and-job-routing", "inquiry-and-booking-ai"],
     pricing: {
-      label: "Custom quote",
+      label: "From $400/mo",
       detail: "Get quote-ready leads, faster",
-      features: ["Collect the right job details", "Use the information you trust", "Send the lead to the right person"],
+      features: ["Structured lead intake and qualification", "Quote-ready handoff to the right owner", "Approved catalogue, location, or image context"],
+      timeline: "Typical launch: 2–4 weeks",
+      addOns: ["Live stock and pricing lookups", "Photo-based product identification", "Warehouse or estimator routing"],
+      terms: "One-time launch work is scoped from the channels, catalogue, and routing rules involved.",
     },
   },
   {
     slug: "reactivation-follow-up",
+    showInCatalog: false,
     name: "Reactivation & Follow-up",
     seoTitle: "Lead Reactivation & Follow-up Automation",
     description: "Reactivation and follow-up systems connect lead records, ownership, and next actions so viable opportunities do not expire without a considered response.",
@@ -278,9 +303,12 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["inbox-router", "hobopro-email-operations"],
     relatedSolutions: ["crm-follow-up-and-reactivation", "messaging-and-dm-conversion"],
     pricing: {
-      label: "Custom quote",
+      label: "Start with a pipeline audit",
       detail: "Follow up before good leads disappear",
       features: ["Find leads worth revisiting", "Give the team the original context", "Create a clear next action"],
+      timeline: "Timeline follows the pipeline and channel scope",
+      addOns: ["Email and SMS sequences", "CRM cleanup and ownership rules", "Lead scoring and reporting"],
+      terms: "The first step maps the pipeline and identifies the appropriate follow-up build.",
     },
   },
 ];
