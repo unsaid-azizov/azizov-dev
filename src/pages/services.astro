@@ -6,7 +6,7 @@ import { services } from '../lib/services';
 
 const catalogServices = services.filter((service) => service.showInCatalog !== false);
 ---
-<MainLayout title="AI Automation Services & Starting Prices | Azizov HQ" description="Four practical AI systems for calls, lead qualification, inboxes, and custom workflows. See starting monthly service rates, delivery timelines, and add-ons.">
+<MainLayout title="AI Automation Services & Starting Prices | Azizov HQ" description="Voice agents, lead qualification and nurturing, custom AI and SaaS development, plus an AI automation audit. See starting rates, delivery timelines, and integrations.">
   <SiteHeader currentPath={Astro.url.pathname} />
   <main>
     <section class="site-shell service-catalog" aria-labelledby="services-heading">
@@ -18,7 +18,7 @@ const catalogServices = services.filter((service) => service.showInCatalog !== f
       </header>
       <div class="service-pricing-grid">
         {catalogServices.map((service) => (
-          <article class="service-price-card" data-pointer-card>
+          <article class={`service-price-card service-price-card--${service.slug}`} data-pointer-card>
             <p class="service-price-card__label">{service.pricing.detail}</p>
             <h2>{service.name}</h2>
             <div class="service-price-card__price"><strong>{service.pricing.label}</strong></div>
@@ -28,6 +28,19 @@ const catalogServices = services.filter((service) => service.showInCatalog !== f
               <p>Add-ons</p>
               <ul>{service.pricing.addOns.map((addOn) => <li>{addOn}</li>)}</ul>
             </div>
+            {service.deploymentOptions && (
+              <div class="service-price-card__options">
+                <p>Available channels &amp; integrations</p>
+                <ul>{service.deploymentOptions.map((option) => <li>{option}</li>)}</ul>
+              </div>
+            )}
+            {service.complementaryWith && <p class="service-price-card__compatible">Works together: {service.complementaryWith}</p>}
+            {service.testimonial && (
+              <blockquote class="service-price-card__testimonial">
+                <p>“{service.testimonial.quote}”</p>
+                <cite><a href={service.testimonial.sourceUrl} target="_blank" rel="noreferrer">{service.testimonial.name}, {service.testimonial.role} ↗</a></cite>
+              </blockquote>
+            )}
             <p class="service-price-card__terms">{service.pricing.terms}</p>
             <a class="button button--secondary service-price-card__action" href={`/services/${service.slug}/`}>See details</a>
           </article>

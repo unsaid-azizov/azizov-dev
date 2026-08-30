@@ -1598,16 +1598,22 @@
 }
 .service-catalog__heading > p:last-child { max-width: 31rem; margin: 1rem auto 0; color: var(--muted-foreground); line-height: 1.55; }
 .service-catalog__heading > .service-catalog__note { margin-top: 0.75rem; font-size: 0.78rem; }
-.service-pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
+.service-pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .service-price-card {
   display: flex;
-  min-height: 33rem;
+  position: relative;
+  min-height: 34rem;
   flex-direction: column;
-  border: 1px solid var(--border);
-  border-radius: 0.55rem;
-  background: #101310;
-  padding: 1.35rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, var(--primary));
+  border-radius: 0.8rem;
+  background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 10%, transparent), transparent 36%), #101310;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.16);
+  padding: clamp(1.35rem, 2vw, 1.8rem);
 }
+.service-price-card--chatbots { background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 16%, transparent), transparent 42%), #101310; }
+.service-price-card--custom-ai-agent-development { background: radial-gradient(circle at 100% 0, rgba(137, 116, 255, 0.16), transparent 44%), #101310; }
+.service-price-card--ai-revenue-systems { border-style: dashed; background: #0e110f; }
 .service-price-card__label { color: var(--muted-foreground); font-size: 0.78rem; line-height: 1.45; }
 .service-price-card h2 { max-width: 13ch; margin-top: 1rem; color: var(--foreground); font-family: var(--font-sans); font-size: clamp(1.45rem, 2vw, 1.8rem); font-weight: 650; letter-spacing: -0.04em; line-height: 1.05; }
 .service-price-card__price { margin-top: 1.45rem; }
@@ -1620,8 +1626,18 @@
 .service-price-card__addons > p { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .service-price-card__addons ul { gap: 0.4rem; margin-top: 0.75rem; color: var(--muted-foreground); font-size: 0.76rem; }
 .service-price-card__addons li::before { color: var(--muted-foreground); content: "+"; }
+.service-price-card__options { margin-top: 1.2rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+.service-price-card__options > p { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.service-price-card__options ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem 0.8rem; margin-top: 0.75rem; color: var(--muted-foreground); font-size: 0.76rem; }
+.service-price-card__options li { gap: 0.35rem; }
+.service-price-card__options li::before { color: var(--primary); content: "✓"; }
+.service-price-card__compatible { margin-top: 1.1rem; border-left: 1px solid var(--primary); color: var(--muted-foreground); padding-left: 0.7rem; font-size: 0.7rem; line-height: 1.45; }
+.service-price-card__testimonial { margin-top: 1.1rem; border-left: 1px solid var(--primary); color: var(--muted-foreground); padding-left: 0.7rem; font-size: 0.72rem; line-height: 1.5; }
+.service-price-card__testimonial cite { display: block; margin-top: 0.55rem; color: var(--foreground); font-size: 0.68rem; font-style: normal; }
+.service-price-card__testimonial a { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--primary) 65%, transparent); text-underline-offset: 0.2em; }
 .service-price-card__terms { margin-top: 1.1rem; color: var(--muted-foreground); font-size: 0.7rem; line-height: 1.45; }
 .service-price-card__action { width: 100%; margin-top: auto; padding-top: 1.5rem; }
+.service-price-card:hover { border-color: color-mix(in srgb, var(--primary) 60%, var(--border)); box-shadow: 0 1.2rem 3.5rem rgba(0, 0, 0, 0.28); }
 
 .service-hero { max-width: 58rem; }
 .service-hero h1 { max-width: 12ch; }
@@ -1660,6 +1676,9 @@
 .service-package__scope li::before { color: var(--primary); content: "✓"; }
 .service-package__scope > div + div li::before { color: var(--muted-foreground); content: "+"; }
 .service-package__terms { grid-column: 1 / -1; margin-top: -0.25rem; color: var(--muted-foreground); font-size: 0.75rem; line-height: 1.5; }
+.service-testimonial { margin-top: clamp(3rem, 7vw, 6rem); border-left: 1px solid var(--primary); padding-left: clamp(1.25rem, 4vw, 3rem); }
+.service-testimonial blockquote { max-width: 48rem; margin-top: 0.85rem; color: var(--foreground); font-family: var(--font-sans); font-size: clamp(1.4rem, 2.4vw, 2.15rem); letter-spacing: -0.035em; line-height: 1.2; }
+.service-testimonial > p:last-child { margin-top: 1rem; }
 
 .service-capabilities {
   display: grid;
@@ -1742,6 +1761,7 @@
   .service-process { grid-template-columns: 1fr; gap: 2.5rem; }
   .service-package { grid-template-columns: 1fr; gap: 2.5rem; }
   .service-package__scope { grid-template-columns: 1fr; }
+  .service-price-card__options ul { grid-template-columns: 1fr; }
   .proof-strip__grid { gap: 0; }
   .proof-metric + .proof-metric { border-top: 1px solid var(--border); }
   .solution-card + .solution-card { border-left: 0; padding-left: 0; }

@@ -14,6 +14,9 @@ export type ServiceDefinition = {
   relatedSolutions: string[];
   showInCatalog?: boolean;
   upworkProductUrl?: string;
+  deploymentOptions?: string[];
+  complementaryWith?: string;
+  testimonial?: { quote: string; name: string; role: string; sourceUrl: string };
   pricing: {
     label: string;
     detail: string;
@@ -60,11 +63,12 @@ export const services: ServiceDefinition[] = [
     pricing: {
       label: "From $300/mo",
       detail: "Stop missing inbound calls",
-      features: ["Inbound receptionist and call handoff", "Qualification, booking, and call summaries", "Calendar or CRM connection"],
+      features: ["Inbound receptionist, call summaries, and handoff", "Custom dialling and routing workflows", "Different voices and tailored call scripts", "Calendar, HubSpot, GoHighLevel, or CRM integration"],
       timeline: "Typical launch: 1–2 weeks",
-      addOns: ["SMS confirmations and reminders", "After-hours or overflow-only handling", "Extra phone lines or languages"],
+      addOns: ["SMS confirmations and reminders", "After-hours or overflow-only handling", "Extra phone lines or languages", "Lead Qual & Nurturing handoff"],
       terms: "One-time launch work and call usage are scoped from your call volume and integrations.",
     },
+    complementaryWith: "Pairs with Lead Qual & Nurturing so calls, messages, and follow-up share one customer record.",
   },
   {
     slug: "chatbots",
@@ -101,14 +105,17 @@ export const services: ServiceDefinition[] = [
     pricing: {
       label: "From $200/mo",
       detail: "Turn enquiries into qualified opportunities",
-      features: ["One customer channel or website chat", "Lead capture and qualified handoff", "Approved knowledge and conversation tuning"],
+      features: ["Lead qualification and nurture logic", "Approved knowledge and conversation tuning", "Qualified handoff and follow-up triggers"],
       timeline: "Typical launch: 1–2 weeks",
-      addOns: ["RAG knowledge base", "WhatsApp, Instagram, or Telegram", "HubSpot or GoHighLevel integration", "Multi-step quote intake, calendar, and live-data connections"],
+      addOns: ["RAG knowledge base", "Multi-step quote intake", "Live data, warehouse, or stock connections"],
       terms: "One-time launch work and message usage are scoped from the selected channels and data sources.",
     },
+    deploymentOptions: ["Instagram", "WhatsApp", "SMS", "Email", "HubSpot", "GoHighLevel", "Follow-up sequences", "Calendar booking", "Warehouse integrations", "Custom login / portal"],
+    complementaryWith: "Pairs with Voice Agents so leads receive the same qualification and follow-up whether they call or message.",
   },
   {
     slug: "inbox-crm-automation",
+    showInCatalog: false,
     name: "Inbox & CRM Automation",
     seoTitle: "Inbox & CRM Automation",
     description: "Inbox and CRM automation classifies incoming work, routes it to the right owner, and preserves the context needed to act.",
@@ -150,12 +157,11 @@ export const services: ServiceDefinition[] = [
   },
   {
     slug: "ai-revenue-systems",
-    showInCatalog: false,
-    name: "AI Revenue Systems",
-    seoTitle: "AI Revenue Systems for Home Services",
-    description: "AI revenue systems connect lead capture, qualification, routing, booking, CRM, and follow-up into one operating workflow.",
-    headline: "Build around the moments where viable demand gets lost.",
-    lede: "An AI revenue system is not a single bot. It connects the channels where interest arrives with the questions, people, calendar, and CRM steps required to turn a viable enquiry into the right next action.",
+    name: "AI Automation Audit",
+    seoTitle: "AI Automation Audit",
+    description: "An AI automation audit maps where enquiries, follow-up, and operational work break down, then defines the first useful system to build.",
+    headline: "Find the first AI build worth making.",
+    lede: "Not sure whether you need voice, lead qualification, or a custom build? We map the operating journey, find the costly handoff, and give you a practical first implementation plan.",
     audience: "For home-service and operational businesses that lose work through slow response, incomplete enquiries, missed calls, scattered conversations, or inconsistent follow-up.",
     capabilities: [
       { title: "Connect the whole demand path", description: "Bring calls, forms, messages, inboxes, CRM records, assignments, and follow-up into one considered workflow." },
@@ -181,19 +187,19 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai", "crm-follow-up-and-reactivation"],
     pricing: {
-      label: "Start with a revenue audit",
-      detail: "Fix the leak in your sales process",
-      features: ["Connect calls, messages, and CRM", "Find where leads go cold", "Build the highest-value fix first"],
-      timeline: "Timeline follows the first system selected",
-      addOns: ["Voice and messaging channels", "CRM, calendar, and follow-up", "Reporting and ongoing improvement"],
-      terms: "The audit identifies the first build and the delivery scope before implementation begins.",
+      label: "Start with an audit",
+      detail: "Find the highest-value workflow to automate",
+      features: ["Map calls, messages, inboxes, and CRM handoffs", "Identify the costliest bottleneck", "Get a practical first-build plan"],
+      timeline: "Typical delivery: 1 week",
+      addOns: ["Voice or messaging implementation", "CRM, calendar, and follow-up", "Reporting and ongoing improvement"],
+      terms: "The audit defines the first build and delivery scope before implementation begins.",
     },
   },
   {
     slug: "custom-ai-agent-development",
-    name: "Custom AI Agent Development",
-    seoTitle: "Custom AI Agent Development",
-    description: "Custom AI agents handle the specific customer and operational workflows that do not fit an off-the-shelf chatbot or automation.",
+    name: "Custom Agent & SaaS Development",
+    seoTitle: "Custom AI Agent & SaaS Development",
+    description: "Custom AI agents and SaaS products handle the specific customer and operational workflows that do not fit an off-the-shelf automation.",
     headline: "Build the AI agent your operation actually needs.",
     lede: "When the problem is specific to your business, the agent should be too. We design the workflow, knowledge, integrations, and handoff rules around the job your team needs done.",
     audience: "For teams with a valuable workflow that needs more than a generic chatbot, template automation, or a one-size-fits-all AI tool.",
@@ -227,6 +233,12 @@ export const services: ServiceDefinition[] = [
       timeline: "Typical build: 3–6 weeks",
       addOns: ["RAG and source-linked answers", "Private or on-prem deployment", "Custom settings UI and extra integrations"],
       terms: "A short discovery defines the delivery plan before the build starts.",
+    },
+    testimonial: {
+      quote: "Said got involved fast, went through the docs, collected all requirements, and designed a multi-agent system tailored to our case.",
+      name: "Malik Protopopov",
+      role: "Product Manager, Mediann.dev",
+      sourceUrl: "https://www.linkedin.com/in/said-azizov/details/recommendations/?detailScreenTabIndex=0",
     },
   },
   {

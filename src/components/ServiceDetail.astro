@@ -85,6 +85,14 @@ const serviceSchema = {
       <p class="service-package__terms">{service.pricing.terms}</p>
     </section>
 
+    {service.testimonial && (
+      <section class="site-shell service-testimonial" aria-label={`Client recommendation from ${service.testimonial.name}`}>
+        <p class="eyebrow">Client recommendation</p>
+        <blockquote>“{service.testimonial.quote}”</blockquote>
+        <p><a class="text-link" href={service.testimonial.sourceUrl} target="_blank" rel="noreferrer">{service.testimonial.name}, {service.testimonial.role} <span aria-hidden="true">↗</span></a></p>
+      </section>
+    )}
+
     <section class="site-shell service-section" aria-labelledby="capabilities-heading">
       <div class="section-heading-stack">
         <div><p class="eyebrow">What the system does</p><h2 class="section-title" id="capabilities-heading">Useful automation, connected to the people who act on it.</h2></div>
