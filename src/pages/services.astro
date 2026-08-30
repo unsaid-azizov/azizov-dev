@@ -46,9 +46,11 @@ const catalogServices = services
                 <cite><a href={service.testimonial.sourceUrl} target="_blank" rel="noreferrer">{service.testimonial.name}, {service.testimonial.role} ↗</a></cite>
               </blockquote>
             )}
-            <p class="service-price-card__terms">{service.pricing.terms}</p>
-            {service.supportingLink && <a class="text-link service-price-card__case-link" href={service.supportingLink.href}>{service.supportingLink.label} <span aria-hidden="true">↗</span></a>}
-            <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`}>{service.ctaLabel ?? 'See details'}</a>
+            <div class="service-price-card__footer">
+              <p class="service-price-card__terms">{service.pricing.terms}</p>
+              {service.supportingLink && <a class="text-link service-price-card__case-link" href={service.supportingLink.href}>{service.supportingLink.label} <span aria-hidden="true">↗</span></a>}
+              <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`}>{service.ctaLabel ?? 'See details'}</a>
+            </div>
           </article>
         ))}
       </div>
