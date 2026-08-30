@@ -13,6 +13,11 @@ export type ServiceDefinition = {
   relatedCaseStudies: string[];
   relatedSolutions: string[];
   upworkProductUrl?: string;
+  pricing: {
+    label: string;
+    detail: string;
+    features: string[];
+  };
 };
 
 export const services: ServiceDefinition[] = [
@@ -48,6 +53,11 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["ekron-ai-receptionist", "universal-ai-receptionist"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai"],
     upworkProductUrl: "https://www.upwork.com/services/product/development-it-ai-voice-agent-that-answers-your-calls-24-7-and-books-appointments-2080956394428355760",
+    pricing: {
+      label: "Custom quote",
+      detail: "Stop missing inbound calls",
+      features: ["Answer calls around the clock", "Qualify and book the next step", "Send the context to your team"],
+    },
   },
   {
     slug: "chatbots",
@@ -81,6 +91,11 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["mix-stroy-lead-qualification", "dubai-real-estate-booking-agent"],
     relatedSolutions: ["messaging-and-dm-conversion", "inquiry-and-booking-ai"],
     upworkProductUrl: "https://www.upwork.com/services/product/development-it-ai-chatbot-that-captures-leads-and-books-appointments-2080990669338647831",
+    pricing: {
+      label: "Custom quote",
+      detail: "Turn messages into booked work",
+      features: ["Reply on your customer channels", "Collect the details that matter", "Hand qualified leads to sales"],
+    },
   },
   {
     slug: "inbox-crm-automation",
@@ -114,6 +129,11 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["inbox-router", "hobopro-email-operations"],
     relatedSolutions: ["crm-follow-up-and-reactivation", "private-ai-on-premise"],
     upworkProductUrl: "https://www.upwork.com/services/product/development-it-ai-inbox-router-that-sorts-and-routes-your-shared-email-2081037298182050992",
+    pricing: {
+      label: "From $490",
+      detail: "Keep shared inboxes under control",
+      features: ["Route email to the right person", "Keep customer context in one place", "Use rules your team can edit"],
+    },
   },
   {
     slug: "ai-revenue-systems",
@@ -146,25 +166,30 @@ export const services: ServiceDefinition[] = [
     ],
     relatedCaseStudies: ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai", "crm-follow-up-and-reactivation"],
+    pricing: {
+      label: "Custom quote",
+      detail: "Fix the leak in your sales process",
+      features: ["Connect calls, messages, and CRM", "Find where leads go cold", "Build the highest-value fix first"],
+    },
   },
   {
-    slug: "private-ai-systems",
-    name: "Private AI Systems",
-    seoTitle: "Private & On-Premise AI Systems",
-    description: "Private AI systems give teams controlled access to useful AI while accounting for data location, permissions, deployment, and audit requirements.",
-    headline: "Put capable AI inside the controls your organisation actually needs.",
-    lede: "Private AI is about the operating and security design around a model: where information lives, who can access it, what sources it can use, and what happens when the system is uncertain. The architecture follows those requirements—not a default hosting preference.",
-    audience: "For privacy-sensitive, regulated, or enterprise teams that need AI to work with internal knowledge or workflows without treating a consumer chatbot as the answer.",
+    slug: "custom-ai-agent-development",
+    name: "Custom AI Agent Development",
+    seoTitle: "Custom AI Agent Development",
+    description: "Custom AI agents handle the specific customer and operational workflows that do not fit an off-the-shelf chatbot or automation.",
+    headline: "Build the AI agent your operation actually needs.",
+    lede: "When the problem is specific to your business, the agent should be too. We design the workflow, knowledge, integrations, and handoff rules around the job your team needs done.",
+    audience: "For teams with a valuable workflow that needs more than a generic chatbot, template automation, or a one-size-fits-all AI tool.",
     capabilities: [
-      { title: "Assess the right deployment", description: "Compare local, private-cloud, controlled API, and hybrid approaches against data sensitivity, reliability, operating cost, and maintenance needs." },
-      { title: "Make knowledge usable", description: "Build retrieval-augmented assistants that search approved documents and records, respect permissions, and link people back to the source material." },
-      { title: "Control access and behaviour", description: "Design the permissions, update ownership, auditability, and uncertainty boundaries that make an internal AI system fit for work." },
+      { title: "Start with the real job", description: "Define the specific task, source information, decision rules, and handoff that make the agent useful in day-to-day work." },
+      { title: "Connect the tools you already use", description: "Integrate the channels, knowledge, CRM, calendar, or internal tools the workflow needs instead of adding another disconnected dashboard." },
+      { title: "Add private or local deployment when needed", description: "Local, private-cloud, controlled API, and hybrid setup are implementation options—not separate products. The choice follows your data and operating needs." },
     ],
     process: [
-      { title: "Assess data and constraints", description: "Understand the workflow, sources, access model, compliance concerns, and the cost of being wrong before choosing an architecture." },
-      { title: "Define trusted sources", description: "Prepare approved documents, records, permissions, and ownership for keeping knowledge current." },
-      { title: "Build the controlled workflow", description: "Implement retrieval, access controls, integrations, and the user flow around how people will actually use the system." },
-      { title: "Validate and govern", description: "Test answer quality, permission boundaries, and update processes before making the assistant part of day-to-day operations." },
+      { title: "Map the workflow", description: "Identify the job to automate, the inputs it needs, what a good outcome looks like, and when a person should take over." },
+      { title: "Prepare the right knowledge", description: "Organise the approved documents, records, and permissions the agent may use." },
+      { title: "Build and connect", description: "Implement the agent in the channels and systems where the work already happens." },
+      { title: "Test the real edge cases", description: "Validate the answers, handoffs, access boundaries, and update process before the agent becomes part of operations." },
     ],
     proof: [
       { value: "RAG", label: "company knowledge access", context: "The published configurable receptionist uses company-specific knowledge for customer answers." },
@@ -172,12 +197,17 @@ export const services: ServiceDefinition[] = [
       { value: "16", label: "inboxes unified", context: "The routing pattern also has an on-premise local-LLM option for sensitive email." },
     ],
     faqs: [
-      { question: "What is a private AI system?", answer: "A private AI system is designed around where data is processed, who can use it, which approved sources it can access, and how the organisation controls and audits its operation." },
-      { question: "Does private AI always mean on-premise?", answer: "No. On-premise is one option. The right design depends on the data, compliance obligations, reliability needs, and the cost of maintaining the system." },
-      { question: "Can private AI answer from internal documents?", answer: "Yes. A retrieval-augmented assistant can search approved documents and operational records, return answers with source links, and respect the access rules set for each user." },
+      { question: "What makes an AI agent custom?", answer: "A custom agent is built around one of your operating workflows: its inputs, business rules, knowledge, integrations, and the situations that should be handed to a person." },
+      { question: "Can it work with our internal documents?", answer: "Yes. An agent can search approved documents and operational records, return answers with source links, and follow the access rules set for each user." },
+      { question: "Can it be deployed locally or privately?", answer: "Yes, where the workflow requires it. Local, private-cloud, controlled API, and hybrid deployment are considered as part of the build—not sold as a separate service." },
     ],
     relatedCaseStudies: ["universal-ai-receptionist", "inbox-router"],
     relatedSolutions: ["private-ai-on-premise", "knowledge-base-rag"],
+    pricing: {
+      label: "Custom quote",
+      detail: "Build the workflow only your business has",
+      features: ["Agent design around the real task", "Connections to the tools you use", "Private or local setup when needed"],
+    },
   },
   {
     slug: "lead-capture-estimating",
@@ -210,6 +240,11 @@ export const services: ServiceDefinition[] = [
     ],
     relatedCaseStudies: ["mix-stroy-lead-qualification"],
     relatedSolutions: ["estimating-and-job-routing", "inquiry-and-booking-ai"],
+    pricing: {
+      label: "Custom quote",
+      detail: "Get quote-ready leads, faster",
+      features: ["Collect the right job details", "Use the information you trust", "Send the lead to the right person"],
+    },
   },
   {
     slug: "reactivation-follow-up",
@@ -242,6 +277,11 @@ export const services: ServiceDefinition[] = [
     ],
     relatedCaseStudies: ["inbox-router", "hobopro-email-operations"],
     relatedSolutions: ["crm-follow-up-and-reactivation", "messaging-and-dm-conversion"],
+    pricing: {
+      label: "Custom quote",
+      detail: "Follow up before good leads disappear",
+      features: ["Find leads worth revisiting", "Give the team the original context", "Create a clear next action"],
+    },
   },
 ];
 

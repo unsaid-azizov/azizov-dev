@@ -1580,9 +1580,41 @@
 .audit-success p:not(.eyebrow) { margin-top: 1rem; color: var(--muted-foreground); line-height: 1.6; }
 
 /* Service pages use the same type, cards, proof strip, and conversion patterns as the rest of the sales site. */
-.services-intro .button { margin-top: 2rem; }
-.services-list { margin-top: clamp(5rem, 12vw, 10rem); }
-.services-cta { margin-bottom: clamp(5rem, 10vw, 8rem); }
+.service-catalog { padding-block: clamp(2.25rem, 5vw, 4.5rem) clamp(4rem, 8vw, 7rem); }
+.service-catalog__heading {
+  max-width: 42rem;
+  margin-inline: auto;
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+.service-catalog__heading h1 {
+  margin-top: 0.6rem;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.service-catalog__heading > p:last-child { max-width: 31rem; margin: 1rem auto 0; color: var(--muted-foreground); line-height: 1.55; }
+.service-pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
+.service-price-card {
+  display: flex;
+  min-height: 24rem;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  background: #101310;
+  padding: 1.35rem;
+}
+.service-price-card__label { color: var(--muted-foreground); font-size: 0.78rem; line-height: 1.45; }
+.service-price-card h2 { max-width: 13ch; margin-top: 1rem; color: var(--foreground); font-family: var(--font-sans); font-size: clamp(1.45rem, 2vw, 1.8rem); font-weight: 650; letter-spacing: -0.04em; line-height: 1.05; }
+.service-price-card__price { margin-top: 1.45rem; }
+.service-price-card__price strong { color: var(--primary); font-family: var(--font-sans); font-size: 1.35rem; font-weight: 650; line-height: 1; }
+.service-price-card ul { display: grid; gap: 0.55rem; margin-top: 1.35rem; color: var(--foreground); font-size: 0.82rem; line-height: 1.4; }
+.service-price-card li { display: flex; gap: 0.6rem; }
+.service-price-card li::before { color: var(--primary); content: "✓"; }
+.service-price-card__action { width: 100%; margin-top: auto; padding-top: 1.5rem; }
 
 .service-hero { max-width: 58rem; }
 .service-hero h1 { max-width: 12ch; }
@@ -1676,6 +1708,8 @@
   .case-grid { grid-template-columns: 1fr; }
   .service-proof .proof-strip__grid,
   .service-capabilities { grid-template-columns: 1fr; }
+  .service-pricing-grid { grid-template-columns: 1fr; }
+  .service-price-card { min-height: auto; }
   .service-capabilities article + article { border-left: 0; padding-left: 0; }
   .service-capabilities article { min-height: auto; }
   .service-capabilities h3 { margin-top: 2rem; }

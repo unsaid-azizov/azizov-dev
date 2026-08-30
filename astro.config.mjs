@@ -10,6 +10,9 @@ export default defineConfig({
   site: 'https://azizovhq.com',
   output: 'static',
   trailingSlash: 'always',
+  redirects: {
+    '/services/private-ai-systems/': '/services/custom-ai-agent-development/',
+  },
 
   vite: {
     plugins: [tailwindcss()],
