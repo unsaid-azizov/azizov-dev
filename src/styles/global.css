@@ -1642,7 +1642,8 @@
 .service-price-card__footer { margin-top: auto; padding-top: 1.25rem; }
 .service-price-card__terms { color: var(--muted-foreground); font-size: 0.65rem; line-height: 1.4; }
 .service-price-card__case-link { display: inline-block; margin-top: 0.7rem; color: var(--foreground); font-size: 0.7rem; }
-.service-price-card__action { width: 100%; margin-top: 1rem; }
+.service-price-card__actions { display: grid; gap: 0.55rem; margin-top: 1rem; }
+.service-price-card__action { width: 100%; }
 .service-price-card:hover { border-color: color-mix(in srgb, var(--primary) 60%, var(--border)); box-shadow: 0 1.2rem 3.5rem rgba(0, 0, 0, 0.28); }
 
 .service-hero { max-width: 58rem; }

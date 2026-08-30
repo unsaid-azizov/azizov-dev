@@ -7,13 +7,13 @@ const submitted = Astro.url.searchParams.get("submitted") === "1";
 const caseStudy = Astro.url.searchParams.get("case") ?? "";
 ---
 
-<MainLayout title="Map My Revenue Leaks | Azizov HQ" description="Request a practical map of where your home-service business loses leads, estimates, follow-up, and repeat revenue.">
+<MainLayout title="Free Personalized AI Roadmap | Azizov HQ" description="Share your workflow and receive a personalized AI roadmap before deciding whether to book a call.">
   <SiteHeader currentPath={Astro.url.pathname} />
   <main class="site-shell audit-page">
     <div class="audit-page__intro">
-      <p class="eyebrow">Revenue systems audit</p>
-      <h1>Find the point where your demand stops turning into jobs.</h1>
-      <p>Tell us how leads currently arrive and where the process breaks. We will review the journey and recommend the first system worth building.</p>
+      <p class="eyebrow">Free personalized roadmap</p>
+      <h1>Get the first useful AI system mapped before the call.</h1>
+      <p>Tell us how leads and work currently move through the business. We will review the journey and send the first system worth building, tailored to your situation.</p>
       <ul>
         <li>Calls, forms, messages, and missed-lead handling</li>
         <li>Estimating, job routing, and CRM handoff</li>
@@ -32,7 +32,7 @@ const caseStudy = Astro.url.searchParams.get("case") ?? "";
           <label>Work email<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required /></label>
           <label>Company<input name="company" autocomplete="organization" required /></label>
           <label>What are you trying to improve?<select name="challenge"><option value="">Select one</option><option>More booked jobs</option><option>Faster estimates</option><option>Missed calls and follow-up</option><option>CRM cleanup and automation</option><option>Reactivating old leads</option></select></label>
-          <button class="button" type="submit">Request my revenue map</button>
+          <button class="button" type="submit">Request my personalized roadmap</button>
           <p class="audit-form__note">No spam. We use this only to respond to your request.</p>
         </form>
       )}

@@ -49,7 +49,10 @@ const catalogServices = services
             <div class="service-price-card__footer">
               <p class="service-price-card__terms">{service.pricing.terms}</p>
               {service.supportingLink && <a class="text-link service-price-card__case-link" href={service.supportingLink.href}>{service.supportingLink.label} <span aria-hidden="true">↗</span></a>}
-              <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`}>{service.ctaLabel ?? 'See details'}</a>
+              <div class="service-price-card__actions">
+                <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`} target={service.ctaHref?.startsWith('http') ? '_blank' : undefined} rel={service.ctaHref?.startsWith('http') ? 'noreferrer' : undefined}>{service.ctaLabel ?? 'See details'}</a>
+                {service.secondaryCta && <a class="button button--secondary service-price-card__action" href={service.secondaryCta.href} target="_blank" rel="noreferrer">{service.secondaryCta.label}</a>}
+              </div>
             </div>
           </article>
         ))}

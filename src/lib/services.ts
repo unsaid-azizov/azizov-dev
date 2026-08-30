@@ -18,6 +18,7 @@ export type ServiceDefinition = {
   complementaryWith?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  secondaryCta?: { label: string; href: string };
   supportingLink?: { label: string; href: string };
   testimonial?: { quote: string; cardQuote?: string; name: string; role: string; sourceUrl: string };
   pricing: {
@@ -162,9 +163,9 @@ export const services: ServiceDefinition[] = [
     slug: "ai-revenue-systems",
     name: "Free AI Workflow Audit",
     seoTitle: "Free AI Workflow Audit",
-    description: "A free AI workflow audit helps you identify the one business bottleneck worth solving first and the practical system to use.",
-    headline: "Find the first AI system worth building.",
-    lede: "Not sure whether you need voice, lead qualification, or a custom build? Bring the workflow that feels slow, messy, or expensive. Leave with a clear first step.",
+    description: "Share your business workflow and receive a free personalized AI roadmap before deciding whether a call is useful.",
+    headline: "Get a personalized AI roadmap before the call.",
+    lede: "Share the workflow that feels slow, messy, or expensive. We review it and send back the most useful first system to build—free, before you decide whether to book a call.",
     audience: "For home-service and operational businesses that lose work through slow response, incomplete enquiries, missed calls, scattered conversations, or inconsistent follow-up.",
     capabilities: [
       { title: "Connect the whole demand path", description: "Bring calls, forms, messages, inboxes, CRM records, assignments, and follow-up into one considered workflow." },
@@ -190,15 +191,16 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai", "crm-follow-up-and-reactivation"],
     pricing: {
-      label: "Free 30-min call",
-      detail: "Not sure where to start? Start here.",
-      features: ["Walk through how leads or work move today", "Find the one bottleneck worth fixing first", "Leave with a clear recommended next step"],
-      timeline: "No prep. No obligation.",
+      label: "Free personalized roadmap",
+      detail: "Get value before you book a call.",
+      features: ["Send a short Google Form about your business", "Receive the first workflow we would fix and why", "Book a call only if the roadmap is useful"],
+      timeline: "Free. No obligation.",
       addOns: [],
-      terms: "If there is a good fit, we will outline the system, scope, and timeline afterwards.",
+      terms: "We review your process and send a tailored roadmap before any sales call.",
     },
-    ctaLabel: "Get free audit",
-    ctaHref: "/revenue-systems-audit/",
+    ctaLabel: "Map revenue leaks",
+    ctaHref: "https://forms.gle/aiJdHij4WL7r3w6S7",
+    secondaryCta: { label: "Book a call", href: "https://calendar.app.google/eDSPfBTHnyFfoSP68" },
     supportingLink: { label: "See the case studies", href: "/case-studies/" },
   },
   {
