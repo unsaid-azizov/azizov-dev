@@ -233,7 +233,7 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["universal-ai-receptionist", "inbox-router"],
     relatedSolutions: ["private-ai-on-premise", "knowledge-base-rag"],
     pricing: {
-      label: "Scoped build",
+      label: "From $2k/mo",
       detail: "Build the workflow only your business has",
       features: ["Workflow, tools, and human-handoff design", "Required integrations and knowledge access", "Testing against real operating scenarios"],
       addOns: ["RAG and source-linked answers", "Private or on-prem deployment", "Custom settings UI and extra integrations"],
