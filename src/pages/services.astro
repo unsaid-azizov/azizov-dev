@@ -4,7 +4,9 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { services } from '../lib/services';
 
-const catalogServices = services.filter((service) => service.showInCatalog !== false);
+const catalogServices = services
+  .filter((service) => service.showInCatalog !== false)
+  .sort((a, b) => Number(a.slug !== 'ai-revenue-systems') - Number(b.slug !== 'ai-revenue-systems'));
 ---
 <MainLayout title="AI Automation Services & Starting Prices | Azizov HQ" description="Voice agents, lead qualification and nurturing, custom AI and SaaS development, plus an AI automation audit. See starting rates, delivery timelines, and integrations.">
   <SiteHeader currentPath={Astro.url.pathname} />
@@ -12,9 +14,9 @@ const catalogServices = services.filter((service) => service.showInCatalog !== f
     <section class="site-shell service-catalog" aria-labelledby="services-heading">
       <header class="service-catalog__heading">
         <p class="eyebrow">Services</p>
-        <h1 id="services-heading">Pick the bottleneck. See what ships with it.</h1>
-        <p>Starting rates cover a managed system. Every card shows the core scope, usual delivery window, and the add-ons that change the build.</p>
-        <p class="service-catalog__note">A one-time launch and any platform usage are confirmed after we know the channels, integrations, and expected volume—before work begins.</p>
+        <h1 id="services-heading">AI systems built around the work that matters.</h1>
+        <p class="service-catalog__lede">Start with a free audit—or choose a focused system for calls, lead qualification, or the custom product your team needs.</p>
+        <p class="service-catalog__note"><span>Plans &amp; scope</span> Starting plans show the core system. Launch work and usage are confirmed before we build.</p>
       </header>
       <div class="service-pricing-grid">
         {catalogServices.map((service) => (
@@ -42,7 +44,7 @@ const catalogServices = services.filter((service) => service.showInCatalog !== f
               </blockquote>
             )}
             <p class="service-price-card__terms">{service.pricing.terms}</p>
-            <a class="button button--secondary service-price-card__action" href={`/services/${service.slug}/`}>See details</a>
+            <a class="button service-price-card__action" href={`/services/${service.slug}/`}>See details</a>
           </article>
         ))}
       </div>

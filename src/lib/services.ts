@@ -157,8 +157,8 @@ export const services: ServiceDefinition[] = [
   },
   {
     slug: "ai-revenue-systems",
-    name: "AI Automation Audit",
-    seoTitle: "AI Automation Audit",
+    name: "Free AI Automation Audit",
+    seoTitle: "Free AI Automation Audit",
     description: "An AI automation audit maps where enquiries, follow-up, and operational work break down, then defines the first useful system to build.",
     headline: "Find the first AI build worth making.",
     lede: "Not sure whether you need voice, lead qualification, or a custom build? We map the operating journey, find the costly handoff, and give you a practical first implementation plan.",
@@ -187,7 +187,7 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai", "crm-follow-up-and-reactivation"],
     pricing: {
-      label: "Start with an audit",
+      label: "Free",
       detail: "Find the highest-value workflow to automate",
       features: ["Map calls, messages, inboxes, and CRM handoffs", "Identify the costliest bottleneck", "Get a practical first-build plan"],
       timeline: "Typical delivery: 1 week",
@@ -235,7 +235,7 @@ export const services: ServiceDefinition[] = [
       terms: "A short discovery defines the delivery plan before the build starts.",
     },
     testimonial: {
-      quote: "Said got involved fast, went through the docs, collected all requirements, and designed a multi-agent system tailored to our case.",
+      quote: "Designed a multi-agent system tailored to our case.",
       name: "Malik Protopopov",
       role: "Product Manager, Mediann.dev",
       sourceUrl: "https://www.linkedin.com/in/said-azizov/details/recommendations/?detailScreenTabIndex=0",
