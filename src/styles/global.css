@@ -1613,8 +1613,18 @@
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.16);
   padding: clamp(1.1rem, 1.5vw, 1.35rem);
 }
-.service-price-card--ai-revenue-systems { border-color: color-mix(in srgb, var(--primary) 72%, var(--border)); background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 28%, transparent), transparent 62%), linear-gradient(145deg, #151d0e, #101310 68%); }
-.service-price-card--ai-revenue-systems .service-price-card__label { color: var(--primary); }
+.service-price-card--chatbots h2 { max-width: none; font-size: clamp(1.08rem, 1.25vw, 1.4rem); white-space: nowrap; }
+.service-price-card--custom-ai-agent-development { border-color: rgba(157, 135, 255, 0.46); background: radial-gradient(circle at 100% 0, rgba(137, 116, 255, 0.26), transparent 58%), linear-gradient(145deg, #171222, #101310 70%); }
+.service-price-card--ai-revenue-systems { border-color: #c7ff3f; background: #c7ff3f; box-shadow: 0 1rem 3rem rgba(199, 255, 63, 0.12); }
+.service-price-card--ai-revenue-systems .service-price-card__label,
+.service-price-card--ai-revenue-systems h2,
+.service-price-card--ai-revenue-systems .service-price-card__price strong,
+.service-price-card--ai-revenue-systems .service-price-card__timeline,
+.service-price-card--ai-revenue-systems .service-price-card__terms,
+.service-price-card--ai-revenue-systems li { color: #0b0d0b; }
+.service-price-card--ai-revenue-systems li::before { color: #0b0d0b; }
+.service-price-card--ai-revenue-systems .service-price-card__action { background: #0b0d0b; color: #f4f6ef; }
+.service-price-card--ai-revenue-systems:hover { border-color: #dcff8f; box-shadow: 0 1.2rem 3.5rem rgba(199, 255, 63, 0.2); }
 .service-price-card__label { color: var(--muted-foreground); font-size: 0.72rem; line-height: 1.4; }
 .service-price-card h2 { max-width: 13ch; margin-top: 0.75rem; color: var(--foreground); font-family: var(--font-sans); font-size: clamp(1.25rem, 1.45vw, 1.55rem); font-weight: 650; letter-spacing: -0.04em; line-height: 1.05; }
 .service-price-card__price { margin-top: 1rem; }
@@ -1765,6 +1775,7 @@
   .service-package { grid-template-columns: 1fr; gap: 2.5rem; }
   .service-package__scope { grid-template-columns: 1fr; }
   .service-price-card__options ul { grid-template-columns: 1fr; }
+  .service-price-card--chatbots h2 { white-space: normal; }
   .proof-strip__grid { gap: 0; }
   .proof-metric + .proof-metric { border-top: 1px solid var(--border); }
   .solution-card + .solution-card { border-left: 0; padding-left: 0; }
