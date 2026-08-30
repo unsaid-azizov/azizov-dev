@@ -4,7 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { services } from '../lib/services';
 
-const catalogOrder = ['custom-ai-agent-development', 'chatbots', 'ai-voice-agents', 'ai-revenue-systems'];
+const catalogOrder = ['ai-revenue-systems', 'chatbots', 'ai-voice-agents', 'custom-ai-agent-development'];
 const catalogServices = services
   .filter((service) => service.showInCatalog !== false)
   .sort((a, b) => catalogOrder.indexOf(a.slug) - catalogOrder.indexOf(b.slug));

@@ -75,8 +75,8 @@ export const services: ServiceDefinition[] = [
   },
   {
     slug: "chatbots",
-    name: "Lead Qual and nurturing",
-    seoTitle: "AI Lead Qualification and Nurturing Systems",
+    name: "Lead Qual & Nurturing",
+    seoTitle: "AI Lead Qualification & Nurturing Systems",
     description: "AI lead qualification turns website, messaging, and social enquiries into qualified opportunities with useful context for the next person.",
     headline: "Turn the first enquiry into a qualified opportunity.",
     lede: "The system asks the practical questions that shape a quote or booking, uses approved business information, and moves the enquiry into the right human workflow when needed. It can run in web chat or the messaging channels where customers already contact you.",
@@ -203,9 +203,9 @@ export const services: ServiceDefinition[] = [
   },
   {
     slug: "custom-ai-agent-development",
-    name: "Custom Agent & SaaS Development",
-    seoTitle: "Custom AI Agent & SaaS Development",
-    description: "Custom AI agents and SaaS products handle the specific customer and operational workflows that do not fit an off-the-shelf automation.",
+    name: "Custom Systems & Tech Partnership",
+    seoTitle: "Custom Systems & Tech Partnership",
+    description: "Custom AI systems, products, and technical partnerships for customer and operational workflows that do not fit an off-the-shelf automation.",
     headline: "Build the AI agent your operation actually needs.",
     lede: "When the problem is specific to your business, the agent should be too. We design the workflow, knowledge, integrations, and handoff rules around the job your team needs done.",
     audience: "For teams with a valuable workflow that needs more than a generic chatbot, template automation, or a one-size-fits-all AI tool.",
