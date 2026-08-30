@@ -1,0 +1,19 @@
+---
+import MainLayout from '../layouts/main.astro';
+const services = [
+  { name: "AI Voice Agents", slug: "ai-voice-agents", desc: "Inbound call handling and qualification." },
+  { name: "Chatbots", slug: "chatbots", desc: "Conversational automation for websites and messaging." },
+  { name: "Inbox & CRM Automation", slug: "inbox-crm-automation", desc: "Routing, tagging, follow-up workflows." },
+  { name: "AI Revenue Systems", slug: "ai-revenue-systems", desc: "Lead capture to booked job pipeline." },
+  { name: "Private AI Systems", slug: "private-ai-systems", desc: "Enterprise-controlled internal AI." },
+  { name: "Lead Capture & Estimating", slug: "lead-capture-estimating", desc: "Demand intake and quote automation." },
+  { name: "Reactivation & Follow-up", slug: "reactivation-follow-up", desc: "Re-engagement and retention flows." }
+];
+---
+<MainLayout title="Services — Azizov HQ" description="AI revenue services: Voice Agents, Chatbots, CRM Automation, Private AI, Lead Capture, Reactivation.">
+  <h1>Services</h1>
+  <ul>
+    {services.map(s => <li><a href={`/services/${s.slug}`}>{s.name}</a> — {s.desc}</li>)}
+  </ul>
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","serviceType":"AI Services","provider":{"@type":"Person","name":"Said Azizov"},"areaServed":"Worldwide"})} />
+</MainLayout>
