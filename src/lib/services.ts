@@ -16,7 +16,9 @@ export type ServiceDefinition = {
   upworkProductUrl?: string;
   deploymentOptions?: string[];
   complementaryWith?: string;
-  testimonial?: { quote: string; name: string; role: string; sourceUrl: string };
+  ctaLabel?: string;
+  ctaHref?: string;
+  testimonial?: { quote: string; cardQuote?: string; name: string; role: string; sourceUrl: string };
   pricing: {
     label: string;
     detail: string;
@@ -157,11 +159,11 @@ export const services: ServiceDefinition[] = [
   },
   {
     slug: "ai-revenue-systems",
-    name: "Free AI Automation Audit",
-    seoTitle: "Free AI Automation Audit",
-    description: "An AI automation audit maps where enquiries, follow-up, and operational work break down, then defines the first useful system to build.",
-    headline: "Find the first AI build worth making.",
-    lede: "Not sure whether you need voice, lead qualification, or a custom build? We map the operating journey, find the costly handoff, and give you a practical first implementation plan.",
+    name: "Free AI Workflow Audit",
+    seoTitle: "Free AI Workflow Audit",
+    description: "A free AI workflow audit helps you identify the one business bottleneck worth solving first and the practical system to use.",
+    headline: "Find the first AI system worth building.",
+    lede: "Not sure whether you need voice, lead qualification, or a custom build? Bring the workflow that feels slow, messy, or expensive. Leave with a clear first step.",
     audience: "For home-service and operational businesses that lose work through slow response, incomplete enquiries, missed calls, scattered conversations, or inconsistent follow-up.",
     capabilities: [
       { title: "Connect the whole demand path", description: "Bring calls, forms, messages, inboxes, CRM records, assignments, and follow-up into one considered workflow." },
@@ -187,13 +189,15 @@ export const services: ServiceDefinition[] = [
     relatedCaseStudies: ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"],
     relatedSolutions: ["ai-receptionist", "inquiry-and-booking-ai", "crm-follow-up-and-reactivation"],
     pricing: {
-      label: "Free",
-      detail: "Find the highest-value workflow to automate",
-      features: ["Map calls, messages, inboxes, and CRM handoffs", "Identify the costliest bottleneck", "Get a practical first-build plan"],
-      timeline: "Typical delivery: 1 week",
-      addOns: ["Voice or messaging implementation", "CRM, calendar, and follow-up", "Reporting and ongoing improvement"],
-      terms: "The audit defines the first build and delivery scope before implementation begins.",
+      label: "Free 30-min call",
+      detail: "Not sure where to start? Start here.",
+      features: ["Walk through how leads or work move today", "Find the one bottleneck worth fixing first", "Leave with a clear recommended next step"],
+      timeline: "No prep. No obligation.",
+      addOns: [],
+      terms: "If there is a good fit, we will outline the system, scope, and timeline afterwards.",
     },
+    ctaLabel: "Get free audit",
+    ctaHref: "/revenue-systems-audit/",
   },
   {
     slug: "custom-ai-agent-development",
@@ -235,7 +239,8 @@ export const services: ServiceDefinition[] = [
       terms: "A short discovery defines the delivery plan before the build starts.",
     },
     testimonial: {
-      quote: "Designed a multi-agent system tailored to our case.",
+      quote: "Last year we worked on an AI-based calorie and macros tracking project Yastvo AI. At some point we realized we needed to add a nutritionist chat, so users could get recommendations and close specific questions inside the product. I brought Said Azizov in as the ML specialist. I already knew him from a couple of projects he had been part of. He got involved fast, went through the docs, collected all requirements, and designed a multi-agent system tailored to our case. During implementation he also built an n8n prototype and guided our team while we were shipping this feature. I’m really glad I chose Said. We delivered the functionality, and I’m genuinely happy I reached out to him.",
+      cardQuote: "Designed a multi-agent system tailored to our case.",
       name: "Malik Protopopov",
       role: "Product Manager, Mediann.dev",
       sourceUrl: "https://www.linkedin.com/in/said-azizov/details/recommendations/?detailScreenTabIndex=0",

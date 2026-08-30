@@ -4,9 +4,10 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { services } from '../lib/services';
 
+const catalogOrder = ['custom-ai-agent-development', 'chatbots', 'ai-voice-agents', 'ai-revenue-systems'];
 const catalogServices = services
   .filter((service) => service.showInCatalog !== false)
-  .sort((a, b) => Number(a.slug !== 'ai-revenue-systems') - Number(b.slug !== 'ai-revenue-systems'));
+  .sort((a, b) => catalogOrder.indexOf(a.slug) - catalogOrder.indexOf(b.slug));
 ---
 <MainLayout title="AI Automation Services & Starting Prices | Azizov HQ" description="Voice agents, lead qualification and nurturing, custom AI and SaaS development, plus an AI automation audit. See starting rates, delivery timelines, and integrations.">
   <SiteHeader currentPath={Astro.url.pathname} />
@@ -26,10 +27,12 @@ const catalogServices = services
             <div class="service-price-card__price"><strong>{service.pricing.label}</strong></div>
             <p class="service-price-card__timeline">{service.pricing.timeline}</p>
             <ul>{service.pricing.features.map((feature) => <li>{feature}</li>)}</ul>
-            <div class="service-price-card__addons">
-              <p>Add-ons</p>
-              <ul>{service.pricing.addOns.map((addOn) => <li>{addOn}</li>)}</ul>
-            </div>
+            {service.pricing.addOns.length > 0 && (
+              <div class="service-price-card__addons">
+                <p>Add-ons</p>
+                <ul>{service.pricing.addOns.map((addOn) => <li>{addOn}</li>)}</ul>
+              </div>
+            )}
             {service.deploymentOptions && (
               <div class="service-price-card__options">
                 <p>Available channels &amp; integrations</p>
@@ -39,12 +42,12 @@ const catalogServices = services
             {service.complementaryWith && <p class="service-price-card__compatible">Works together: {service.complementaryWith}</p>}
             {service.testimonial && (
               <blockquote class="service-price-card__testimonial">
-                <p>“{service.testimonial.quote}”</p>
+                <p>“{service.testimonial.cardQuote ?? service.testimonial.quote}”</p>
                 <cite><a href={service.testimonial.sourceUrl} target="_blank" rel="noreferrer">{service.testimonial.name}, {service.testimonial.role} ↗</a></cite>
               </blockquote>
             )}
             <p class="service-price-card__terms">{service.pricing.terms}</p>
-            <a class="button service-price-card__action" href={`/services/${service.slug}/`}>See details</a>
+            <a class="button service-price-card__action" href={service.ctaHref ?? `/services/${service.slug}/`}>{service.ctaLabel ?? 'See details'}</a>
           </article>
         ))}
       </div>

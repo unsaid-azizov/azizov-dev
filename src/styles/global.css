@@ -1615,7 +1615,7 @@
 }
 .service-price-card--chatbots { background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 16%, transparent), transparent 42%), #101310; }
 .service-price-card--custom-ai-agent-development { background: radial-gradient(circle at 100% 0, rgba(137, 116, 255, 0.16), transparent 44%), #101310; }
-.service-price-card--ai-revenue-systems { border-style: dashed; background: #0e110f; }
+.service-price-card--ai-revenue-systems { border-color: color-mix(in srgb, var(--primary) 75%, var(--border)); background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 22%, transparent), transparent 55%), #12180d; }
 .service-price-card__label { color: var(--muted-foreground); font-size: 0.72rem; line-height: 1.4; }
 .service-price-card h2 { max-width: 13ch; margin-top: 0.75rem; color: var(--foreground); font-family: var(--font-sans); font-size: clamp(1.25rem, 1.45vw, 1.55rem); font-weight: 650; letter-spacing: -0.04em; line-height: 1.05; }
 .service-price-card__price { margin-top: 1rem; }
