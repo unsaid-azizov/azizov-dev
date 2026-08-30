@@ -1579,6 +1579,90 @@
 .audit-success h2 { margin-top: 1rem; color: var(--foreground); font-size: 2.7rem; font-weight: 400; }
 .audit-success p:not(.eyebrow) { margin-top: 1rem; color: var(--muted-foreground); line-height: 1.6; }
 
+/* Service pages use the same type, cards, proof strip, and conversion patterns as the rest of the sales site. */
+.services-intro .button { margin-top: 2rem; }
+.services-list { margin-top: clamp(5rem, 12vw, 10rem); }
+.services-cta { margin-bottom: clamp(5rem, 10vw, 8rem); }
+
+.service-hero { max-width: 58rem; }
+.service-hero h1 { max-width: 12ch; }
+.service-hero__audience {
+  max-width: 42rem;
+  margin-top: 1.25rem;
+  border-left: 1px solid var(--primary);
+  color: var(--muted-foreground);
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.service-hero__audience strong { color: var(--foreground); }
+.service-hero .hero-sales__actions { margin-top: 2rem; }
+.service-hero__upwork { align-self: center; margin-top: 0; }
+
+.service-proof { margin-top: clamp(3.5rem, 8vw, 6rem); }
+.service-proof .proof-strip__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service-section { margin-top: clamp(5rem, 12vw, 10rem); }
+
+.service-capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.service-capabilities article {
+  min-height: 17rem;
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+.service-capabilities article + article { border-left: 1px solid var(--border); padding-left: 1.25rem; }
+.service-capabilities span,
+.service-process li > span {
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+.service-capabilities h3,
+.service-process h3,
+.service-related h3 {
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+.service-capabilities h3 { margin-top: 4rem; }
+.service-capabilities p,
+.service-process p { margin-top: 0.8rem; color: var(--muted-foreground); line-height: 1.65; }
+
+.service-process {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  border-block: 1px solid var(--border);
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+}
+.service-process ol { display: grid; align-content: start; }
+.service-process li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+.service-process li:last-child { border-bottom: 1px solid var(--border); }
+
+.service-faq { max-width: 52rem; margin-top: clamp(5rem, 12vw, 10rem); }
+.service-faq > h2 { margin-top: 0.75rem; color: var(--foreground); font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 400; line-height: 1; }
+.service-faq .answer-section__item { border-top: 1px solid var(--border); padding-top: 1.4rem; }
+.service-faq .answer-section__item:first-of-type { margin-top: 2rem; }
+.service-faq .answer-section__item h3 { color: var(--foreground); font-family: var(--font-sans); font-size: 1rem; font-weight: 750; }
+.service-faq .answer-section__item p { color: var(--muted-foreground); }
+
+.service-related { margin-top: clamp(5rem, 12vw, 10rem); }
+.service-related > h2 { max-width: 17ch; margin-top: 0.75rem; color: var(--foreground); font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 400; line-height: 1; }
+.service-related .solution-list h3 { color: var(--foreground); font-family: var(--font-sans); font-size: 1.2rem; font-weight: 750; }
+.service-cta { margin-top: clamp(5rem, 12vw, 10rem); }
+
 @media (max-width: 720px) {
   .site-header__inner { min-height: 4rem; }
   .site-nav { display: none; }
@@ -1590,6 +1674,12 @@
   .proof-strip__grid,
   .solution-grid,
   .case-grid { grid-template-columns: 1fr; }
+  .service-proof .proof-strip__grid,
+  .service-capabilities { grid-template-columns: 1fr; }
+  .service-capabilities article + article { border-left: 0; padding-left: 0; }
+  .service-capabilities article { min-height: auto; }
+  .service-capabilities h3 { margin-top: 2rem; }
+  .service-process { grid-template-columns: 1fr; gap: 2.5rem; }
   .proof-strip__grid { gap: 0; }
   .proof-metric + .proof-metric { border-top: 1px solid var(--border); }
   .solution-card + .solution-card { border-left: 0; padding-left: 0; }
@@ -1647,6 +1737,7 @@
   }
 
   .hero-sales__actions .button { justify-content: flex-start; width: 100%; }
+  .service-hero__upwork { align-self: flex-start; }
 
   .hero-sales__proof {
     grid-template-columns: repeat(2, minmax(0, 1fr));

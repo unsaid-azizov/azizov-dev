@@ -1,18 +1,45 @@
 ---
 import MainLayout from '../layouts/main.astro';
-const services = [
-  { name: "AI Voice Agents", slug: "ai-voice-agents", desc: "Inbound call handling and qualification." },
-  { name: "Chatbots", slug: "chatbots", desc: "Conversational automation for websites and messaging." },
-  { name: "Inbox & CRM Automation", slug: "inbox-crm-automation", desc: "Routing, tagging, follow-up workflows." },
-  { name: "AI Revenue Systems", slug: "ai-revenue-systems", desc: "Lead capture to booked job pipeline." },
-  { name: "Private AI Systems", slug: "private-ai-systems", desc: "Enterprise-controlled internal AI." },
-  { name: "Lead Capture & Estimating", slug: "lead-capture-estimating", desc: "Demand intake and quote automation." },
-  { name: "Reactivation & Follow-up", slug: "reactivation-follow-up", desc: "Re-engagement and retention flows." },
-];
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+import { revenueMapFormUrl } from '../lib/conversion-links';
+import { services } from '../lib/services';
+
+const caseStudies = (await getCollection("caseStudies"))
+  .filter((caseStudy) => ["ekron-ai-receptionist", "mix-stroy-lead-qualification", "inbox-router"].includes(caseStudy.id))
+  .sort((a, b) => a.data.order - b.data.order);
 ---
-<MainLayout title="Services — Azizov HQ" description="AI services: Voice Agents, Chatbots, CRM Automation, Revenue Systems, Private AI, Lead Capture, Reactivation.">
-  <h1>Services</h1>
-  <ul>
-    {services.map(s => <li><a href={`/services/${s.slug}/`}>{s.name}</a> — {s.desc}</li>)}
-  </ul>
+<MainLayout title="AI Automation Services | Azizov HQ" description="AI systems for calls, conversations, inboxes, CRM, lead capture, follow-up, and private operational workflows.">
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell page-intro services-intro">
+      <p class="eyebrow">Services</p>
+      <h1>AI systems built around the points where work gets lost.</h1>
+      <p class="page-intro__lede">Choose the bottleneck that matters now: missed calls, unqualified conversations, unmanaged inboxes, slow estimating, dormant leads, or an AI requirement that needs stronger control.</p>
+      <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+    </section>
+
+    <section class="site-shell services-list" aria-labelledby="services-list-heading">
+      <p class="eyebrow">Choose a system</p>
+      <h2 class="section-title" id="services-list-heading">Build the next useful layer—not another disconnected tool.</h2>
+      <div class="solution-list">
+        {services.map((service, index) => <a href={`/services/${service.slug}/`} data-pointer-card><span>0{index + 1}</span><div><h3>{service.name}</h3><p>{service.description}</p></div><b aria-hidden="true">↗</b></a>)}
+      </div>
+    </section>
+
+    <section class="site-shell case-library" aria-labelledby="services-proof-heading">
+      <div class="section-heading-stack"><div><p class="eyebrow">Deployment evidence</p><h2 class="section-title" id="services-proof-heading">Proof from the workflows behind the service list.</h2></div><a class="text-link" href="/case-studies/">See all case studies <span aria-hidden="true">↗</span></a></div>
+      <div class="case-grid">
+        {caseStudies.map((caseStudy) => <CaseStudyCard slug={caseStudy.id} client={caseStudy.data.client} industry={caseStudy.data.industry} title={caseStudy.data.title} result={caseStudy.data.result} engagement={caseStudy.data.engagement} metrics={caseStudy.data.metrics} />)}
+      </div>
+    </section>
+
+    <section class="site-shell audit-banner services-cta">
+      <div><p class="eyebrow">Start with the bottleneck</p><h2>Find the first system worth building.</h2><p>We will map the current demand journey and identify the handoff that is costing the most attention or viable work.</p></div>
+      <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+    </section>
+  </main>
+  <SiteFooter />
 </MainLayout>

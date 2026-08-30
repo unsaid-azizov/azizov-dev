@@ -1,7 +1,5 @@
 ---
-import MainLayout from '../../layouts/main.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { serviceBySlug } from '../../lib/services';
 ---
-<MainLayout title="Chatbots — Azizov HQ" description="Service: chatbots">
-<h1>Chatbots</h1>
-<p>Service page for chatbots.</p>
-</MainLayout>
+<ServiceDetail service={serviceBySlug["chatbots"]} />

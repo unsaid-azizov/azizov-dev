@@ -42,6 +42,20 @@ const breadcrumbSchema = {
 const siteUrl = "https://azizovhq.com";
 const organizationId = `${siteUrl}/#organization`;
 const personId = `${siteUrl}/about/#person`;
+const serviceCatalog = [
+  ["AI Voice Agents", "ai-voice-agents"],
+  ["Chatbots", "chatbots"],
+  ["Inbox & CRM Automation", "inbox-crm-automation"],
+  ["AI Revenue Systems", "ai-revenue-systems"],
+  ["Private AI Systems", "private-ai-systems"],
+  ["Lead Capture & Estimating", "lead-capture-estimating"],
+  ["Reactivation & Follow-up", "reactivation-follow-up"],
+].map(([name, slug]) => ({
+  "@type": "Offer",
+  name,
+  url: `${siteUrl}/services/${slug}/`,
+  itemOffered: { "@type": "Service", name, url: `${siteUrl}/services/${slug}/` },
+}));
 
 const webSiteSchema = {
   "@context": "https://schema.org",
@@ -76,6 +90,12 @@ const organizationSchema = {
     "Sales follow-up automation",
     "Private AI systems",
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Azizov HQ services",
+    url: `${siteUrl}/services/`,
+    itemListElement: serviceCatalog,
+  },
 };
 
 const PERSON_BIO = "AI engineer and founder of Azizov HQ. Said builds AI revenue systems for businesses and has a background in deep learning, computer vision, NLP, and open-source AI.";
@@ -98,7 +118,8 @@ const personSchema = {
     "https://t.me/astex_channel",
     "https://www.instagram.com/said.azizow/",
     "https://scholar.google.com/citations?user=ueDU47EAAAAJ&hl=en",
-    "https://www.youtube.com/@said_azizov"
+    "https://www.youtube.com/@said_azizov",
+    "https://www.upwork.com/freelancers/azizov"
   ],
   knowsAbout: [
     "AI Agents",
@@ -116,19 +137,6 @@ const personSchema = {
   ],
   worksFor: { "@id": organizationId },
   alumniOf: { "@type": "CollegeOrUniversity", name: "NUST MISIS" },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Services by Said Azizov",
-    itemListElement: [
-      {"@type":"Offer","name":"AI Voice Agents","itemOffered":{"@type":"Service","name":"AI Voice Agents"}},
-      {"@type":"Offer","name":"Chatbots","itemOffered":{"@type":"Service","name":"Chatbots"}},
-      {"@type":"Offer","name":"Inbox & CRM Automation","itemOffered":{"@type":"Service","name":"Inbox & CRM Automation"}},
-      {"@type":"Offer","name":"AI Revenue Systems","itemOffered":{"@type":"Service","name":"AI Revenue Systems"}},
-      {"@type":"Offer","name":"Private AI Systems","itemOffered":{"@type":"Service","name":"Private AI Systems"}},
-      {"@type":"Offer","name":"Lead Capture & Estimating","itemOffered":{"@type":"Service","name":"Lead Capture & Estimating"}},
-      {"@type":"Offer","name":"Reactivation & Follow-up","itemOffered":{"@type":"Service","name":"Reactivation & Follow-up"}}
-    ]
-  },
   identifier: [
     {
       "@type": "PropertyValue",
@@ -216,7 +224,3 @@ const personSchema = {
 		</script>
 	</body>
 </html>
-<!-- Persona schema: Said Azizov - AI Voice Agents, Chatbots, Inbox & CRM Automation -->
-<script type="application/ld+json">
-{ "@context":"https://schema.org", "@type":"Person", "name":"Said Azizov", "url":"https://azizovhq.com", "sameAs":["https://www.upwork.com/freelancers/azizov"], "jobTitle":"AI Revenue Systems Engineer", "worksFor":{"@type":"Organization","name":"Azizov HQ"}, "knowsAbout":["AI Voice Agents","Chatbots","CRM Automation","Answer Engine Optimization"] }
-</script>

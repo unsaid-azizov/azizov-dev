@@ -1,0 +1,120 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/main.astro";
+import SiteHeader from "./SiteHeader.astro";
+import SiteFooter from "./SiteFooter.astro";
+import CaseStudyCard from "./CaseStudyCard.astro";
+import ProofMetric from "./ProofMetric.astro";
+import { revenueMapFormUrl, bookingCalendarUrl } from "../lib/conversion-links";
+import { services, type ServiceDefinition } from "../lib/services";
+
+interface Props { service: ServiceDefinition }
+const { service } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const caseStudies = (await getCollection("caseStudies"))
+  .filter((caseStudy) => service.relatedCaseStudies.includes(caseStudy.id))
+  .sort((a, b) => service.relatedCaseStudies.indexOf(a.id) - service.relatedCaseStudies.indexOf(b.id));
+const relatedServices = services.filter((item) => item.slug !== service.slug).slice(0, 3);
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: service.name,
+      serviceType: service.name,
+      description: service.description,
+      url: canonical,
+      provider: { "@id": "https://azizovhq.com/#organization" },
+      audience: { "@type": "BusinessAudience", audienceType: service.audience },
+      isRelatedTo: service.relatedSolutions.map((slug) => `https://azizovhq.com/solutions/${slug}/`),
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: service.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
+};
+---
+
+<MainLayout title={`${service.seoTitle} | Azizov HQ`} description={service.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main>
+    <section class="site-shell page-intro service-hero">
+      <p class="eyebrow">Service</p>
+      <h1>{service.headline}</h1>
+      <p class="page-intro__lede">{service.lede}</p>
+      <p class="service-hero__audience"><strong>Built for:</strong> {service.audience}</p>
+      <div class="hero-sales__actions">
+        <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+        <a class="button button--secondary" href={bookingCalendarUrl}>Book a call</a>
+        {service.upworkProductUrl && <a class="text-link service-hero__upwork" href={service.upworkProductUrl} target="_blank" rel="noreferrer">View productized service on Upwork <span aria-hidden="true">↗</span></a>}
+      </div>
+    </section>
+
+    <section class="proof-strip service-proof" aria-label={`${service.name} deployment evidence`}>
+      <div class="site-shell proof-strip__grid">
+        {service.proof.map((metric) => <ProofMetric {...metric} />)}
+      </div>
+    </section>
+
+    <section class="site-shell service-section" aria-labelledby="capabilities-heading">
+      <div class="section-heading-stack">
+        <div><p class="eyebrow">What the system does</p><h2 class="section-title" id="capabilities-heading">Useful automation, connected to the people who act on it.</h2></div>
+      </div>
+      <div class="service-capabilities">
+        {service.capabilities.map((capability, index) => (
+          <article>
+            <span>0{index + 1}</span>
+            <h3>{capability.title}</h3>
+            <p>{capability.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="site-shell service-section service-process" aria-labelledby="process-heading">
+      <div><p class="eyebrow">How it gets built</p><h2 class="section-title" id="process-heading">Start with the operating problem, then earn the automation.</h2></div>
+      <ol>
+        {service.process.map((step, index) => (
+          <li><span>0{index + 1}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>
+        ))}
+      </ol>
+    </section>
+
+    {caseStudies.length > 0 && (
+      <section class="site-shell service-section case-library" aria-labelledby="case-studies-heading">
+        <div class="section-heading-stack"><div><p class="eyebrow">Deployment evidence</p><h2 class="section-title" id="case-studies-heading">Relevant systems, with the limits stated plainly.</h2></div><a class="text-link" href="/case-studies/">See all case studies <span aria-hidden="true">↗</span></a></div>
+        <div class="case-grid">
+          {caseStudies.map((caseStudy) => <CaseStudyCard slug={caseStudy.id} client={caseStudy.data.client} industry={caseStudy.data.industry} title={caseStudy.data.title} result={caseStudy.data.result} engagement={caseStudy.data.engagement} metrics={caseStudy.data.metrics} />)}
+        </div>
+      </section>
+    )}
+
+    <section class="site-shell service-faq prose-custom" aria-labelledby="faq-heading">
+      <p class="eyebrow">Quick answers</p>
+      <h2 id="faq-heading">Questions teams ask before they build.</h2>
+      {service.faqs.map((faq) => <div class="answer-section__item"><h3>{faq.question}</h3><p>{faq.answer}</p></div>)}
+    </section>
+
+    <section class="site-shell service-related" aria-labelledby="related-services-heading">
+      <p class="eyebrow">Explore the rest of the system</p>
+      <h2 id="related-services-heading">Other ways to remove friction from the revenue path.</h2>
+      <div class="solution-list">
+        {relatedServices.map((related, index) => <a href={`/services/${related.slug}/`} data-pointer-card><span>0{index + 1}</span><div><h3>{related.name}</h3><p>{related.description}</p></div><b aria-hidden="true">↗</b></a>)}
+      </div>
+    </section>
+
+    <section class="site-shell audit-banner service-cta">
+      <div><p class="eyebrow">Find the first useful build</p><h2>Start where demand is already leaking.</h2><p>Map the journey your team uses now, identify the costly handoff, and decide whether this system is the right first move.</p></div>
+      <a class="button" href={revenueMapFormUrl}>Map my revenue leaks</a>
+    </section>
+  </main>
+  <SiteFooter />
+</MainLayout>

@@ -1,7 +1,5 @@
 ---
-import MainLayout from '../../layouts/main.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { serviceBySlug } from '../../lib/services';
 ---
-<MainLayout title="Private Ai Systems — Azizov HQ" description="Service: private ai systems">
-<h1>Private Ai Systems</h1>
-<p>Service page for private ai systems.</p>
-</MainLayout>
+<ServiceDetail service={serviceBySlug["private-ai-systems"]} />

@@ -1,7 +1,5 @@
 ---
-import MainLayout from '../../layouts/main.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { serviceBySlug } from '../../lib/services';
 ---
-<MainLayout title="Reactivation Follow Up — Azizov HQ" description="Service: reactivation follow up">
-<h1>Reactivation Follow Up</h1>
-<p>Service page for reactivation follow up.</p>
-</MainLayout>
+<ServiceDetail service={serviceBySlug["reactivation-follow-up"]} />

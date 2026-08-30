@@ -1,7 +1,5 @@
 ---
-import MainLayout from '../../layouts/main.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { serviceBySlug } from '../../lib/services';
 ---
-<MainLayout title="Lead Capture Estimating — Azizov HQ" description="Service: lead capture estimating">
-<h1>Lead Capture Estimating</h1>
-<p>Service page for lead capture estimating.</p>
-</MainLayout>
+<ServiceDetail service={serviceBySlug["lead-capture-estimating"]} />
