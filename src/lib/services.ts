@@ -214,7 +214,7 @@ export const services: ServiceDefinition[] = [
     audience: "For teams that want an experienced technical partner to connect AI work directly to a commercial or operational goal, rather than buying a one-off bot.",
     capabilities: [
       { title: "Start with the business goal", description: "Audit the opportunity, define what success looks like, and choose the AI work most likely to move the business forward." },
-      { title: "Build across growth and operations", description: "Support lead generation, inbound and outbound workflows, CRM, corporate knowledge bases, internal tools, or a customer-facing SaaS product." },
+      { title: "Build across growth and operations", description: "Support lead generation, inbound and outbound workflows, sales-department call analytics, CRM insights, corporate knowledge bases, internal tools, or a customer-facing SaaS product." },
       { title: "Stay involved after launch", description: "Provide practical technical guidance, iteration, and long-term support as the system, team, and business priorities evolve." },
     ],
     process: [
@@ -230,7 +230,7 @@ export const services: ServiceDefinition[] = [
     ],
     faqs: [
       { question: "What does a tech partnership include?", answer: "It starts with the goal and opportunity audit, then provides technical direction, delivery support, and ongoing iteration for the AI systems that matter to the business." },
-      { question: "What can we work on together?", answer: "The work can cover lead generation, inbound and outbound workflows, CRM, corporate knowledge bases, internal tools, customer-facing AI, or a SaaS product." },
+      { question: "What can we work on together?", answer: "The work can cover lead generation, inbound and outbound workflows, sales-department call analytics and coaching, CRM insights, pipeline and follow-up automation, corporate knowledge bases, internal tools, customer-facing AI, or a SaaS product." },
       { question: "Do you stay involved after the first launch?", answer: "Yes. The partnership is designed for ongoing technical guidance and support as the system, business process, and priorities evolve." },
     ],
     relatedCaseStudies: ["universal-ai-receptionist", "inbox-router"],
@@ -240,7 +240,7 @@ export const services: ServiceDefinition[] = [
       detail: "Strategy, build, and long-term support for your AI goals",
       features: ["Technical audit and goals roadmap included in onboarding", "One senior technical partner from build through support", "Move faster without hiring a full in-house AI team"],
       addOnsLabel: "Examples of work",
-      addOns: ["Lead generation, inbound, and outbound systems", "Corporate knowledge bases and internal tools", "CRM workflows and customer-facing SaaS"],
+      addOns: ["Lead generation, inbound, and outbound systems", "Sales-call analytics, coaching, and CRM insights", "Pipeline, follow-up, and sales-department automation", "Corporate knowledge bases, internal tools, and customer-facing SaaS"],
       terms: "We define the goals, first delivery plan, and ongoing support rhythm together.",
     },
     testimonial: {
