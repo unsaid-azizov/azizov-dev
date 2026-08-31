@@ -1962,6 +1962,58 @@
 }
 .founder-preview__proof dd { margin-top: 0.45rem; color: var(--foreground); font-size: 0.92rem; font-weight: 750; line-height: 1.35; }
 
+/* Homepage conversion path: credibility, offer clarity, proof, then one repeated action. */
+.homepage-founder { margin-top: 0; }
+.homepage-offers,
+.homepage-testimonials,
+.homepage-proof { padding-top: clamp(5rem, 11vw, 9rem); }
+.homepage-section-heading { max-width: 45rem; }
+.homepage-section-heading h2 { max-width: 12ch; margin-top: 0.9rem; color: var(--foreground); font-size: clamp(3rem, 5.3vw, 5.6rem); font-weight: 400; letter-spacing: -0.065em; line-height: 0.92; }
+.homepage-section-heading > p:not(.eyebrow) { max-width: 38rem; margin-top: 1.2rem; color: var(--muted-foreground); font-size: 1rem; line-height: 1.7; }
+.homepage-offers__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin-top: 3rem; }
+.homepage-offer { display: flex; min-height: 27rem; flex-direction: column; border: 1px solid var(--border); border-radius: 0.65rem; background: #101310; padding: clamp(1.1rem, 1.5vw, 1.35rem); }
+.homepage-offer > p { color: var(--muted-foreground); font-size: 0.72rem; line-height: 1.4; }
+.homepage-offer h3 { min-height: 2.4em; margin-top: 0.75rem; color: var(--foreground); font-family: var(--font-sans); font-size: clamp(1.1rem, 1.35vw, 1.45rem); font-weight: 650; letter-spacing: -0.045em; line-height: 1.05; }
+.homepage-offer > strong { margin-top: 1rem; color: var(--primary); font-family: var(--font-sans); font-size: 1.25rem; letter-spacing: -0.03em; }
+.homepage-offer > small { margin-top: 0.45rem; color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.04em; line-height: 1.4; text-transform: uppercase; }
+.homepage-offer ul { display: grid; gap: 0.48rem; margin-top: 1.25rem; color: var(--foreground); font-size: 0.75rem; line-height: 1.35; }
+.homepage-offer li { display: flex; gap: 0.45rem; }
+.homepage-offer li::before { color: var(--primary); content: "✓"; }
+.homepage-offer .button { width: 100%; margin-top: auto; padding-top: 1rem; }
+.homepage-offer--ai-revenue-systems { border-color: color-mix(in srgb, var(--primary) 58%, var(--border)); background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--primary) 16%, transparent), transparent 42%), #101310; }
+.homepage-offer--custom-ai-agent-development { border-color: rgba(157, 135, 255, 0.5); background: radial-gradient(circle at 100% 0, rgba(137, 116, 255, 0.16), transparent 58%), linear-gradient(145deg, #100d18, #08090a 74%); }
+
+.google-review-summary { display: grid; grid-template-columns: minmax(13rem, 0.8fr) minmax(15rem, 1fr) auto; align-items: center; gap: 2rem; margin-top: 3rem; border-block: 1px solid var(--border); padding-block: 1.4rem; }
+.google-review-summary > div > p { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.google-review-summary strong { display: block; margin-top: 0.4rem; color: var(--foreground); font-family: var(--font-serif); font-size: 2.4rem; font-weight: 400; line-height: 1; }
+.google-review-summary strong span { color: #f4c95d; font-family: var(--font-sans); font-size: 1.15rem; letter-spacing: 0.05em; vertical-align: middle; }
+.google-review-summary small { display: block; margin-top: 0.45rem; color: var(--muted-foreground); font-size: 0.72rem; }
+.google-review-summary > p { max-width: 28rem; color: var(--muted-foreground); line-height: 1.6; }
+.homepage-testimonials__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-top: 2rem; }
+.homepage-testimonials__grid article { display: flex; min-height: 21rem; flex-direction: column; border: 1px solid var(--border); background: #101310; padding: 1.35rem; }
+.homepage-testimonials__stars { color: #f4c95d; font-size: 0.82rem; letter-spacing: 0.11em; }
+.homepage-testimonials__grid blockquote { display: -webkit-box; overflow: hidden; margin-top: 1rem; color: var(--foreground); font-size: 0.88rem; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 7; }
+.homepage-testimonials__grid footer { margin-top: auto; border-top: 1px solid var(--border); padding-top: 1rem; }
+.homepage-testimonials__grid footer strong { display: block; color: var(--foreground); font-size: 0.82rem; }
+.homepage-testimonials__grid footer span { display: block; margin-top: 0.25rem; color: var(--muted-foreground); font-size: 0.72rem; }
+.homepage-testimonials__grid footer .text-link { display: inline-block; margin-top: 0.75rem; font-size: 0.7rem; }
+.homepage-proof { padding-bottom: clamp(2rem, 5vw, 4rem); }
+.homepage-cta { margin-top: 0; }
+
+@media (max-width: 1180px) {
+  .homepage-offers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .homepage-offers__grid,
+  .homepage-testimonials__grid { grid-template-columns: 1fr; }
+  .homepage-offer { min-height: auto; }
+  .homepage-offer h3 { min-height: 0; }
+  .google-review-summary { grid-template-columns: 1fr; gap: 1.1rem; }
+  .google-review-summary .button { justify-self: start; }
+  .homepage-testimonials__grid article { min-height: 18rem; }
+}
+
 .about-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
