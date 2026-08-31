@@ -1,6 +1,6 @@
 ---
 const { currentPath = "" } = Astro.props;
-import { revenueMapFormUrl } from "../lib/conversion-links";
+import { bookingCalendarUrl, revenueMapFormUrl } from "../lib/conversion-links";
 
 const navigation = [
   { href: "/services/", label: "Services" },
@@ -19,6 +19,9 @@ const navigation = [
         <a href={item.href} aria-current={currentPath.startsWith(item.href) ? "page" : undefined}>{item.label}</a>
       ))}
     </nav>
-    <a class="button button--compact" href={revenueMapFormUrl}>Map my revenue leaks</a>
+    <div class="site-header__actions">
+      <a class="button button--compact button--secondary" href={bookingCalendarUrl}>Book a call</a>
+      <a class="button button--compact" href={revenueMapFormUrl}>Map revenue leaks</a>
+    </div>
   </div>
 </header>

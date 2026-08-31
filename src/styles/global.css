@@ -404,6 +404,7 @@
   align-items: center;
   gap: 1.5rem;
 }
+.site-header__actions { display: flex; align-items: center; gap: 0.5rem; }
 
 .site-nav a,
 .site-footer a {
@@ -1751,6 +1752,7 @@
   .site-header__inner { min-height: 4rem; }
   .site-nav { display: none; }
   .site-header .button { font-size: 0.65rem; }
+  .site-header__actions { gap: 0.35rem; }
   .site-footer__inner { align-items: flex-start; flex-direction: column; justify-content: center; }
   .site-footer__links { text-align: left; }
   .hero-sales { grid-template-columns: 1fr; min-height: auto; padding-block: 4rem; }
