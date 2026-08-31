@@ -1,6 +1,6 @@
 ---
 clientName: "Mike Repara"
-company: "REPAPA — репетитор"
+company: "REPAPA"
 role: "Tutor & Course Creator (14.6K subscribers)"
 rating: 5
 platform: "other"
