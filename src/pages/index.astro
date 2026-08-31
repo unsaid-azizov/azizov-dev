@@ -86,7 +86,26 @@ const caseStudies = (await getCollection("caseStudies"))
             <strong>{service.pricing.label}</strong>
             {service.pricing.timeline && <small>{service.pricing.timeline}</small>}
             <ul>{service.pricing.features.map((feature) => <li>{feature}</li>)}</ul>
-            <a class="button" href={service.ctaHref ?? `/services/${service.slug}/`} target={service.ctaHref?.startsWith("http") ? "_blank" : undefined} rel={service.ctaHref?.startsWith("http") ? "noreferrer" : undefined}>{service.ctaLabel ?? "See details"}</a>
+            {service.pricing.addOns.length > 0 && (
+              <div class="homepage-offer__addons">
+                <p>{service.pricing.addOnsLabel ?? "Add-ons"}</p>
+                <ul>{service.pricing.addOns.map((addOn) => <li>{addOn}</li>)}</ul>
+              </div>
+            )}
+            {service.deploymentOptions && (
+              <div class="homepage-offer__options">
+                <p>Available channels &amp; integrations</p>
+                <ul>{service.deploymentOptions.map((option) => <li>{option}</li>)}</ul>
+              </div>
+            )}
+            {service.complementaryWith && <p class="homepage-offer__compatible">Works together: {service.complementaryWith}</p>}
+            <div class="homepage-offer__footer">
+              <p>{service.pricing.terms}</p>
+              <div class="homepage-offer__actions">
+                {service.secondaryCta && <a class="button button--secondary" href={service.secondaryCta.href} target="_blank" rel="noreferrer">{service.secondaryCta.label}</a>}
+                <a class="button" href={service.ctaHref ?? `/services/${service.slug}/`} target={service.ctaHref?.startsWith("http") ? "_blank" : undefined} rel={service.ctaHref?.startsWith("http") ? "noreferrer" : undefined}>{service.ctaLabel ?? "See details"}</a>
+              </div>
+            </div>
           </article>
         ))}
       </div>
