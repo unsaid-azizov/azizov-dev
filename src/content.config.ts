@@ -102,6 +102,7 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     pageTitle: z.string().optional(),
+    language: z.enum(["en", "ru"]).default("en"),
     date: z.coerce.date(),
     category: z.enum(["hackathon", "award", "talk", "publication", "article"]),
     description: z.string(),

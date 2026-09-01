@@ -6,17 +6,20 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article' | 'profile';
+  lang?: 'en' | 'ru';
 }
 
 const { 
   title, 
   description = "Azizov HQ builds AI revenue systems that turn inbound demand into qualified, booked, profitable work for home-service businesses.",
   image = "/images/me.jpg",
-  type = "website"
+  type = "website",
+  lang = "en"
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const imageUrl = new URL(image, Astro.site).href;
+const ogLocale = lang === "ru" ? "ru_RU" : "en_US";
 
 // Breadcrumb structured data from URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
@@ -152,7 +155,7 @@ const personSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -180,7 +183,7 @@ const personSchema = {
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
 		<meta property="og:site_name" content="Azizov HQ" />
-		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale" content={ogLocale} />
 		
 		{/* Twitter / X */}
 		<meta name="twitter:card" content="summary_large_image" />

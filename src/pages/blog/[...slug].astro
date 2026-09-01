@@ -14,17 +14,33 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, pageTitle, description, category, tags, date, result, link } = post.data;
+const { title, pageTitle, description, category, tags, date, result, link, language } = post.data;
+
+const isRussian = language === "ru";
+const locale = isRussian ? "ru-RU" : "en-US";
+const ui = isRussian
+  ? {
+      allInsights: "Все статьи",
+      relatedHeading: "Читайте также",
+      readInsight: "Читать статью ↗",
+      topics: "Темы",
+    }
+  : {
+      allInsights: "All insights",
+      relatedHeading: "Keep reading",
+      readInsight: "Read insight ↗",
+      topics: "Topics",
+    };
 
 const categoryLabels: Record<string, string> = {
   hackathon: "Hackathon",
   award: "Award",
   talk: "Talk",
   publication: "Publication",
-  article: "Article",
+  article: isRussian ? "Статья" : "Article",
 };
 
-const formattedDate = date.toLocaleDateString("en-US", {
+const formattedDate = date.toLocaleDateString(locale, {
   month: "long",
   day: "numeric",
   year: "numeric",
@@ -53,6 +69,7 @@ const blogPostingSchema = {
   },
   image: new URL(`/og/${post.id}.png`, Astro.site).href,
   keywords: tags.join(", "),
+  inLanguage: language,
   mainEntityOfPage: canonical,
 };
 
@@ -66,14 +83,14 @@ const relatedPosts = allPosts
   .slice(0, 3);
 ---
 
-<MainLayout title={`${pageTitle ?? title} | Said Azizov`} description={description} type="article" image={`/og/${post.id}.png`}>
+<MainLayout title={`${pageTitle ?? title} | Said Azizov`} description={description} type="article" image={`/og/${post.id}.png`} lang={language}>
   <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
   <SiteHeader currentPath={Astro.url.pathname} />
   <main class="article-page">
     <article class="site-shell article-layout">
     <header class="article-hero">
       <div class="article-hero__meta">
-        <a href="/blog/">All insights</a>
+        <a href="/blog/">{ui.allInsights}</a>
         <span>{categoryLabels[category]}</span>
         <time datetime={date.toISOString()}>{formattedDate}</time>
       </div>
@@ -92,7 +109,7 @@ const relatedPosts = allPosts
 
     <div class="article-content-grid">
       <aside class="article-rail">
-        <p>Topics</p>
+        <p>{ui.topics}</p>
         <ul>
           {tags.map((tag) => <li>{tag}</li>)}
         </ul>
@@ -105,15 +122,15 @@ const relatedPosts = allPosts
 
     {relatedPosts.length > 0 && (
       <section class="article-related" aria-labelledby="related-heading">
-        <h2 id="related-heading">Keep reading</h2>
+        <h2 id="related-heading">{ui.relatedHeading}</h2>
         <div class="article-related__list">
           {relatedPosts.map((related) => (
             <a href={`/blog/${related.id}/`}>
               <span>
-                {categoryLabels[related.data.category]} · {related.data.date.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+              {categoryLabels[related.data.category]} · {related.data.date.toLocaleDateString(locale, { month: "short", year: "numeric" })}
               </span>
               <h3>{displayText(related.data.title)}</h3>
-              <b>Read insight ↗</b>
+              <b>{ui.readInsight}</b>
             </a>
           ))}
         </div>
