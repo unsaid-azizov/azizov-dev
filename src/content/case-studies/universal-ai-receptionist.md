@@ -2,6 +2,7 @@
 client: "Confidential startup"
 industry: "AI software"
 title: "A multi-agent AI receptionist built to work across CRM and booking systems."
+seoTitle: "Multi-Agent AI Receptionist"
 description: "A confidential startup needed one AI receptionist architecture that could adapt to live CRM, scheduling, and company-knowledge data rather than being hard-wired to a single integration."
 system: "Supervisor-agent architecture with specialised agents, long-term memory, RAG, CRM integrations, and Google and Yandex Calendar booking integrations."
 result: "A configurable foundation for an AI receptionist across amoCRM, Bitrix24, YClients, Google Calendar, and Yandex Calendar, plus settings interfaces and a simplified codebase."

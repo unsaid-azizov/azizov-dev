@@ -2,6 +2,7 @@
 client: "Hobopro"
 industry: "Commercial operations"
 title: "How HoboPro built corporate email infrastructure, then automated the inbox."
+seoTitle: "HoboPro Email Operations Automation"
 description: "HoboPro first needed a usable corporate email foundation. After the infrastructure was in place, an AI routing and classification layer was deployed to organise incoming work."
 system: "Corporate email setup combined with AI email classification and routing, using the same operational pattern proven in multi-inbox manufacturing deployments."
 result: "A repeatable implementation that starts with reliable email infrastructure, then adds AI-based routing and classification instead of bolting automation onto an unstructured inbox."

@@ -2,6 +2,7 @@
 client: "Mediann.dev"
 industry: "Healthtech"
 title: "Technical advisory for a multi-agent nutrition-assistant product."
+seoTitle: "Multi-Agent Nutrition Assistant Advisory"
 description: "Mediann.dev brought us in for AI/ML expertise while building Yastvo AI, a calorie and macros tracking product that needed an in-product nutritionist chat."
 system: "AI/ML technical advisory, requirements discovery, and multi-agent system design for an in-product nutritionist assistant."
 result: "The product team moved from the need for a nutritionist chat to a tailored multi-agent system design shaped around their requirements."

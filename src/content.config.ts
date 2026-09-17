@@ -138,6 +138,7 @@ const caseStudies = defineCollection({
     client: z.string(),
     industry: z.string(),
     title: z.string(),
+    seoTitle: z.string().optional(),
     description: z.string(),
     system: z.string(),
     result: z.string(),

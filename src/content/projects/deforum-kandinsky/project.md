@@ -9,8 +9,6 @@ metrics:
   stars: "100+"
   creators: "1,000+"
   speedup: "60%"
-links:
-  github: "https://github.com/yourusername/deforum-kandinsky"
 startDate: 2023-07-01
 endDate: 2024-08-01
 status: "completed"

@@ -2,6 +2,7 @@
 client: "Ekron Surveyors"
 industry: "Surveying"
 title: "How Ekron Surveyors cut call-handling costs by 83% with an AI receptionist."
+seoTitle: "AI Receptionist for Ekron Surveyors"
 description: "Ekron Surveyors replaced an outsourced reception workflow with an AI voice agent that answers inbound calls, qualifies prospects, and records the next step in the CRM."
 system: "AI voice receptionist using ElevenLabs, Vapi, Twilio, and CRM integration to handle inbound-call qualification and handoff."
 result: "The client reported around £10K in additional work/leads captured in the first three months; this is not presented as booked revenue."

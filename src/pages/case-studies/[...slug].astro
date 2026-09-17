@@ -30,7 +30,7 @@ const caseStudySchema = {
 };
 ---
 
-<MainLayout title={`${entry.data.title} | Azizov HQ`} description={entry.data.description} type="article">
+<MainLayout title={`${entry.data.seoTitle ?? entry.data.title} | Azizov HQ`} description={entry.data.description} type="article">
   <script type="application/ld+json" set:html={JSON.stringify(caseStudySchema)} />
   <SiteHeader currentPath={Astro.url.pathname} />
   <main>

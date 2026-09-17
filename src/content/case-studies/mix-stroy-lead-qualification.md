@@ -2,6 +2,7 @@
 client: "MIX-STROY"
 industry: "Construction materials"
 title: "How MIX-STROY qualifies 100+ leads a day across five inbound channels."
+seoTitle: "AI Lead Qualification Across 5 Channels"
 description: "MIX-STROY uses an AI qualification system across five inbound channels to identify products, check live stock and pricing, and route structured opportunities into Bitrix24."
 system: "AI lead qualification across Instagram, WhatsApp, Telegram, Avito, and MAX, with Bitrix24 CRM routing, live inventory and pricing access, and human handoff."
 result: "The live workflow handles more than 100 inbound leads per day, giving sales reps structured, ready-to-quote opportunities instead of raw chat threads."

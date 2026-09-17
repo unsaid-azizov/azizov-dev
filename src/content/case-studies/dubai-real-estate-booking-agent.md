@@ -2,6 +2,7 @@
 client: "Real-estate broker agency"
 industry: "Real estate · Dubai"
 title: "A WhatsApp agent qualifies property enquiries and books viewings into Google Calendar."
+seoTitle: "AI WhatsApp Agent for Property Viewings"
 description: "A mobile-first WhatsApp booking workflow for a real-estate broker agency in Dubai, designed to give every new property enquiry a clear, immediate next step."
 system: "AI WhatsApp booking agent for property enquiries, lead qualification, and Google Calendar viewing bookings."
 result: "A working WhatsApp workflow that turns a property enquiry into a confirmed Google Calendar viewing slot."

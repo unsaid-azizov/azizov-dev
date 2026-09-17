@@ -2,6 +2,7 @@
 client: "Stroyassortiment"
 industry: "Construction materials"
 title: "How an AI inbox router connected 16 manufacturing inboxes in two weeks."
+seoTitle: "AI Inbox Router for Manufacturing"
 description: "An AI email-routing system classified 1,123 messages across 16 departmental inboxes, sent each request to the right owner, and recorded the relevant context in the CRM."
 system: "AI inbox routing for Outlook, Exchange, Gmail, and IMAP email, with LLM classification, department routing, CRM handoff, monitoring, and an on-premise local-LLM option."
 result: "The deployment connected 16 inboxes, processed 1,123 emails at an average routing time of 1.2 seconds, and replaced manual department-by-department triage with structured routing."
