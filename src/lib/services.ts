@@ -233,7 +233,7 @@ export const services: ServiceDefinition[] = [
       { question: "What can we work on together?", answer: "The work can cover lead generation, inbound and outbound workflows, sales-department call analytics and coaching, CRM insights, pipeline and follow-up automation, corporate knowledge bases, internal tools, customer-facing AI, or a SaaS product." },
       { question: "Do you stay involved after the first launch?", answer: "Yes. The partnership is designed for ongoing technical guidance and support as the system, business process, and priorities evolve." },
     ],
-    relatedCaseStudies: ["universal-ai-receptionist", "inbox-router"],
+    relatedCaseStudies: ["universal-ai-receptionist", "inbox-router", "hobopro-email-operations", "mediann-yastvo-ai-advisory"],
     relatedSolutions: ["private-ai-on-premise", "knowledge-base-rag"],
     pricing: {
       label: "From $3k/mo",

@@ -14,6 +14,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const caseStudies = (await getCollection("caseStudies"))
   .filter((caseStudy) => service.relatedCaseStudies.includes(caseStudy.id))
   .sort((a, b) => service.relatedCaseStudies.indexOf(a.id) - service.relatedCaseStudies.indexOf(b.id));
+const relatedSolutions = (await getCollection("solutions"))
+  .filter((solution) => service.relatedSolutions.includes(solution.id))
+  .sort((a, b) => service.relatedSolutions.indexOf(a.id) - service.relatedSolutions.indexOf(b.id));
 const relatedServices = services
   .filter((item) => item.slug !== service.slug && item.showInCatalog !== false)
   .slice(0, 3);
@@ -122,6 +125,16 @@ const serviceSchema = {
         <div class="section-heading-stack"><div><p class="eyebrow">Deployment evidence</p><h2 class="section-title" id="case-studies-heading">Relevant systems, with the limits stated plainly.</h2></div><a class="text-link" href="/case-studies/">See all case studies <span aria-hidden="true">↗</span></a></div>
         <div class="case-grid">
           {caseStudies.map((caseStudy) => <CaseStudyCard slug={caseStudy.id} client={caseStudy.data.client} industry={caseStudy.data.industry} title={caseStudy.data.title} result={caseStudy.data.result} engagement={caseStudy.data.engagement} metrics={caseStudy.data.metrics} />)}
+        </div>
+      </section>
+    )}
+
+    {relatedSolutions.length > 0 && (
+      <section class="site-shell service-related" aria-labelledby="related-solutions-heading">
+        <p class="eyebrow">Relevant solutions</p>
+        <h2 id="related-solutions-heading">Explore the supporting system.</h2>
+        <div class="solution-list">
+          {relatedSolutions.map((solution, index) => <a href={`/solutions/${solution.id}/`} data-pointer-card><span>0{index + 1}</span><div><h3>{solution.data.title}</h3><p>{solution.data.description}</p></div><b aria-hidden="true">↗</b></a>)}
         </div>
       </section>
     )}

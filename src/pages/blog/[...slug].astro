@@ -73,13 +73,14 @@ const blogPostingSchema = {
   mainEntityOfPage: canonical,
 };
 
-// Get related posts (same category, excluding current)
-const allPosts = (await getCollection("blog"))
-  .filter((p) => p.id !== post.id)
+const postsByDate = (await getCollection("blog"))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const allPosts = postsByDate.filter((p) => p.id !== post.id);
+const currentIndex = postsByDate.findIndex((p) => p.id === post.id);
+const neighbouringPosts = [postsByDate[currentIndex - 1], postsByDate[currentIndex + 1]].filter(Boolean);
 
-const relatedPosts = allPosts
-  .filter((p) => p.data.category === category || p.data.tags.some((t) => tags.includes(t)))
+const relatedPosts = [...allPosts.filter((p) => p.data.category === category || p.data.tags.some((t) => tags.includes(t))), ...neighbouringPosts]
+  .filter((item, index, items) => items.findIndex((other) => other.id === item.id) === index)
   .slice(0, 3);
 ---
 
