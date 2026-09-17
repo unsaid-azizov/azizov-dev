@@ -16,8 +16,6 @@ status: "active"
 order: 3
 ---
 
-# HermesOps — AI Operations Automation
-
 AI systems that work while you sleep. Designing and deploying custom AI to automate business operations.
 
 ## Services

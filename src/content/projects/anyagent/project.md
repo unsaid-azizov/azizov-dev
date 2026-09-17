@@ -15,8 +15,6 @@ status: "completed"
 order: 4
 ---
 
-# AnyAgent — AI Agent Platform
-
 An AI agent platform built from scratch with a build-in-public approach.
 
 ## The Journey

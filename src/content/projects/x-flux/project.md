@@ -20,8 +20,6 @@ status: "active"
 order: 1
 ---
 
-# X-FLUX AI Generation Ecosystem
-
 Revolutionary AI image and video generation framework that became the industry standard for FLUX model integration.
 
 ## Core Repositories

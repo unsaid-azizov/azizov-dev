@@ -12,6 +12,9 @@ export default defineConfig({
   trailingSlash: 'always',
   redirects: {
     '/services/private-ai-systems/': '/services/custom-ai-agent-development/',
+    '/services/inbox-crm-automation/': '/services/custom-ai-agent-development/',
+    '/services/lead-capture-estimating/': '/services/chatbots/',
+    '/services/reactivation-follow-up/': '/services/chatbots/',
   },
 
   vite: {

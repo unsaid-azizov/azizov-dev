@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/main.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<MainLayout title="Open-Source AI Projects | Said Azizov" description="Open-source AI work across model tooling, generative AI, agents, and language preservation.">
+  <SiteHeader currentPath={Astro.url.pathname} />
+  <main class="site-shell page-intro">
+    <p class="eyebrow">Open-source work</p>
+    <h1>Projects built at the model and product layer.</h1>
+    <p class="page-intro__lede">Selected work across generative AI, agents, ML tooling, and language technology.</p>
+    <div class="solution-list">
+      {projects.map((project) => (
+        <a href={`/projects/${project.id}/`}>
+          <span>0{project.data.order}</span>
+          <div><h2>{project.data.title}</h2><p>{project.data.description}</p></div>
+          <b aria-hidden="true">↗</b>
+        </a>
+      ))}
+    </div>
+  </main>
+  <SiteFooter />
+</MainLayout>

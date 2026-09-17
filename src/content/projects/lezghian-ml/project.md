@@ -20,8 +20,6 @@ status: "active"
 order: 5
 ---
 
-# Lezghian ML — AI for Language Preservation
-
 Founded an international community of ML enthusiasts and linguists dedicated to preserving the Lezgin language — a UNESCO-classified vulnerable language spoken by ~800,000 people in Dagestan and Azerbaijan.
 
 Honored with the [Lezgi Star award](/blog/lezgi-star-2025/) for this work.

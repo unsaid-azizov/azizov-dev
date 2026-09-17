@@ -16,8 +16,6 @@ status: "active"
 order: 6
 ---
 
-# Lekion — Lezgian Professional Network
-
 A community-driven platform for discovering and connecting Lezgian professionals and businesses.
 
 ## What it does

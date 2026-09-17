@@ -15,8 +15,6 @@ status: "completed"
 order: 2
 ---
 
-# Deforum-Kandinsky Video Generation
-
 Pioneered text-to-video animation capabilities by integrating Kandinsky models with the Deforum framework.
 
 ## Innovation Highlights
